@@ -2,8 +2,7 @@
 
 Delete event.
 ### Prerequisites
-One of the following **scopes** is required to execute this API: 
-*Calendars.ReadWrite* 
+One of the following **scopes** is required to execute this API: _Calendars.ReadWrite_ 
 ### HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http

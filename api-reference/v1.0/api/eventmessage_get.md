@@ -2,8 +2,7 @@
 
 Retrieve the properties and relationships of eventmessage object.
 ### Prerequisites
-One of the following **scopes** is required to execute this API: 
-*Mail.Read* 
+One of the following **scopes** is required to execute this API: _Mail.Read_ 
 ### HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http

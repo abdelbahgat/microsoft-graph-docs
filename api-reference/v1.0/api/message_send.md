@@ -2,8 +2,7 @@
 
 
 ### Prerequisites
-One of the following **scopes** is required to execute this API: 
-*Mail.Send*
+One of the following **scopes** is required to execute this API: _Mail.Send_
 ### HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http

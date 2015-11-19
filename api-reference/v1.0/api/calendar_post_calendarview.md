@@ -1,36 +1,54 @@
-# Get event
+# Create Event
 
-Retrieve the properties and relationships of event object.
+Use this API to create a new Event.
 ### Prerequisites
-One of the following **scopes** is required to execute this API: _Calendars.Read_
+One of the following **scopes** is required to execute this API: _Calendars.ReadWrite_
 ### HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-GET /users/<id | userPrincipalName>/events/<id>
-GET /groups/<id>/events/<id>
-GET /users/<id | userPrincipalName>/calendarView/<id>
+POST /users/<id | userPrincipalName>/calendar/calendarView
+POST /groups/<id>/calendar/calendarView
+POST /drive/root/createdByUser/calendar/calendarView
+
 ```
-### Optional query parameters
-This method supports the [OData Query Parameters](http://graph.microsoft.io/docs/overview/query_parameters) to help customize the response.
 ### Request headers
 | Name       | Type | Description|
-|:-----------|:------|:----------|
+|:---------------|:--------|:----------|
 | Authorization  | string  | Bearer <token>. Required. |
 
 ### Request body
-Do not supply a request body for this method.
+In the request body, supply a JSON representation of [Event](../resources/event.md) object.
+
+
 ### Response
-If successful, this method returns a `200 OK` response code and [event](../resources/event.md) object in the response body.
+If successful, this method returns `201, Created` response code and [Event](../resources/event.md) object in the response body.
+
 ### Example
 ##### Request
 Here is an example of the request.
 <!-- {
   "blockType": "request",
-  "name": "get_event"
+  "name": "create_event_from_calendar"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/me/events/<id>
+POST https://graph.microsoft.com/v1.0/me/calendar/calendarView
+Content-type: application/json
+Content-length: 285
+
+{
+  "originalStartTimeZone": "originalStartTimeZone-value",
+  "originalEndTimeZone": "originalEndTimeZone-value",
+  "responseStatus": {
+    "response": {
+    },
+    "time": "datetime-value"
+  },
+  "iCalUId": "iCalUId-value",
+  "reminderMinutesBeforeStart": 99,
+  "isReminderOn": true
+}
 ```
+In the request body, supply a JSON representation of [event](../resources/event.md) object.
 ##### Response
 Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
 <!-- {
@@ -60,7 +78,7 @@ Content-length: 285
 2015-10-25 14:57:30 UTC -->
 <!-- {
   "type": "#page.annotation",
-  "description": "Get event",
+  "description": "Create Event",
   "keywords": "",
   "section": "documentation",
   "tocPath": ""

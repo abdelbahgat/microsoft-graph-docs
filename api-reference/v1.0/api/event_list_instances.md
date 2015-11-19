@@ -2,8 +2,7 @@
 
 Retrieve a list of event objects.
 ### Prerequisites
-One of the following **scopes** is required to execute this API: 
-*Calendars.Read*
+One of the following **scopes** is required to execute this API: _Calendars.Read_
 ### HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
