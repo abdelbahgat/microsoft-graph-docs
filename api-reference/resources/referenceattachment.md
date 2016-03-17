@@ -17,10 +17,17 @@ Derived from [attachment](attachment.md).
 |:---------------|:--------|:----------|
 |contentType|String|The content type of the attachment.|
 |id|String|The attachment ID.  Read-only.|
+|isFolder|Boolean|Specifies whether the attachment is a folder.|
 |isInline|Boolean|Set to true if the attachment appears inline in the body of the embedding object.|
 |lastModifiedDateTime|DateTimeOffset|The date and time when the attachment was last modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: `'2014-01-01T00:00:00Z'`|
 |name|String|The text that is displayed below the icon representing the embedded attachment. This does not need to be the actual file name.|
+|permission|ReferenceAttachmentPermissions|Specifies the permissions granted for the attachment by the type of provider in **ProviderType**. Possible values are: `other`, `view`, `edit`.|
+|previewUrl|String|Applies to only a reference attachment of an image - URL to get a preview image.|
+|providerType|ReferenceAttachmentProviders|The type of provider that supports an attachment of this contentType. Possible values are: `other`, `oneDriveBusiness`, `oneDriveConsumer`, `dropbox`.|
 |size|Int32|The size of the attachment in bytes.|
+|sourceUrl|String|URL to get the attachment content.|
+|thumbnailUrl|String|Applies to only a reference attachment of an image - URL to get a thumbnail image.|
+
 
 
 ### Relationships
@@ -44,10 +51,16 @@ Here is a JSON representation of the resource
 {
   "contentType": "string",
   "id": "string (identifier)",
+  "isFolder": true,
   "isInline": true,
   "lastModifiedDateTime": "String (timestamp)",
   "name": "string",
-  "size": 1024
+  "permission": "string",
+  "previewUrl": "string",
+  "providerType": "string",
+  "size": 1024,
+  "sourceUrl": "string",
+  "thumbnailUrl": "string"
 }
 
 ```

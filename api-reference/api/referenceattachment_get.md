@@ -88,16 +88,18 @@ Content-type: application/json
 Content-length: 215
 
 {
-  "value": [
-    {
-      "contentType": "contentType-value",
-      "lastModifiedDateTime": "datetime-value",
-      "id": "id-value",
-      "isInline": false,
-      "name": "name-value",
-      "size": 99,
-    }
-  ]
+  "contentType": "contentType-value",
+  "lastModifiedDateTime": "datetime-value",
+  "id": "id-value",
+  "isInline": false,
+  "name": "name-value",
+  "size": 99,
+  "sourceUrl": "sourceUrl-value",
+  "providerType": "providerType-value",
+  "thumbnailUrl": "thumbnailUrl-value",
+  "previewUrl": "previewUrl-value",
+  "permission": "permission-value",
+  "isFolder": true
 }
 ```
 
