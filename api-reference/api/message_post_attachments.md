@@ -2,8 +2,8 @@
 
 Use this API to add an [attachment](../resources/attachment.md) to a message. 
 
-You can add an attachment to an existing message by posting to its attachments collection, or you can 
-add an attachment to a message that is being [created and sent on the fly](../api/user_sendmail.md).
+You can add an attachment to an existing message by posting to its attachments collection, or to a new 
+message that is being [drafted](../api/user_post_messages.md), or [created and sent on the fly](../api/user_sendmail.md).
 
 Since there is currently a limit of 4MB on the total size of each REST request, this limits the 
 size of the attachment you can add to under 4MB.
@@ -91,6 +91,30 @@ Content-length: 100
   "name": "name-value",
   "item": "message or event entity"
 }
+```
+
+### Example (reference attachment)
+
+##### Request
+Here is an example of a request that adds a reference attachment that points to a folder on OneDrive to an existing event.
+<!-- {
+  "blockType": "request",
+  "name": "create_item_attachment_from_message"
+}-->
+
+```
+POST https://graph.microsoft.com/beta/me/events/<id>/attachments
+Content-type: application/json
+Content-length: 319
+
+{ 
+    "@odata.type": "#microsoft.graph.referenceAttachment", 
+    "name": "Personal pictures", 
+    "sourceUrl": "https://contoso.com/personal/mario_contoso_net/Documents/Pics", 
+    "providerType": "oneDriveConsumer", 
+    "permission": "Edit", 
+    "isFolder": "True" 
+} 
 ```
 
 ##### Response
