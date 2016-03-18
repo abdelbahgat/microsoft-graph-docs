@@ -20,15 +20,15 @@ An aggregation of information about a person from across mail, contacts and soci
 |emailAddresses|[rankedEmailAddress](rankedemailaddress.md) collection|The person's email addresses.|
 |givenName|string|The person's given name.|
 |id|string|The person's unique identifier. Read-only.|
-|isFavorite|boolean||
-|mailboxType|string||
+|isFavorite|boolean|`true` if the user has flagged this person as a favorite.|
+|mailboxType|string|The type of mailbox that is represented by the person's email address.|
 |officeLocation|string|The location of the person's office.|
-|personNotes|string||
-|personType|string||
+|personNotes|string|Free-form notes that the the user has taken about this person.|
+|personType|string|The type of person, for example distribution list.|
 |phones|[phone](phone.md) collection|The person's phone numbers.|
 |postalAddresses|[location](location.md) collection|The person's addresses.|
 |profession|string|The person's profession.|
-|sources|[personDataSource](persondatasource.md) collection||
+|sources|[personDataSource](persondatasource.md) collection|The sources the user data comes from, for example Directory or Outlook Contacts.|
 |surname|string|The person's surname.|
 |title|string|The person's title.|
 |webSites|[webSite](website.md) collection|The person's websites.|
