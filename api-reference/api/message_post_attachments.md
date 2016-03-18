@@ -39,7 +39,7 @@ In the request body, supply a JSON representation of [Attachment](../resources/a
 
 
 ### Response
-If successful, this method returns `201, Created` response code and [Attachment](../resources/attachment.md) object in the response body.
+If successful, this method returns `201, Created` response code and the [Attachment](../resources/attachment.md) object in the response body.
 
 ### Example (file attachment)
 
@@ -63,13 +63,25 @@ Content-length: 142
 
 In the request body, supply a JSON representation of [attachment](../resources/attachment.md) object.
 ##### Response
-Here is an example of the response.
+Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
 <!-- {
   "blockType": "response",
-  "truncated": true
+  "truncated": true,
+  "@odata.type": "microsoft.graph.attachment"
 } -->
 ```http
-HTTP 200 OK
+HTTP/1.1 200 OK
+Content-type: application/json
+Content-length: 162
+
+{
+  "lastModifiedDateTime": "datetime-value",
+  "name": "name-value",
+  "contentType": "contentType-value",
+  "size": 99,
+  "isInline": true,
+  "id": "id-value"
+}
 ```
 
 ### Example (item attachment)
@@ -82,7 +94,7 @@ Here is an example of the request.
 }-->
 
 ```
-POST https://graph.microsoft.com/beta/me/events/<id>/attachments
+POST https://graph.microsoft.com/beta/me/messages/<id>/attachments
 Content-type: application/json
 Content-length: 100
 
@@ -93,17 +105,40 @@ Content-length: 100
 }
 ```
 
+##### Response
+Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
+<!-- {
+  "blockType": "response",
+  "truncated": true,
+  "@odata.type": "microsoft.graph.attachment"
+} -->
+```http
+HTTP/1.1 200 OK
+Content-type: application/json
+Content-length: 162
+
+{
+  "lastModifiedDateTime": "datetime-value",
+  "name": "name-value",
+  "contentType": "contentType-value",
+  "size": 99,
+  "isInline": true,
+  "id": "id-value"
+}
+```
+
 ### Example (reference attachment)
 
 ##### Request
-Here is an example of a request that adds a reference attachment that points to a folder on OneDrive to an existing event.
+Here is an example of a request that adds a reference attachment to an existing message.
+The attachment points to a folder on OneDrive.
 <!-- {
   "blockType": "request",
-  "name": "create_item_attachment_from_message"
+  "name": "create_reference_attachment_from_message"
 }-->
 
 ```
-POST https://graph.microsoft.com/beta/me/events/<id>/attachments
+POST https://graph.microsoft.com/beta/me/messages/AAMkAGE1M88AADUv0uFAAA=/attachments
 Content-type: application/json
 Content-length: 319
 
@@ -118,13 +153,30 @@ Content-length: 319
 ```
 
 ##### Response
-Here is an example of the response.
+Here is an example of a full response.
 <!-- {
   "blockType": "response",
   "truncated": true
 } -->
 ```http
-HTTP 200 OK
+HTTP 201 Created
+
+{
+  "@odata.context": "https://graph.microsoft.com/beta/$metadata#users/ddfcd489-628b-40d7-b48b-57002df800e5/messages/AAMkAGE1M88AADUv0uFAAA%3D/attachments/$entity",
+  "@odata.type": "#microsoft.graph.referenceAttachment",
+  "id": "AAMkAGE1Mg72tgf7hJp0PICVGCc0g=",
+  "lastModifiedDateTime": "2016-03-12T06:04:38Z",
+  "name": "Personal pictures",
+  "contentType": null,
+  "size": 382,
+  "isInline": false,
+  "sourceUrl": "https://contoso.com/personal/mario_contoso_net/Documents/Pics",
+  "providerType": "oneDriveConsumer",
+  "thumbnailUrl": null,
+  "previewUrl": null,
+  "permission": "edit",
+  "isFolder": true
+}
 ```
 
 

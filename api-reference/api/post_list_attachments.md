@@ -16,6 +16,13 @@ GET /groups/<id>/conversations/<id>/threads/<id>/posts/<id>/attachments
 ```
 ### Optional query parameters
 This method supports the [OData Query Parameters](http://graph.microsoft.io/docs/overview/query_parameters) to help customize the response.
+
+In particular, you can use the $expand query parameter to include all of the post attachments
+inline with the rest of the post properties. For example:
+
+```
+GET https://graph.microsoft.com/beta/groups/<id>/threads/<id>/posts/<id>?$expand=attachments
+```
 ### Request headers
 | Header       | Value |
 |:---------------|:--------|
