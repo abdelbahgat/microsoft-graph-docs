@@ -21,25 +21,25 @@ In the request body, supply the values for relevant fields that should be update
 
 | Property	   | Type	|Description|
 |:---------------|:--------|:----------|
-|birthday|string||
-|companyName|string||
-|department|string||
-|displayName|string||
-|emailAddresses|rankedEmailAddress||
-|givenName|string||
-|isFavorite|boolean||
-|mailboxType|string||
-|officeLocation|string||
-|personNotes|string||
-|personType|string||
-|phones|phone||
-|postalAddresses|location||
-|profession|string||
-|sources|personDataSource||
-|surname|string||
-|title|string||
-|webSites|webSite||
-|yomiCompany|string||
+|birthday|string|The person's birthday.|
+|companyName|string|The name of the person's company.|
+|department|string|The person's department.|
+|displayName|string|The person's display name.|
+|emailAddresses|[rankedEmailAddress](rankedemailaddress.md) collection|The person's email addresses.|
+|givenName|string|The person's given name.|
+|isFavorite|boolean|`true` if the user has flagged this person as a favorite.|
+|mailboxType|string|The type of mailbox that is represented by the person's email address.|
+|officeLocation|string|The location of the person's office.|
+|personNotes|string|Free-form notes that the the user has taken about this person.|
+|personType|string|The type of person, for example distribution list.|
+|phones|[phone](phone.md) collection|The person's phone numbers.|
+|postalAddresses|[location](location.md) collection|The person's addresses.|
+|profession|string|The person's profession.|
+|sources|[personDataSource](persondatasource.md) collection|The sources the user data comes from, for example Directory or Outlook Contacts.|
+|surname|string|The person's surname.|
+|title|string|The person's title.|
+|webSites|[webSite](website.md) collection|The person's websites.|
+|yomiCompany|string|The phonetic Japanese name of the person's company.|
 
 ### Response
 If successful, this method returns a `200 OK` response code and updated [person](../resources/person.md) object in the response body.
