@@ -113,6 +113,58 @@ Content-length: 162
 ```
 
 
+### Example (reference attachment)
+
+##### Request
+Here is an example of a request that adds a reference attachment to an existing post.
+The attachment points to a folder on OneDrive.
+<!-- {
+  "blockType": "request",
+  "name": "create_reference_attachment_from_message"
+}-->
+
+```
+POST https://graph.microsoft.com/beta/groups/c75831bdfad/threads/AAQkAGF97XEKhULw/posts/AAMkAGFcAAA/attachments
+Content-type: application/json
+Content-length: 319
+
+{ 
+    "@odata.type": "#microsoft.graph.referenceAttachment", 
+    "name": "Personal pictures", 
+    "sourceUrl": "https://contoso.com/personal/mario_contoso_net/Documents/Pics", 
+    "providerType": "oneDriveConsumer", 
+    "permission": "Edit", 
+    "isFolder": "True" 
+} 
+```
+
+##### Response
+Here is an example of a full response.
+<!-- {
+  "blockType": "response",
+  "truncated": true
+} -->
+```http
+HTTP 201 Created
+
+{
+  "@odata.context": "https://graph.microsoft.com/beta/groups/c75831bdfad/threads/AAQkAGF97XEKhULw/posts/AAMkAGFcAAA/attachments/$entity",
+  "@odata.type": "#microsoft.graph.referenceAttachment",
+  "id": "AAMkAGE1Mg72tgf7hJp0PICVGCc0g=",
+  "lastModifiedDateTime": "2016-03-12T06:04:38Z",
+  "name": "Personal pictures",
+  "contentType": null,
+  "size": 382,
+  "isInline": false,
+  "sourceUrl": "https://contoso.com/personal/mario_contoso_net/Documents/Pics",
+  "providerType": "oneDriveConsumer",
+  "thumbnailUrl": null,
+  "previewUrl": null,
+  "permission": "edit",
+  "isFolder": true
+}
+```
+
 <!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79
 2015-10-25 14:57:30 UTC -->
 <!-- {

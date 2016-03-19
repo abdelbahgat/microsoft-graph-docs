@@ -41,7 +41,7 @@ A contact is an item in Outlook where you can organize and save information abou
 |lastModifiedDateTime|DateTimeOffset|The time the contact was modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: `'2014-01-01T00:00:00Z'`|
 |manager|String|The name of the contact's manager.
 |middleName|String|The contact's middle name.|
-|mobilePhone1|String|The contact's mobile phone number.|
+|mobilePhone|String|The contact's mobile phone number.|
 |nickName|String|The contact's nickname.|
 |officeLocation|String|The location of the contact's office.|
 |otherAddress|[PhysicalAddress](physicaladdress.md)|Other addresses for the contact.|
@@ -103,7 +103,7 @@ Here is a JSON representation of the resource
   "lastModifiedDateTime": "String (timestamp)",
   "manager": "string",
   "middleName": "string",
-  "mobilePhone1": "string",
+  "mobilePhone": "string",
   "nickName": "string",
   "officeLocation": "string",
   "otherAddress": {"@odata.type": "microsoft.graph.physicalAddress"},

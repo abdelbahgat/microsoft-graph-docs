@@ -38,6 +38,7 @@ A message in a mailFolder.
 |hasAttachments|Boolean|Indicates whether the message has attachments.|
 |id|String||
 |importance|String| The importance of the message: `Low`, `Normal`, `High`.|
+|internetMessageId |String |The message ID in the format specified by [RFC2822](http://www.ietf.org/rfc/rfc2822.txt). |
 |isDeliveryReceiptRequested|Boolean|Indicates whether a read receipt is requested for the message.|
 |isDraft|Boolean|Indicates whether the message is a draft. A message is a draft if it hasn't been sent yet.|
 |isRead|Boolean|Indicates whether the message has been read.|
@@ -102,6 +103,7 @@ Here is a JSON representation of the resource
   "id": "string (identifier)",
   "importance": "String",
   "inferenceClassification": "String",  
+  "internetMessageId": "String",
   "isDeliveryReceiptRequested": true,
   "isDraft": true,
   "isRead": true,

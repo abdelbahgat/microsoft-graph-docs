@@ -1,6 +1,8 @@
 # Create Message
 
 Use this API to create a draft of a new message. Drafts can be created in any folder and optionally updated before sending. To save to the Drafts folder, use the /messages shortcut.
+
+You can include an [attachment](../resources/attachment.md) while creating the draft in the same **Post** call.
 ### Prerequisites
 One of the following **scopes** is required to execute this API:
 *Mail.ReadWrite*
@@ -43,7 +45,14 @@ Content-length: 248
     "contentType": "",
     "content": "content-value"
   },
-  "bodyPreview": "bodyPreview-value"
+  "bodyPreview": "bodyPreview-value",
+  "attachments": [
+      {
+        "@odata.type": "#microsoft.graph.fileAttachment",
+        "name": "menu.txt",
+        "contentBytes": "bWFjIGFuZCBjaGVlc2UgdG9kYXk="
+      }
+  ]
 }
 ```
 In the request body, supply a JSON representation of [message](../resources/message.md) object.
@@ -68,7 +77,14 @@ Content-length: 248
     "contentType": "",
     "content": "content-value"
   },
-  "bodyPreview": "bodyPreview-value"
+  "bodyPreview": "bodyPreview-value",
+  "attachments": [
+      {
+        "@odata.type": "#microsoft.graph.fileAttachment",
+        "name": "menu.txt",
+        "contentBytes": "bWFjIGFuZCBjaGVlc2UgdG9kYXk="
+      }
+  ]
 }
 ```
 

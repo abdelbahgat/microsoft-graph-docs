@@ -23,6 +23,13 @@ GET /users/<id | userPrincipalName>/mailFolders/<id>/childFolders/<id>/messages/
 ```
 ### Optional query parameters
 This method supports the [OData Query Parameters](http://graph.microsoft.io/docs/overview/query_parameters) to help customize the response.
+
+In particular, you can use the $expand query parameter to include all of the message attachments
+inline with the rest of the message properties. For example:
+
+```
+GET https://graph.microsoft.com/beta/me/messages/<id>?$expand=attachments
+```
 ### Request headers
 | Name       | Type | Description|
 |:-----------|:------|:----------|

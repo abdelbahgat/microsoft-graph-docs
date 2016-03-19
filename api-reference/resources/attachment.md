@@ -27,7 +27,7 @@ resource.
 |id|String| Read-only.|
 |isInline|Boolean|`true` if the attachment is an inline attachment; otherwise, `false`.|
 |lastModifiedDateTime|DateTimeOffset|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: `'2014-01-01T00:00:00Z'`|
-|name|String|The attachment's file name.|
+|name|String|The display name of the attachment. This does not need to be the actual file name.|
 |size|Int32|The length of the attachment in bytes.|
 
 ### Relationships

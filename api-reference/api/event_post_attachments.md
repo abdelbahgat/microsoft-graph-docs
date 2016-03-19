@@ -53,7 +53,7 @@ Here is an example of the request.
   "name": "create_file_attachment_from_event"
 }-->
 ```http
-POST https://graph.microsoft.com/beta/me/messages/<id>/attachments
+POST https://graph.microsoft.com/beta/me/events/<id>/attachments
 Content-type: application/json
 Content-length: 142
 
@@ -67,13 +67,25 @@ Content-length: 142
 In the request body, supply a JSON representation of [attachment](../resources/attachment.md) object.
 
 ##### Response
-Here is an example of the response.
+Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
 <!-- {
   "blockType": "response",
-  "truncated": true
+  "truncated": true,
+  "@odata.type": "microsoft.graph.attachment"
 } -->
 ```http
-HTTP 200 OK
+HTTP/1.1 200 OK
+Content-type: application/json
+Content-length: 162
+
+{
+  "lastModifiedDateTime": "datetime-value",
+  "name": "name-value",
+  "contentType": "contentType-value",
+  "size": 99,
+  "isInline": true,
+  "id": "id-value"
+}
 ```
 
 ### Example (item attachment)
@@ -99,13 +111,77 @@ Content-length: 100
 ```
 
 ##### Response
-Here is an example of the response.
+Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
+<!-- {
+  "blockType": "response",
+  "truncated": true,
+  "@odata.type": "microsoft.graph.attachment"
+} -->
+```http
+HTTP/1.1 200 OK
+Content-type: application/json
+Content-length: 162
+
+{
+  "lastModifiedDateTime": "datetime-value",
+  "name": "name-value",
+  "contentType": "contentType-value",
+  "size": 99,
+  "isInline": true,
+  "id": "id-value"
+}
+```
+
+### Example (reference attachment)
+
+##### Request
+Here is an example of a request that adds a reference attachment to an existing event.
+The attachment points to a folder on OneDrive.
+<!-- {
+  "blockType": "request",
+  "name": "create_reference_attachment_from_event"
+}-->
+
+```
+POST https://graph.microsoft.com/beta/me/events/AAMkAGE1M88AADUv0uAAAG=/attachments
+Content-type: application/json
+Content-length: 319
+
+{ 
+    "@odata.type": "#microsoft.graph.referenceAttachment", 
+    "name": "Personal pictures", 
+    "sourceUrl": "https://contoso.com/personal/mario_contoso_net/Documents/Pics", 
+    "providerType": "oneDriveConsumer", 
+    "permission": "Edit", 
+    "isFolder": "True" 
+} 
+```
+
+##### Response
+Here is an example of a full response.
 <!-- {
   "blockType": "response",
   "truncated": true
 } -->
 ```http
-HTTP 200 OK
+HTTP 201 Created
+
+{
+  "@odata.context": "https://graph.microsoft.com/beta/$metadata#users/ddfcd489-628b-40d7-b48b-57002df800e5/events/AAMkAGE1M88AADUv0uAAAG%3D/attachments/$entity",
+  "@odata.type": "#microsoft.graph.referenceAttachment",
+  "id": "AAMkAGE1Mg72tgf7hJp0PCGVCIc0g=",
+  "lastModifiedDateTime": "2016-03-12T06:04:38Z",
+  "name": "Personal pictures",
+  "contentType": null,
+  "size": 382,
+  "isInline": false,
+  "sourceUrl": "https://contoso.com/personal/mario_contoso_net/Documents/Pics",
+  "providerType": "oneDriveConsumer",
+  "thumbnailUrl": null,
+  "previewUrl": null,
+  "permission": "edit",
+  "isFolder": true
+}
 ```
 
 <!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79

@@ -135,6 +135,46 @@ Content-type: application/json
 ```
 
 
+### Example (reference attachment)
+
+##### Request
+Here is an example of the request.
+<!-- {
+  "blockType": "request",
+  "name": "get_item_attachment"
+}-->
+```http
+GET https://graph.microsoft.com/beta/me/events/AAMkAGE1M88AADUv0uAAAG=/attachments/AAMkAGE1Mg72tgf7hJp0PICVGCc0g=
+```
+
+##### Response
+<!-- {
+  "blockType": "response",
+  "truncated": true,
+  "@odata.type": "microsoft.graph.itemAttachment"
+} -->
+```http
+HTTP/1.1 200 OK
+Content-type: application/json
+
+{
+  "@odata.context": "https://graph.microsoft.com/beta/$metadata#users/ddfcd489-628b-40d7-b48b-57002df800e5/events/AAMkAGE1M88AADUv0uAAAG%3D/attachments/$entity",
+  "@odata.type": "#microsoft.graph.referenceAttachment",
+  "id": "AAMkAGE1Mg72tgf7hJp0PCGVCIc0g=",
+  "lastModifiedDateTime": "2016-03-12T06:04:38Z",
+  "name": "Personal pictures",
+  "contentType": null,
+  "size": 382,
+  "isInline": false,
+  "sourceUrl": "https://contoso.com/personal/mario_contoso_net/Documents/Pics",
+  "providerType": "oneDriveConsumer",
+  "thumbnailUrl": null,
+  "previewUrl": null,
+  "permission": "edit",
+  "isFolder": true
+}
+```
+
 <!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79
 2015-10-25 14:57:30 UTC -->
 <!-- {
