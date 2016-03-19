@@ -1,23 +1,21 @@
-# Get subscription
+# Update subscription
 
-Retrieve the properties and relationships of a subscription.
+Renew a subscription by extending its expiry time.
+
+Subscriptions to resources expire at dates proscribed by the individual resource types.  In order not to miss notifications, subscriptions should be renewed well in advance of their expiry date.  See [subscription](../resources/subscription.md) for individual expiry dates.
 ### Prerequisites
 One of the following **scopes**, depending on the target resource, are required to execute this API: *Mail.Read*, *Calendars.Read*, *Contacts.Read* or *Groups.Read.All* 
 ### HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-GET /subscriptions/<id>
+PATCH /subscriptions/<id>
 ```
-### Optional query parameters
-This method supports the [OData Query Parameters](http://graph.microsoft.io/docs/overview/query_parameters) to help customize the response.
 
 ### Request headers
 | Name       | Type | Description|
 |:-----------|:------|:----------|
 | Authorization  | string  | Bearer <token>. Required. |
 
-### Request body
-Do not supply a request body for this method.
 ### Response
 If successful, this method returns a `200 OK` response code and [subscription](../resources/subscription.md) object in the response body.
 ### Example
@@ -25,11 +23,17 @@ If successful, this method returns a `200 OK` response code and [subscription](.
 Here is an example of the request.
 <!-- {
   "blockType": "request",
-  "name": "get_subscription"
+  "name": "update_subscription"
 }-->
 ```http
-GET https://graph.microsoft.com/beta/subscriptions/<id>
+PATCH https://graph.microsoft.com/beta/subscriptions/<id>
+Content-type: application/json
+
+{
+   "expirationDateTime":"2016-11-22T18:23:45.9356913Z"
+}
 ```
+
 ##### Response
 Here is an example of the response.
 <!-- {
@@ -48,15 +52,14 @@ Content-length: 252
   "changeType":"created,updated",
   "clientState":"subscription-identifier",
   "notificationUrl":"https://webhook.azurewebsites.net/api/send/myNotifyClient",
-  "expirationDateTime":"2016-11-20T18:23:45.9356913Z"
+  "expirationDateTime":"2016-11-22T18:23:45.9356913Z"
 }
 ```
 
-<!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79
-2015-10-25 14:57:30 UTC -->
+
 <!-- {
   "type": "#page.annotation",
-  "description": "Get subscription",
+  "description": "Update subscription",
   "keywords": "",
   "section": "documentation",
   "tocPath": ""
