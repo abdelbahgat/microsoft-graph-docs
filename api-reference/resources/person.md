@@ -7,8 +7,7 @@ An aggregation of information about a person from across mail, contacts and soci
 | Method		   | Return Type	|Description|
 |:---------------|:--------|:----------|
 |[Get person](../api/person_get.md) | [person](person.md) |Read properties and relationships of a person object.|
-|[Update person](../api/person_update.md) | [person](person.md)	|Update a person object. |
-|[Delete person](../api/person_delete.md) | None |Delete a person object. |
+
 
 ### Properties
 | Property	   | Type	|Description|
