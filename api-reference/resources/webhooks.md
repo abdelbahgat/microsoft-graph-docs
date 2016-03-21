@@ -1,8 +1,15 @@
-# Webhooks for Mail, Calendar and Contacts using Microsoft Graph
+# Webhooks using Microsoft Graph
 
-Microsoft Graph REST API uses a webhook mechanism to deliver notifications to clients.  A client is a third-party web service that configures its own notification URL to receive notifications. Client apps use notifications to update their local cache and client views upon changes.
+Microsoft Graph REST API uses a webhook mechanism to deliver notifications to clients. A client is a web service that configures its own URL to receive notifications. Client apps use notifications to update their state upon changes.
 
-Using the Microsoft Graph API, an app can subscribe to notifications of a resource (such as messages in the Inbox). to get informed about changes to the resource. Once Microsoft Graph accepts the subscription request, it pushes notifications to the URL specified in the subscription. The app then takes action according to its business logic. For example, fetches more data, updates cache and views, etc.
+Using the Microsoft Graph API, an app can subscribe to changes on the following resources:
+
+* Messages
+* Events
+* Contacts
+* Group conversations
+
+Once Microsoft Graph accepts the subscription request, it pushes notifications to the URL specified in the subscription. The app then takes action according to its business logic. For example, fetches more data, updates cache and views, etc.
 
 Apps can to renew their subscriptions before they expire. They can also unsubscribe at any time to stop getting notifications.
 
@@ -37,7 +44,7 @@ Or to a top-level resource, such as
 
 Creating a subscription requires read scope to the resource. For example, to get notifications messages, your app needs the `mail.read` permission.
 
-Subscriptions expire. The current longest expiration time is three days from time of creation. Apps need to renew their subscriptions before the expiration time. Otherwise they will need to create a new subscription.
+Subscriptions expire. The current longest expiration time is three days minus 9-0 minutes from the time of creation. Apps need to renew their subscriptions before the expiration time. Otherwise they will need to create a new subscription.
 
 ## Notification URL validation
 
@@ -66,18 +73,18 @@ Content-Type: application/json
   "changeType": "Created,Updated",
   "notificationURL": "https://webhook.azurewebsites.net/notificationClient",
   "resource": "/me/mailfolders('inbox')/messages",
-  "clientState": "SecretClientState",
-  "expirationDateTime": "2016-03-20T11:00:00.0000000Z"
+  "expirationDateTime": "2016-03-20T11:00:00.0000000Z",
+  "clientState": "SecretClientState"
 }
 ```
 
-The changeType, notificationURL and resource properties are required. See [subscription resource type](subscription.md) for property definitions and values.
+The changeType, notificationURL, resource and expirationDateTime properties are required. See [subscription resource type](subscription.md) for property definitions and values.
 
 If successful, Microsoft Graph returns a `200 OK` code and a [subscription](subscription.md) object in the body.
 
 # Renewing a subscription
 
-The client can renew a subscription to a specific expiration date of up to three days from the time of request. The expirationDateTime property is optional. The default value is three days from the time of the request.
+The client can renew a subscription to a specific expiration date of up to three days from the time of request. The expirationDateTime property is required.
 
 ## Subscription renewal example
 
@@ -114,7 +121,7 @@ The notification object has the following properties:
 * clientState - The clientState property specified in the subscription request.
 * changeType - The event type that caused the notification. For example, *Created* on mail receive, or *Updated* on marking a message read.
 * resource - The URI of the resource relative to `https://graph.microsoft.com`. 
-* resourceData
+* resourceData - Object dependent on the resource being subscribed to.
   * @odata.type - The OData entity type in Microsoft Graph that describes the represented object.
   * @odata.id - The OData identifier of the object.
   * @odata.etag - The HTTP entity tag that represents a version of the object.
@@ -159,14 +166,10 @@ Once your application starts receiving notifications it must process them. The f
 
 Repeat for extra notifications in the request.
 
-# Next steps
-
-We are really excited about the webhooks in Microsoft Graph. Try them out and send us feedback on [UserVoice](https://officespdev.uservoice.com/). We are listening to your suggestions and ideas there.
-
 # Additional resources
 
 * [Subscription resource type](subscription.md)
 * [Get subscription](../api/subscription_get.md)
 * [Create subscription](../api/subscription_post_subscriptions.md)
 * [Microsoft Graph Webhooks Sample for Node.js](https://github.com/OfficeDev/Microsoft-Graph-Nodejs-Webhooks)
-* [Microsoft Graph Webhooks Sample for ASP.NET](https://github.com/OfficeDev/Microsoft-Graph-ASPNET -Webhooks)
+* [Microsoft Graph Webhooks Sample for ASP.NET](https://github.com/OfficeDev/Microsoft-Graph-ASPNET-Webhooks)
