@@ -14,9 +14,12 @@ GET /drive/root/createdByUser/people/<id>
 ### Optional query parameters
 |Name|Value|Description|
 |:---------------|:--------|:-------|
-|$count|none|The count of related entities can be requested by specifying the $count query option.|
-|$expand|string|Comma-separated list of relationships to expand and include in the response. See relationships table of [person](../resources/person.md) object for supported names. |
-|$select|string|Comma-separated list of properties to include in the response.|
+|$filter|string|Limits the response to only those people whose record contains the specified criteria.|
+|$orderby|string|By default the people in the response are sorted by their relevance to your query. You can change the order of the people in the response using the $orderby parameter.|
+|$search|string|Search for people by name or alias, even if it is misspelled.|
+|$select|string|Comma-separated list of properties to include in the response. For optimal performance, only select the subset of properties needed.|
+|$skip|int|Skip the first n results, useful for paging. This is not supported when using $search.|
+|$top|int|Number of results to be returned.|
 
 ### Request headers
 | Name      |Description|
