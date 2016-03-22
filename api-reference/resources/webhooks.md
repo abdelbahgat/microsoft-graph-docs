@@ -1,4 +1,4 @@
-# Webhooks using Microsoft Graph
+# Working with Webhooks in Microsoft Graph
 
 Microsoft Graph REST API uses a webhook mechanism to deliver notifications to clients. A client is a web service that configures its own URL to receive notifications. Client apps use notifications to update their state upon changes.
 
