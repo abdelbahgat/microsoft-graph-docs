@@ -1,6 +1,6 @@
 # Working with Webhooks in Microsoft Graph
 
-Microsoft Graph REST API uses a webhook mechanism to deliver notifications to clients. A client is a web service that configures its own URL to receive notifications. Client apps use notifications to update their state upon changes.
+The Microsoft Graph REST API uses a webhook mechanism to deliver notifications to clients. A client is a web service that configures its own URL to receive notifications. Client apps use notifications to update their state upon changes.
 
 Using the Microsoft Graph API, an app can subscribe to changes on the following resources:
 
@@ -9,9 +9,9 @@ Using the Microsoft Graph API, an app can subscribe to changes on the following 
 * Contacts
 * Group conversations
 
-Once Microsoft Graph accepts the subscription request, it pushes notifications to the URL specified in the subscription. The app then takes action according to its business logic. For example, fetches more data, updates cache and views, etc.
+After Microsoft Graph accepts the subscription request, it pushes notifications to the URL specified in the subscription. The app then takes action according to its business logic. For example, it fetches more data, updates cache and views, etc.
 
-Apps can to renew their subscriptions before they expire. They can also unsubscribe at any time to stop getting notifications.
+Apps should renew their subscriptions before they expire. They can also unsubscribe at any time to stop getting notifications.
 
 If you want to see code samples, they're hosted on GitHub.
 
@@ -58,7 +58,7 @@ Microsoft Graph validates the notification URL in a subscription request before 
   ```
  
 2. The client must provide a response with the following characteristics within 10 seconds:
-  * The code must 200 (OK).
+  * An 200 (OK) status code.
   * The content type must be plain/text. 
   * The body must include the validation token provided by Microsoft Graph.
 
@@ -70,7 +70,7 @@ The client should discard the validation token after providing it in the respons
 POST https://graph.microsoft.com/beta/subscriptions
 Content-Type: application/json
 {
-  "changeType": "Created,Updated",
+  "changeType": "created,updated",
   "notificationURL": "https://webhook.azurewebsites.net/notificationClient",
   "resource": "/me/mailfolders('inbox')/messages",
   "expirationDateTime": "2016-03-20T11:00:00.0000000Z",
@@ -78,13 +78,13 @@ Content-Type: application/json
 }
 ```
 
-The changeType, notificationURL, resource and expirationDateTime properties are required. See [subscription resource type](subscription.md) for property definitions and values.
+The changeType, notificationURL, resource, and expirationDateTime properties are required. See [subscription resource type](subscription.md) for property definitions and values. Although clientState is not required, you must include it to comply with our recommended notification handling process.
 
 If successful, Microsoft Graph returns a `200 OK` code and a [subscription](subscription.md) object in the body.
 
 # Renewing a subscription
 
-The client can renew a subscription to a specific expiration date of up to three days from the time of request. The expirationDateTime property is required.
+The client can renew a subscription with a specific expiration date of up to three days from the time of request. The expirationDateTime property is required.
 
 ## Subscription renewal example
 
@@ -110,7 +110,7 @@ If successful, Microsoft Graph returns a `204 No Content` code.
 
 # Notifications
 
-The client starts receiving notifications after creating the subscription. Microsoft Graph sends a request to the notification URL when changes happen to the resource. The client only gets notifications according to the specified change type, such as *Created*.
+The client starts receiving notifications after creating the subscription. Microsoft Graph sends a POST request to the notification URL when changes happen to the resource. The client only gets notifications according to the specified change type, such as *created*.
 
 ## Notification properties
 
@@ -119,9 +119,9 @@ The notification object has the following properties:
 * id - The ID for the subscription to which this notification belongs.
 * expirationDateTime - The expiration time for the subscription.
 * clientState - The clientState property specified in the subscription request.
-* changeType - The event type that caused the notification. For example, *Created* on mail receive, or *Updated* on marking a message read.
+* changeType - The event type that caused the notification. For example, *created* on mail receive, or *updated* on marking a message read.
 * resource - The URI of the resource relative to `https://graph.microsoft.com`. 
-* resourceData - Object dependent on the resource being subscribed to.
+* resourceData - The object dependent on the resource being subscribed to.
   * @odata.type - The OData entity type in Microsoft Graph that describes the represented object.
   * @odata.id - The OData identifier of the object.
   * @odata.etag - The HTTP entity tag that represents a version of the object.
@@ -164,7 +164,7 @@ Once your application starts receiving notifications it must process them. The f
 3. Send a `202 - Accepted` status code in your response to Microsoft Graph. If Microsoft Graph doesn't receive a 2xx class code, it will retry resending the notification a number of times.
   > You should send a `202 - Accepted` status code even if the clientState property doesn't match the one submitted with the subscription request.
 
-Repeat for extra notifications in the request.
+Repeat for other notifications in the request.
 
 # Additional resources
 
