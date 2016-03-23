@@ -14,10 +14,10 @@ GET /users/<id>/people/<id>
 |Name|Value|Description|
 |:---------------|:--------|:-------|
 |$filter|string|Limits the response to only those people whose record contains the specified criteria.|
-|$orderby|string|By default the people in the response are sorted by their relevance to your query. You can change the order of the people in the response using the $orderby parameter.|
+|$orderby|string|By default the people in the response are sorted by their relevance to your query. You can change the order of the people in the response using the *$orderby* parameter.|
 |$search|string|Search for people by name or alias. Supports Fuzzy matching|
 |$select|string|Comma-separated list of properties to include in the response. For optimal performance, only select the subset of properties needed.|
-|$skip|int|Skip the first n results, useful for paging. This is not supported when using $search.|
+|$skip|int|Skip the first n results, useful for paging. This is not supported when using *$search*.|
 |$top|int|Number of results to be returned.|
 
 ### Request headers
@@ -32,7 +32,7 @@ Do not supply a request body for this method.
 If successful, this method returns a `200 OK` response code and [person](../resources/person.md) object in the response body.
 ### Examples
 #### Browse
-The following request gets the people most relevant to the user, based on communication, collaboration, and business relationships. By default, each response returns 10 records, but you can change this using the $top parameter.
+The following request gets the people most relevant to the user, based on communication, collaboration, and business relationships. By default, each response returns 10 records, but you can change this using the *$top* parameter.
 <!-- {
   "blockType": "request",
   "name": "get_person"
