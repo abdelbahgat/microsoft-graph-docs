@@ -9,9 +9,9 @@ Using the Microsoft Graph API, an app can subscribe to changes on the following 
 * Contacts
 * Group conversations
 
-Once Microsoft Graph accepts the subscription request, it pushes notifications to the URL specified in the subscription. The app then takes action according to its business logic. For example, fetches more data, updates cache and views, etc.
+After Microsoft Graph accepts the subscription request, it pushes notifications to the URL specified in the subscription. The app then takes action according to its business logic. For example, fetches more data, updates cache and views, etc.
 
-Apps can to renew their subscriptions before they expire. They can also unsubscribe at any time to stop getting notifications.
+Apps can renew their subscriptions before they expire. They can also unsubscribe at any time to stop getting notifications.
 
 If you want to see code samples, they're hosted on GitHub.
 
@@ -27,7 +27,7 @@ Creating a subscription is the first step to start receiving notifications for a
 1. Client sends a subscription (POST) request for a specific resource.
 2. Microsoft Graph verifies the request.
   * If the request is valid, Microsoft Graph sends a validation token to the notification URL.
-  * If the request is invalid, Microsoft Graph sends error response with code and details.
+  * If the request is invalid, Microsoft Graph sends an error response with code and details.
 3. The client sends the validation token back to Microsoft Graph.
 
 Client must store the subscription ID to correlate a notification with the corresponding subscription.
@@ -44,7 +44,7 @@ Or to a top-level resource, such as
 
 Creating a subscription requires read scope to the resource. For example, to get notifications messages, your app needs the `mail.read` permission.
 
-Subscriptions expire. The current longest expiration time is three days minus 9-0 minutes from the time of creation. Apps need to renew their subscriptions before the expiration time. Otherwise they will need to create a new subscription.
+Subscriptions expire. The current longest expiration time is three days minus 9-0 minutes from the time of creation. Apps need to renew their subscriptions before the expiration time. Otherwise they'll need to create a new subscription.
 
 ## Notification URL validation
 
@@ -58,7 +58,7 @@ Microsoft Graph validates the notification URL in a subscription request before 
   ```
  
 2. The client must provide a response with the following characteristics within 10 seconds:
-  * The code must 200 (OK).
+  * The status code must be 200 (OK).
   * The content type must be plain/text. 
   * The body must include the validation token provided by Microsoft Graph.
 
@@ -78,7 +78,7 @@ Content-Type: application/json
 }
 ```
 
-The changeType, notificationURL, resource and expirationDateTime properties are required. See [subscription resource type](subscription.md) for property definitions and values.
+The changeType, notificationURL, resource, and expirationDateTime properties are required. See [subscription resource type](subscription.md) for property definitions and values.
 
 If successful, Microsoft Graph returns a `200 OK` code and a [subscription](subscription.md) object in the body.
 
@@ -156,10 +156,10 @@ Note that the value object contains a list. If there are many queued notificatio
 
 ## Processing the notification
 
-Once your application starts receiving notifications it must process them. The following are the minimum tasks that your app must perform to process a notification:
+After your application starts receiving notifications it must process them. The following are the minimum tasks that your app must perform to process a notification:
 
 1. Validate the `clientState` property. The clientState property in the notification must match the one submitted with the subscription request.
-  > Note: If this is not true, you should not consider this a valid notification. You should also investigate where the notification comes from and take appropriate action.
+  > Note: If this isn't true, you shouldn't consider this a valid notification. You should also investigate where the notification comes from and take appropriate action.
 2. Update your application based on your business logic.
 3. Send a `202 - Accepted` status code in your response to Microsoft Graph. If Microsoft Graph doesn't receive a 2xx class code, it will retry resending the notification a number of times.
   > You should send a `202 - Accepted` status code even if the clientState property doesn't match the one submitted with the subscription request.
