@@ -2,7 +2,7 @@
 
 Retrieve a list of item objects.
 ### Prerequisites
-The following **scopes** are required to execute this API: 
+The following **scopes** are required to execute this API:
 ### HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
@@ -19,7 +19,7 @@ This method supports the [OData Query Parameters](http://graph.microsoft.io/docs
 ### Request body
 Do not supply a request body for this method.
 ### Response
-If successful, this method returns a `200 OK` response code and collection of [item](../resources/item.md) objects in the response body.
+If successful, this method returns a `200 OK` response code and collection of [item](../resources/driveitem.md) objects in the response body.
 ### Example
 ##### Request
 Here is an example of the request.
