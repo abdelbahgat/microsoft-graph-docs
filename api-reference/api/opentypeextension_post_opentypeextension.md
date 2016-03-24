@@ -1,9 +1,9 @@
 # Create extension
 
-Create an open type data extension in a new or existing instance of a resource. 
+Create an open type data extension and add custom properties in a new or existing instance of a resource. 
 
 The resource can be a message, calendar event, or contact in the signed-in user's mailbox on Office 365 or
-Outlook.com. Or, it can be an event for an Office 365 group.
+Outlook.com. Or, it can be an event or post for an Office 365 group. 
 
 
 ### Prerequisites
@@ -19,12 +19,15 @@ creating the extension in:
 ### HTTP request
 <!-- { "blockType": "ignored" } -->
 
-To create an extension in a new resource instance, use the same REST request as creating the
-instance, and include the properties of the new resource instance _and of the extension_ in the request body.
+You can create an extension in a new or existing resource instance.
+
+To create an extension in a _new_ resource instance, use the same REST request as creating the
+instance, and include the properties of the new resource instance _and extension_ in the request body.
+Note that some resources support creation in more than one way. For more information on creating these resource instances,
+see the corresponding topics for creating a [message](../resources/message.md), [event](../api/user_post_events.md), 
+[contact](../api/user_post_contacts.md), [group event](../api/group_post_events.md), and [group post](../resources/post.md). 
  
-The following is the syntax of the requests. For more information on creating such resource instances,
-see the corresponding topics for creating a [message](../api/user_post_messages.md), [event](../api/user_post_events.md), 
-[contact](../api/user_post_contacts.md), or [group event](../api/group_post_groups.md). 
+The following is the syntax of the requests. 
 
 ```http
 POST /me/messages
@@ -38,6 +41,12 @@ POST /users/<id>/contacts
 
 POST /groups/<id>/events
 
+POST /groups/<id>/threads/<id>/posts/<id>/microsoft.graph.reply
+POST /groups/<id>/conversations/<id>/threads/<id>/posts/<id>/microsoft.graph.reply
+POST /groups/<id>/threads/<id>/microsoft.graph.reply
+POST /groups/<id>/conversations/<id>/threads/<id>/microsoft.graph.reply
+POST /groups/<id>/threads
+POST /groups/<id>/conversations
 ```
 
 To create an extension in an existing resource instance, specify the instance in the
@@ -54,6 +63,9 @@ POST /me/contacts/<id>/extensions
 POST /users/<id>/contacts/<id>/extensions
 
 POST /groups/<id>/events/<id>/extensions
+
+POST /groups/<id>/threads/<id>/posts/<id>/extensions
+POST /groups/<id>/conversations/<id>/threads/<id>/posts/<id>/extensions
 ```
 
 
@@ -73,28 +85,34 @@ POST /groups/<id>/events/<id>/extensions
 ### Request body
 
 Provide a JSON body of an [openTypeExtension](../resources/openTypeExtension.md), with the following required
-name-value pairs, and any additional custom data:
+name-value pairs, and any additional custom data. The data in the JSON payload can be primitive types, or arrays of 
+primitive types.
 
 | Name       | Value |
 |:---------------|:----------|
 | @odata.type | Microsoft.Graph.OpenTypeExtension |
 | extensionName | %unique_string% |
 
-When creating an extension in a new resource instance, in addition to the **openTypeExtension** object, 
-provide a JSON representation of that resource instance ([message](../resources/message.md), 
-[event](../resources/event.md), or [contact](../resources/contact.md) object).
+When creating an extension in a _new_ resource instance, in addition to the 
+new **openTypeExtension** object, provide a JSON representation of that resource instance ([message](../resources/message.md), 
+[event](../resources/event.md), [contact](../resources/contact.md), or [group post](../resources/post.md) object).
 
 ### Response
 
-If successful, this method returns a `201 Created` response code.
+#### Response code
+An operation successful in creating an extension returns the same response code as when the operation is used to
+create only the resource instance without the extension. Depending on the operation, it can be `201 Created` or `202 Accepted`. 
+Refer to the corresponding topics for creating the instance.
 
-When creating an extension in a new resource instance, the 
-response body includes the new instance (a [message](../resources/message.md), 
-[event](../resources/event.md), or [contact](../resources/contact.md) object) expanded with the
-[openTypeExtension](../resources/openTypeExtension.md).
+#### Response body
+When creating an extension in a _new_ resource instance by a POST operation on a collection of [message](../resources/message.md), 
+[event](../resources/event.md), or [contact](../resources/contact.md) objects, the 
+response body includes the new instance expanded with the [openTypeExtension](../resources/openTypeExtension.md). 
 
-When creating an extension in an existing resource instance, the response body includes 
-just the **openTypeExtension** object.
+When creating an extension in a _new_ [group post](../resources/post.md), the response includes only a response code but not a response body.
+
+When creating an extension in an _existing_ resource instance, the response body includes 
+the **openTypeExtension** object.
  
 
 
@@ -138,54 +156,9 @@ POST https://graph.microsoft.com/beta/me/messages
 }
 ```
 
-****
-
-The second example creates an extension in the specified message. The request body includes the following for the 
-extension:
-
-- The type `Microsoft.Graph.OpenTypeExtension`. 
-- The extension name "Com.Contoso.Referral".
-- Additional data to be stored as 3 custom properties in the JSON payload: `companyName`, `dealValue`, and `expirationDate`.  
- 
-```http
-POST https://graph.microsoft.com/beta/me/messages('AAMkAGE1M2IyNGNmLTI5MTktNDUyZi1iOTVl===')/extensions
-
-{ 
-  "@odata.type" : "Microsoft.Graph.OpenTypeExtension", 
-  "extensionName" : "Com.Contoso.Referral", 
-  "companyName" : "Wingtip Toys", 
-  "dealValue" : 500050, 
-  "expirationDate" : "2015-12-03T10:00:00.000Z" 
-} 
-```
-
-****
-
-The third example creates an extension in the specified group event. The request body includes the following for the 
-extension:
-
-- The type `Microsoft.Graph.OpenTypeExtension`. 
-- The extension name "Com.Contoso.Deal".
-- Additional data to be stored as 3 custom properties in the JSON payload: `companyName`, `dealValue`, and `expirationDate`.  
-  
-```http
-POST https://graph.microsoft.com/beta/groups('f5480dfd-7d77-4d0b-ba2e-3391953cc74a')/events('AAMkADVl17IsAAA=')/extensions 
-
-{
-  "@odata.type" : "Microsoft.Graph.OpenTypeExtension",
-  "extensionName" : "Com.Contoso.Deal",
-  "companyName" : "Alpine Skis",
-  "dealValue" : 1010100,
-  "expirationDate" : "2015-07-03T13:04:00.000Z"
-}
-```
-
-****
-
-
 ##### Response
 
-Here is the response for the first example request. The response body includes properties of the new message, 
+Here is the response for the first example. The response body includes properties of the new message, 
 and the following for the new extension:
 
 - The **id** property with the fully qualified name of `Microsoft.OutlookServices.OpenTypeExtension.Com.Contoso.Referral`. 
@@ -193,7 +166,7 @@ and the following for the new extension:
 - The custom data specified in the request stored as 3 custom properties.
 
 ```http
-HTTP/1.1 201 OK
+HTTP/1.1 201 Created
 Content-type: application/json
 
 {
@@ -257,16 +230,40 @@ ItemID=AAMkAGEbs88AAB84uLuAAA%3D&exvsurl=1&viewmodel=ReadMessageItem",
 }
 ```
 
+
 ****
 
-Here is the response for the second example request. The response body includes the following for the new extension:
+##### Request
+
+The second example creates an extension in the specified message. The request body includes the following for the 
+extension:
+
+- The type `Microsoft.Graph.OpenTypeExtension`. 
+- The extension name "Com.Contoso.Referral".
+- Additional data to be stored as 3 custom properties in the JSON payload: `companyName`, `dealValue`, and `expirationDate`.  
+ 
+```http
+POST https://graph.microsoft.com/beta/me/messages('AAMkAGE1M2IyNGNmLTI5MTktNDUyZi1iOTVl===')/extensions
+
+{ 
+  "@odata.type" : "Microsoft.Graph.OpenTypeExtension", 
+  "extensionName" : "Com.Contoso.Referral", 
+  "companyName" : "Wingtip Toys", 
+  "dealValue" : 500050, 
+  "expirationDate" : "2015-12-03T10:00:00.000Z" 
+} 
+```
+
+##### Response
+
+Here is the response for the second example. The response body includes the following for the new extension:
 
 - The default property **extensionName**.
 - The **id** property with the fully qualified name of `Microsoft.OutlookServices.OpenTypeExtension.Com.Contoso.Referral`. 
 - The custom data to be stored.  
 
 ```http
-HTTP/1.1 201 OK
+HTTP/1.1 201 Created
 Content-type: application/json
 
 {
@@ -284,9 +281,35 @@ Content-type: application/json
 
 ****
 
+##### Request
+
+The third example creates an extension in the specified group event. The request body includes the following for the 
+extension:
+
+- The type `Microsoft.Graph.OpenTypeExtension`. 
+- The extension name "Com.Contoso.Deal".
+- Additional data to be stored as 3 custom properties in the JSON payload: `companyName`, `dealValue`, and `expirationDate`.  
+  
+```http
+POST https://graph.microsoft.com/beta/groups('f5480dfd-7d77-4d0b-ba2e-3391953cc74a')/events('AAMkADVl17IsAAA=')/extensions 
+
+{
+  "@odata.type" : "Microsoft.Graph.OpenTypeExtension",
+  "extensionName" : "Com.Contoso.Deal",
+  "companyName" : "Alpine Skis",
+  "dealValue" : 1010100,
+  "expirationDate" : "2015-07-03T13:04:00.000Z"
+}
+```
+
+##### Response
+
 Here is the response from the third example request.
 
 ```http
+HTTP/1.1 201 Created
+Content-type: application/json
+
 {
     "@odata.context": "https://graph.microsoft.com/beta/$metadata#groups('f5480dfd-7d77-4d0b-ba2e-3391953cc74a')/events('AAMkADVl7IsAAA%3D')/extensions/$entity",
     "@odata.type": "#Microsoft.Graph.OpenTypeExtension",
@@ -297,6 +320,131 @@ Here is the response from the third example request.
     "expirationDate": "2015-07-03T13:04:00Z"
 }
 ```
+
+****
+
+##### Request
+
+The fourth example creates an extension in a new group post, using the same **reply** action call to an existing group post. The **reply** action
+creates a new post, and a new extension embedded in the post. The request body includes a **post** property, which in turn contains 
+the **body** of the new post, and the following data for the new extension:
+
+- The type `Microsoft.Graph.OpenTypeExtension`. 
+- The extension name "Com.Contoso.HR".
+- Additional data to be stored as 3 custom properties in the JSON payload: `companyName`, `expirationDate`, and the array of strings `topPicks`.
+
+```http
+POST https://graph.microsoft.com/beta/groups('37df2ff0-0de0-4c33-8aee-75289364aef6')/threads('AAQkADJizZJpEWwqDHsEpV_KA==')/posts('AAMkADJiUg96QZUkA-ICwMubAAC1heiSAAA=')/microsoft.graph.reply 
+
+{
+  "post": {
+    "body": {
+      "contentType": "html",
+      "content": "<html><body><div><div><div><div>When and where? </div></div></div></div></body></html>"
+    },
+  "extensions": [
+    {
+      "@odata.type": "Microsoft.OutlookServices.OpenTypeExtension",
+      "extensionName": "Com.Contoso.HR",
+      "companyName": "Contoso",
+      "expirationDate": "2015-07-03T13:04:00.000Z",
+      "topPicks": [
+        "Employees only",
+        "Add spouse or guest",
+        "Add family"
+      ]
+    }
+  ]        
+  }
+}
+```
+
+##### Response
+
+Here is the response from the fourth example. Successfully creating an extension in a new group post results in only the
+HTTP 202 response code.
+
+```http
+HTTP/1.1 202 Accepted
+Content-type: text/plain
+Content-Length: 0
+```
+
+
+****
+
+##### Request
+
+The fifth example creates an extension in a new group post using the same POST operation to create a conversation. The POST operation
+creates a new conversation, thread and post, and a new extension embedded in the post. The request body includes the 
+**Topic** and **Threads** properties, and a child **post** object for the new conversation. The **post** object
+in turn contains the **body** of the new post, and the following data for the extension:
+
+- The type `Microsoft.Graph.OpenTypeExtension`. 
+- The extension name "Com.Contoso.HR".
+- Additional data to be stored as 3 custom properties in the JSON payload: `companyName`, `expirationDate`, and the array of strings `topPicks`.
+
+
+```http
+POST https://graph.microsoft.com/beta/groups('37df2ff0-0de0-4c33-8aee-75289364aef6')/conversations
+
+{
+  "Topic": "Does anyone have a second?",
+  "Threads": [
+    {
+      "Posts": [
+        {
+          "Body": {
+            "ContentType": "HTML",
+            "Content": "This is urgent!"
+          },
+          "Extensions": [
+            {
+              "@odata.type": "Microsoft.OutlookServices.OpenTypeExtension",
+              "extensionName": "Com.Contoso.Benefits",
+              "companyName": "Contoso",
+              "expirationDate": "2016-08-03T11:00:00.000Z",
+              "topPicks": [
+                "Employees only",
+                "Add spouse or guest",
+                "Add family"
+              ]  
+            }  
+          ] 
+        } 
+      ]  
+    } 
+  ]
+}
+```
+
+##### Response
+
+Here is the response from the fifth example which contains the new conversation and a thread ID. This new thread contains an automatically
+created post, which in turn contains the new extension. 
+
+To get the new extension, first [get all the posts](../api/conversationthread_list_posts.md) in this 
+thread, and initially there should be only one. Then apply the post ID and the extension name `Com.Contoso.Benefits` to 
+[get the extension](../api/opentypeextension_get.md).
+
+```http
+HTTP/1.1 201 Created
+Content-type: application/json
+Content-Length: 606
+
+{
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#groups('37df2ff0-0de0-4c33-8aee-75289364aef6')/conversations/$entity",
+    "id": "AAQkADJToRlbJ5Mg7TFM7H-j3Y=",
+    "threads@odata.context": "https://graph.microsoft-ppe.com/testExchangeBeta/$metadata#groups('37df2ff0-0de0-4c33-8aee-75289364aef6')/conversations('AAQkADJToRlbJ5Mg7TFM7H-j3Y%3D')/threads",
+    "threads": [
+        {
+            "id": "AAQkADJDtMUzsf_PdhAAswJOhGVsnkyDtMUzsf_Pdg=="
+        }
+    ]
+}
+
+```
+
 
 <!-- This page was manually created. -->
 <!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79

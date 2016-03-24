@@ -3,7 +3,7 @@
 Delete an open type data extension from the specified instance of a resource. 
 
 The resource can be a message, calendar event, or contact of the signed-in user's on Office 365 or
-Outlook.com. Or, it can be an event for an Office 365 group.
+Outlook.com. Or, it can be an event or post for an Office 365 group.
 
 ### Prerequisites
 
@@ -30,6 +30,8 @@ DELETE /users/<id>/contacts/<id>/extensions/<extensionId>
 
 DELETE /groups/<id>/events/<id>/extensions/<extensionId>
 
+DELETE /groups/<id>/threads/<id>/posts/<id>/extensions/<extensionId>
+DELETE /groups/<id>/conversations/<id>/threads/<id>/posts/<id>/extensions/<extensionId>
 ```
 
 ### Parameters
