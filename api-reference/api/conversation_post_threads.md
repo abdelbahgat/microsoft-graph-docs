@@ -1,14 +1,14 @@
 # Create thread
 
-Create a new thread in the specified conversation. 
+Create a new thread in the specified conversation.
 
-A thread and post are created as specified. Use [reply thread](conversationthread_reply.md) to further post 
+A thread and post are created as specified. Use [reply thread](conversationthread_reply.md) to further post
 to that thread. Or, if you get the post ID, you can also [reply](post_reply.md) to that post in that thread.
 
 Note: You can also [start a new conversation by first creating a thread](group_post_threads.md).
 
 ### Prerequisites
-The following **scopes** are required to execute this API: 
+The following **scopes** are required to execute this API:
 *Group.ReadWrite.All*
 ### HTTP request
 <!-- { "blockType": "ignored" } -->
@@ -52,11 +52,11 @@ In the request body, supply a JSON representation of [conversationThread](../res
 ##### Response
 
 If successful, this method returns `201, Created` response code and the `id` of the new thread in the response body.
-Here is an example of the response. 
+Here is an example of the response.
 <!-- {
   "blockType": "response",
   "truncated": true,
-  "@odata.type": "microsoft.graph.conversationthread"
+  "@odata.type": "microsoft.graph.conversationThread"
 } -->
 ```http
 HTTP/1.1 201 Created
