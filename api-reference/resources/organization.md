@@ -26,7 +26,7 @@ Represents an Azure Active Directory tenant. Only the read and update operations
 |postalCode|String|            |
 |preferredLanguage|String|            |
 |provisionedPlans|[ProvisionedPlan](provisionedplan.md) collection| Not nullable.            |
-|provisioningErrors|[ProvisioningError](provisioningerror.md) collection| Not nullable.            |
+|provisioningErrors|ProvisioningError collection| Not nullable.            |
 |securityComplianceNotificationMails|String collection||
 |securityComplianceNotificationPhones|String collection||
 |state|String|            |

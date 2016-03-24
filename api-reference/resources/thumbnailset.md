@@ -8,8 +8,6 @@ The **thumbnailSet** type is a keyed collection of [thumbnail](thumbnail.md) obj
 | Method       | Return Type  |Description|
 |:---------------|:--------|:----------|
 |[Get thumbnailSet](../api/thumbnailset_get.md) | [thumbnailSet](thumbnailset.md) |Read properties and relationships of thumbnailSet object.|
-|[Update](../api/thumbnailset_update.md) | [thumbnailSet](thumbnailset.md)  |Update thumbnailSet object. |
-|[Delete](../api/thumbnailset_delete.md) | None |Delete thumbnailSet object. |
 
 
 

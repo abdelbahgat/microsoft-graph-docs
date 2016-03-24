@@ -2,12 +2,12 @@
 
 Update an open type data extension with the properties in the request body:
 
-- If a property in the request body matches the name of an existing property in the extension, the data in the 
+- If a property in the request body matches the name of an existing property in the extension, the data in the
 extension is updated.
-- Otherwise that property and its data are added to the extension. 
+- Otherwise that property and its data are added to the extension.
 
 The extension can be in a message, event, or contact in the signed-in user's mailbox on Office 365 or
-Outlook.com. 
+Outlook.com.
 
 
 ### Prerequisites
@@ -18,7 +18,7 @@ creating the extension in:
 - _Mail.ReadWrite_
 - _Calendars.ReadWrite_
 - _Contacts.ReadWrite_
- 
+
 ### HTTP request
 <!-- { "blockType": "ignored" } -->
 
@@ -50,7 +50,7 @@ PATCH /users/<id>/contacts/<id>/extensions/<extensionId>
 
 ### Request body
 
-Provide a JSON body of an [openTypeExtension](../resources/openTypeExtension.md) object, with the 
+Provide a JSON body of an [openTypeExtension](../resources/openTypeExtension.md) object, with the
 following required name-value pairs, and any custom data to change or add to that extension:
 
 | Name       | Value |
@@ -66,9 +66,7 @@ If successful, this method returns a `200 Ok` response code and the updated
 
 
 ### Example
-##### Request
-
-<a name="originalExample"></a>
+##### Request Original Example
 
 Each of the following 2 examples updates an extension represented by the following JSON payload:
 
@@ -86,7 +84,7 @@ Each of the following 2 examples updates an extension represented by the followi
     "expirationDate": "2015-12-03T10:00:00Z"
 }
 ```
- 
+
 The first example references the extension by its name:
 <!-- { "blockType": "ignored" } -->
 ```http
@@ -99,7 +97,7 @@ The second example references the extension by its fully qualified name:
 PATCH https://graph.microsoft.com/beta/me/messages('AAMkAGE1M2IyNGNmLTI5MTktNDUyZi1iOTVl===')/extensions('Microsoft.OutlookServices.OpenTypeExtension.Com.Contoso.Referral')
 ```
 
-You can use either example request and the following request body to update the [original extension](#originalExample) by:
+You can use either example request and the following request body to update the [original extension](#request-original-example) by:
 - Changing `companyName` from `Wingtip Toys` to `Wingtip Toys (USA)`
 - Changing `dealValue` from `500050` to `500100`
 - Adding new data as the custom property `updated`
@@ -113,22 +111,18 @@ You can use either example request and the following request body to update the 
     "dealValue": "500100",
     "expirationDate": "2015-12-03T10:00:00.000Z",
     "updated": "2015-10-29T11:00:00.000Z"
-} 
+}
 ```
-
-****
-
-
 
 ##### Response
 
 Here is the response for either the first or second example request.
 
 <!-- {  
-  "blockType": "response",  
+  "blockType": "ignored",  
   "truncated": true,  
   "@odata.type": "microsoft.graph.opentypeextension"  
-} --> 
+} -->
 
 ```http
 HTTP/1.1 200 OK

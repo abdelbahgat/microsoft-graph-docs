@@ -111,7 +111,7 @@ Represents an Azure AD user account. Inherits from [directoryObject](directoryob
 |photos|[Photo](photo.md) collection| Read-only. Nullable.|
 |plans|[plan](plan.md) collection| Read-only. Nullable. Plans shared with the user. |
 |tasks|[task](task.md) collection| Read-only. Nullable. Tasks assigned to the user. |
-|trendingAround|[item](item.md) collection| Read-only. Nullable.|
+|trendingAround|[driveItem](driveitem.md) collection| Read-only. Nullable.|
 |workingWith|[User](user.md) collection| Read-only. Nullable.|
 |registeredDevices|[directoryObject](directoryobject.md) collection|Devices that are registered for the user. Read-only. Nullable.|
 

@@ -2,7 +2,7 @@
 
 Subscribes a listener application to receive notifications when data on the Microsoft Graph changes.
 ### Prerequisites
-One of the following **scopes**, depending on the target resource, are required to execute this API: *Mail.Read*, *Calendars.Read*, *Contacts.Read* or *Groups.Read.All* 
+One of the following **scopes**, depending on the target resource, are required to execute this API: *Mail.Read*, *Calendars.Read*, *Contacts.Read* or *Groups.Read.All*
 ### HTTP request
 <!-- { "blockType": "ignored" } -->
 
@@ -34,9 +34,9 @@ Content-type: application/json
 {
    "changeType": "created,updated",
    "notificationUrl": "https://webhook.azurewebsites.net/api/send/myNotifyClient",
-   "resource": "me/mailFolders('Inbox')/messages"
-   "expirationDateTime":"2016-11-20T18:23:45.9356913Z"
-   "clientState": "subscription-identifier",  
+   "resource": "me/mailFolders('Inbox')/messages",
+   "expirationDateTime":"2016-11-20T18:23:45.9356913Z",
+   "clientState": "subscription-identifier"
 }
 ```
 In the request body, supply a JSON representation of the [subscription](../resources/subscription.md) object.
@@ -75,7 +75,7 @@ Content-length: 252
 }
 ```
 ### Subscription validation
-In order to to avoid mistaken subscriptions directing notifications to arbitrary URLs, the subscription notification endpoint must be capable of responding to a validation request. During processing of the `POST` to the `/subscriptions` endpoint, the Microsoft Graph will send a `POST` request back to your `notificationUrl` in the following form: 
+In order to to avoid mistaken subscriptions directing notifications to arbitrary URLs, the subscription notification endpoint must be capable of responding to a validation request. During processing of the `POST` to the `/subscriptions` endpoint, the Microsoft Graph will send a `POST` request back to your `notificationUrl` in the following form:
 ```http
 POST https://webhook.azurewebsites.net/api/send/myNotifyClient?validationtoken=<token>
 ```
