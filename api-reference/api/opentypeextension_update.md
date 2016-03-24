@@ -74,9 +74,9 @@ If successful, this method returns a `200 OK` response code and the updated
 
 
 ### Example
-#### Request
+#### Request 1
 
-<a name="originalExample"></a>
+
 
 The first example shows how to update an extension in a message. The extension is initially represented by the following JSON payload:
 
@@ -106,7 +106,7 @@ Or you can reference the extension by its fully qualified name:
 PATCH https://graph.microsoft.com/beta/me/messages('AAMkAGE1M2IyNGNmLTI5MTktNDUyZi1iOTVl===')/extensions('Microsoft.OutlookServices.OpenTypeExtension.Com.Contoso.Referral')
 ```
 
-You can use either example request and the following request body to update the [original extension](#originalExample) by:
+You can use either example request and the following request body to update the original extension in Request 1 above by:
 - Changing `companyName` from `Wingtip Toys` to `Wingtip Toys (USA)`
 - Changing `dealValue` from `500050` to `500100`
 - Adding new data as the custom property `updated`
@@ -123,7 +123,7 @@ You can use either example request and the following request body to update the 
 ```
 
 
-#### Response
+#### Response 1
 
 Here is the response which is the same regardless of the way used to reference the extension.
 
@@ -153,7 +153,7 @@ Content-type: application/json
 
 ****
 
-#### Request
+#### Request 2
 
 The second example shows how to update an extension in a group post. The extension is initially represented by the following JSON payload, 
 with an `expirationDate` value of `2015-07-03T13:04:00Z`:
@@ -196,7 +196,7 @@ Content-type: application/json
 }
 ```
 
-#### Response
+#### Response 2
 
 Here is the response of the second example which shows the updated `expirationDate` in the extension.
 
