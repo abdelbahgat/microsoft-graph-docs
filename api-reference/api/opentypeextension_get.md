@@ -176,6 +176,9 @@ Here is the response from the second example.
   "@odata.type": "microsoft.graph.opentypeextension"
 } -->
 ```http
+HTTP/1.1 200 OK
+Content-type: application/json
+
 {
     "@odata.context": "https://graph.microsoft.com/beta/$metadata#groups('f5480dfd-7d77-4d0b-ba2e-3391953cc74a')/events('AAMkADVl7IsAAA%3D')/extensions/$entity",
     "@odata.type": "#Microsoft.Graph.OpenTypeExtension",
@@ -213,6 +216,9 @@ And here is the response from the third example.
   "@odata.type": "microsoft.graph.message"
 } -->
 ```http
+HTTP/1.1 200 OK
+Content-type: application/json
+
 {
     "@odata.context": "https://graph.microsoft.com/beta/$metadata#Me/messages/$entity",
     "@odata.id": "https://graph.microsoft.com/beta/users('ddfc984d-b826-40d7-b48b-57002df85e00@1717f226-49d1-4d0c-9d74-709fad6677b4')/messages('AAMkAGE1M2IyNGNmLTI5MTktNDUyZi1iOTVl===')",
@@ -298,7 +304,7 @@ GET https://graph.microsoft-ppe.com/beta/groups('37df2ff0-0de0-4c33-8aee-7528936
 
 #### Response 4
 
-Here is the response from the fourth example.
+Here is the response from the fourth example. 
 
 <!-- {
   "blockType": "response",
@@ -308,8 +314,6 @@ Here is the response from the fourth example.
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
-
-Content-Length: 754
 
 {
     "@odata.context": "https://graph.microsoft-ppe.com/testExchangeBeta/$metadata#groups('37df2ff0-0de0-4c33-8aee-75289364aef6')/threads('AAQkADJizZJpEWwqDHsEpV_KA%3D%3D')/posts('AAMkADJiUg96QZUkA-ICwMubAADDEd7UAAA%3D')/extensions/$entity",
@@ -348,9 +352,11 @@ GET https://graph.microsoft.com/beta/me/messages?$filter=Extensions/any(f:f/id%2
 In this response for the fifth example, there is only one message in the user's mailbox that has an extension with its **id** equal to
 `Com.Contoso.Referral`.
 
+Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
+
 <!-- {
   "blockType": "response",
-  "truncated": false,
+  "truncated": true,
   "@odata.type": "microsoft.graph.message",
   "isCollection": true
 } -->
