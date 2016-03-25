@@ -25,8 +25,8 @@ need to access custom data for Outlook MAPI properties that are not already expo
 ## Types of extended properties
 
 Depending on whether you intend to store a single or multiple values (of the same type) in an extended property, you can 
-create an extended property as a [singleValueLegacyExtendedProperty](../api/singleValueLegacyExtendedProperty.md), 
-or [multiValueLegacyExtendedProperty](../api/multiValueLegacyExtendedProperty.md).
+create an extended property as a [singleValueLegacyExtendedProperty](../resources/singleValueLegacyExtendedProperty.md), 
+or [multiValueLegacyExtendedProperty](../resources/multiValueLegacyExtendedProperty.md).
 
 Each of these types identifies the property by its **PropertyId** and stores data in **Value**. 
 
