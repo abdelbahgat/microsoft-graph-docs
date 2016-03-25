@@ -17,8 +17,6 @@ creating the extension in:
 - _Group.ReadWrite.All_
  
 ### HTTP request
-<!-- { "blockType": "ignored" } -->
-
 You can create an extension in a new or existing resource instance.
 
 To create an extension in a _new_ resource instance, use the same REST request as creating the
@@ -29,6 +27,7 @@ see the corresponding topics for creating a [message](../resources/message.md), 
  
 The following is the syntax of the requests. 
 
+<!-- { "blockType": "ignored" } -->
 ```http
 POST /me/messages
 POST /users/<id>/messages
@@ -52,6 +51,7 @@ POST /groups/<id>/conversations
 To create an extension in an existing resource instance, specify the instance in the
 request, and include the extension in the request body.
 
+<!-- { "blockType": "ignored" } -->
 ```http
 POST /me/messages/<id>/extensions
 POST /users/<id>/messages/<id>/extensions
@@ -117,7 +117,7 @@ the **openTypeExtension** object.
 
 
 ### Example
-##### Request
+##### Request 1
 
 The first example creates a message and an extension in the same call. The request body includes the following:
 
@@ -128,6 +128,10 @@ The first example creates a message and an extension in the same call. The reque
   - The extension name "Com.Contoso.Referral". 
   - Additional data to be stored as 3 custom properties in the JSON payload: `companyName`, `expirationDate`, and `dealValue`.  
 
+<!-- {
+  "blockType": "request",
+  "name": "post_opentypeextension_1"
+}-->
 ```http
 POST https://graph.microsoft.com/beta/me/messages
 
@@ -156,7 +160,7 @@ POST https://graph.microsoft.com/beta/me/messages
 }
 ```
 
-##### Response
+##### Response 1
 
 Here is the response for the first example. The response body includes properties of the new message, 
 and the following for the new extension:
@@ -165,6 +169,11 @@ and the following for the new extension:
 - The default property **extensionName** specified in the request.
 - The custom data specified in the request stored as 3 custom properties.
 
+<!-- {
+  "blockType": "response",
+  "truncated": false,
+  "@odata.type": "microsoft.graph.message"
+} -->
 ```http
 HTTP/1.1 201 Created
 Content-type: application/json
@@ -233,7 +242,7 @@ ItemID=AAMkAGEbs88AAB84uLuAAA%3D&exvsurl=1&viewmodel=ReadMessageItem",
 
 ****
 
-##### Request
+##### Request 2
 
 The second example creates an extension in the specified message. The request body includes the following for the 
 extension:
@@ -241,7 +250,11 @@ extension:
 - The type `Microsoft.Graph.OpenTypeExtension`. 
 - The extension name "Com.Contoso.Referral".
 - Additional data to be stored as 3 custom properties in the JSON payload: `companyName`, `dealValue`, and `expirationDate`.  
- 
+
+<!-- {
+  "blockType": "request",
+  "name": "post_opentypeextension_2"
+}-->
 ```http
 POST https://graph.microsoft.com/beta/me/messages('AAMkAGE1M2IyNGNmLTI5MTktNDUyZi1iOTVl===')/extensions
 
@@ -254,7 +267,7 @@ POST https://graph.microsoft.com/beta/me/messages('AAMkAGE1M2IyNGNmLTI5MTktNDUyZ
 } 
 ```
 
-##### Response
+##### Response 2
 
 Here is the response for the second example. The response body includes the following for the new extension:
 
@@ -262,6 +275,11 @@ Here is the response for the second example. The response body includes the foll
 - The **id** property with the fully qualified name of `Microsoft.OutlookServices.OpenTypeExtension.Com.Contoso.Referral`. 
 - The custom data to be stored.  
 
+<!-- {
+  "blockType": "response",
+  "truncated": false,
+  "@odata.type": "microsoft.graph.opentypeextension"
+} -->
 ```http
 HTTP/1.1 201 Created
 Content-type: application/json
@@ -281,7 +299,7 @@ Content-type: application/json
 
 ****
 
-##### Request
+##### Request 3
 
 The third example creates an extension in the specified group event. The request body includes the following for the 
 extension:
@@ -289,7 +307,11 @@ extension:
 - The type `Microsoft.Graph.OpenTypeExtension`. 
 - The extension name "Com.Contoso.Deal".
 - Additional data to be stored as 3 custom properties in the JSON payload: `companyName`, `dealValue`, and `expirationDate`.  
-  
+
+<!-- {
+  "blockType": "request",
+  "name": "post_opentypeextension_3"
+}-->
 ```http
 POST https://graph.microsoft.com/beta/groups('f5480dfd-7d77-4d0b-ba2e-3391953cc74a')/events('AAMkADVl17IsAAA=')/extensions 
 
@@ -302,10 +324,15 @@ POST https://graph.microsoft.com/beta/groups('f5480dfd-7d77-4d0b-ba2e-3391953cc7
 }
 ```
 
-##### Response
+##### Response 3
 
 Here is the response from the third example request.
 
+<!-- {
+  "blockType": "response",
+  "truncated": false,
+  "@odata.type": "microsoft.graph.opentypeextension"
+} -->
 ```http
 HTTP/1.1 201 Created
 Content-type: application/json
@@ -323,7 +350,7 @@ Content-type: application/json
 
 ****
 
-##### Request
+##### Request 4
 
 The fourth example creates an extension in a new group post, using the same **reply** action call to an existing group post. The **reply** action
 creates a new post, and a new extension embedded in the post. The request body includes a **post** property, which in turn contains 
@@ -333,6 +360,10 @@ the **body** of the new post, and the following data for the new extension:
 - The extension name "Com.Contoso.HR".
 - Additional data to be stored as 3 custom properties in the JSON payload: `companyName`, `expirationDate`, and the array of strings `topPicks`.
 
+<!-- {
+  "blockType": "request",
+  "name": "post_opentypeextension_4"
+}-->
 ```http
 POST https://graph.microsoft.com/beta/groups('37df2ff0-0de0-4c33-8aee-75289364aef6')/threads('AAQkADJizZJpEWwqDHsEpV_KA==')/posts('AAMkADJiUg96QZUkA-ICwMubAAC1heiSAAA=')/microsoft.graph.reply 
 
@@ -359,11 +390,15 @@ POST https://graph.microsoft.com/beta/groups('37df2ff0-0de0-4c33-8aee-75289364ae
 }
 ```
 
-##### Response
+##### Response 4
 
 Here is the response from the fourth example. Successfully creating an extension in a new group post results in only the
 HTTP 202 response code.
 
+<!-- {
+  "blockType": "response",
+  "truncated": true
+} -->
 ```http
 HTTP/1.1 202 Accepted
 Content-type: text/plain
@@ -373,7 +408,7 @@ Content-Length: 0
 
 ****
 
-##### Request
+##### Request 5
 
 The fifth example creates an extension in a new group post using the same POST operation to create a conversation. The POST operation
 creates a new conversation, thread and post, and a new extension embedded in the post. The request body includes the 
@@ -384,7 +419,10 @@ in turn contains the **body** of the new post, and the following data for the ex
 - The extension name "Com.Contoso.HR".
 - Additional data to be stored as 3 custom properties in the JSON payload: `companyName`, `expirationDate`, and the array of strings `topPicks`.
 
-
+<!-- {
+  "blockType": "request",
+  "name": "post_opentypeextension_5"
+}-->
 ```http
 POST https://graph.microsoft.com/beta/groups('37df2ff0-0de0-4c33-8aee-75289364aef6')/conversations
 
@@ -418,7 +456,7 @@ POST https://graph.microsoft.com/beta/groups('37df2ff0-0de0-4c33-8aee-75289364ae
 }
 ```
 
-##### Response
+##### Response 5
 
 Here is the response from the fifth example which contains the new conversation and a thread ID. This new thread contains an automatically
 created post, which in turn contains the new extension. 
@@ -427,6 +465,11 @@ To get the new extension, first [get all the posts](../api/conversationthread_li
 thread, and initially there should be only one. Then apply the post ID and the extension name `Com.Contoso.Benefits` to 
 [get the extension](../api/opentypeextension_get.md).
 
+<!-- {
+  "blockType": "response",
+  "truncated": false,
+  "@odata.type": "microsoft.graph.conversation"
+} -->
 ```http
 HTTP/1.1 201 Created
 Content-type: application/json

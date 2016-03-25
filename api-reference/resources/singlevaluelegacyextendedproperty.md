@@ -8,8 +8,7 @@ An extended property that contains a single value.
 | Method		   | Return Type	|Description|
 |:---------------|:--------|:----------|
 |[Get singleValueLegacyExtendedProperty](../api/singlevaluelegacyextendedproperty_get.md) | [singleValueLegacyExtendedProperty](singlevaluelegacyextendedproperty.md) |Read properties and relationships of singleValueLegacyExtendedProperty object.|
-|[Update](../api/singlevaluelegacyextendedproperty_update.md) | [singleValueLegacyExtendedProperty](singlevaluelegacyextendedproperty.md)	|Update singleValueLegacyExtendedProperty object. |
-|[Delete](../api/singlevaluelegacyextendedproperty_delete.md) | None |Delete singleValueLegacyExtendedProperty object. |
+
 
 ### Properties
 | Property	   | Type	|Description|

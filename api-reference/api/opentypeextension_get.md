@@ -6,9 +6,7 @@ Resources that support open type Office 365 data extensions include a message, c
 signed-in user's on Office 365 or Outlook.com. Or, it can be an event or post for an Office 365 group.
 Depending on the resource type, there are a few ways to get a data extension.
 
-<a name="ResponseDescriptions"></a>
-
-|**Description**|**Supported resources**|**Response body**|
+|**GET description**|**Supported resources**|**Response body**|
 |:-----|:-----|:-----|
 |Get a specific extension in a known resource instance.|Message, event, contact, group event, group post | Data extension only.|
 |Get a known resource instance expanded with a specific extension.|Message, event, contact, group event|A resource instance expanded with the data extension.|
@@ -26,9 +24,10 @@ getting the extension from:
 - _Group.Read.All_
  
 ### HTTP request
-<!-- { "blockType": "ignored" } -->
+
 
 To get a specific extension in a known resource instance:
+<!-- { "blockType": "ignored" } -->
 ```http
 GET /me/messages/<Id>/extensions/<extensionId>
 GET /users/<Id>/messages/<Id>/extensions/<extensionId>
@@ -46,6 +45,7 @@ GET /groups/<Id>/conversations/<Id>/threads/<Id>/posts/<Id>/extensions/<extensio
 ```
 
 To get a known resource instance expanded with an extension that matches a filter on the **id** property:
+<!-- { "blockType": "ignored" } -->
 ```http
 GET /me/messages/<Id>?$expand=extensions($filter=id eq '<extensionId>')
 GET /users/<Id>?$expand=extensions($filter=id eq '<extensionId>')
@@ -61,6 +61,7 @@ GET /groups/<Id>/events/<Id>?$expand=extensions($filter=id eq '<extensionId>')
 
 To filter for resource instances that contain an extension matching a filter on the **id** property, and get these instances expanded 
 with the extension:
+<!-- { "blockType": "ignored" } -->
 ```http
 GET /me/messages?$filter=Extensions/any(f:f/id eq '<extensionId>')&$expand=Extensions($filter=id eq '<extensionId>')
 
@@ -101,18 +102,19 @@ Make sure you apply [URL encoding](http://www.w3schools.com/tags/ref_urlencode.a
 Do not supply a request body for this method.
 ### Response
 If successful, this method returns a `200 OK` response code and [openTypeExtension](../resources/opentypeextension.md) object in the response body.
-Depending on the query, the exact [response body](#ResponseDescriptions) differs.
+Depending on the GET query, the exact response body differs.
 ### Example
 
-#### Request
+#### Request 1
 
 The first example shows 2 ways of referencing an extension and gets the extension in the specified message. The
 response is the same regardless of the way used to reference the extension.
 
 First, by its name: 
+
 <!-- {
   "blockType": "request",
-  "name": "get_opentypeextension"
+  "name": "get_opentypeextension_1"
 }-->
 ```http
 GET https://graph.microsoft.com/beta/me/messages('AAMkAGE1M2IyNGNmLTI5MTktNDUyZi1iOTVl===')/extensions('Com.Contoso.Referral')
@@ -120,11 +122,12 @@ GET https://graph.microsoft.com/beta/me/messages('AAMkAGE1M2IyNGNmLTI5MTktNDUyZi
 
 Second, by its ID (fully qualified name):
 
+<!-- { "blockType": "ignored" } -->
 ```http
 GET https://graph.microsoft.com/beta/me/messages('AAMkAGE1M2IyNGNmLTI5MTktNDUyZi1iOTVl===')/extensions('Microsoft.OutlookServices.OpenTypeExtension.Com.Contoso.Referral')
 ```
 
-#### Response
+#### Response 1
 Here is the response for the first example.
 <!-- {
   "blockType": "response",
@@ -151,18 +154,27 @@ Content-type: application/json
 ****
 
 
-#### Request
+#### Request 2
 
 The second example references an extension by its name and gets the extension in the specified group event.
 
+<!-- {
+  "blockType": "request",
+  "name": "get_opentypeextension_2"
+}-->
 ```http
 GET https://graph.microsoft.com/beta/groups('f5480dfd-7d77-4d0b-ba2e-3391953cc74a')/events('AAMkADVl17IsAAA=')/extensions('Com.Contoso.Deal') 
 ```
 
-#### Response
+#### Response 2
 
 Here is the response from the second example.
 
+<!-- {
+  "blockType": "response",
+  "truncated": false,
+  "@odata.type": "microsoft.graph.opentypeextension"
+} -->
 ```http
 {
     "@odata.context": "https://graph.microsoft.com/beta/$metadata#groups('f5480dfd-7d77-4d0b-ba2e-3391953cc74a')/events('AAMkADVl7IsAAA%3D')/extensions/$entity",
@@ -177,20 +189,29 @@ Here is the response from the second example.
 
 ****
 
-#### Request
+#### Request 3
 
 The third example gets and expands the specified message by including the extension returned from a filter. 
 The filter returns the extension that has its **id** matching a fully qualified name.
 
+<!-- {
+  "blockType": "request",
+  "name": "get_opentypeextension_3"
+}-->
 ```http
 GET https://graph.microsoft.com/beta/me/messages('AAMkAGE1M2IyNGNmLTI5MTktNDUyZi1iOTVl===')?$expand=extensions($filter=id%20eq%20'Microsoft.OutlookServices.OpenTypeExtension.Com.Contoso.Referral')
 ```
 
 
-#### Response
+#### Response 3
 
 And here is the response from the third example.
 
+<!-- {
+  "blockType": "response",
+  "truncated": false,
+  "@odata.type": "microsoft.graph.message"
+} -->
 ```http
 {
     "@odata.context": "https://graph.microsoft.com/beta/$metadata#Me/messages/$entity",
@@ -263,18 +284,27 @@ And here is the response from the third example.
 
 ****
 
-#### Request
+#### Request 4
 
 The fourth example references an extension by its fully qualified name and gets the extension in the specified group post.
 
+<!-- {
+  "blockType": "request",
+  "name": "get_opentypeextension_4"
+}-->
 ```http
 GET https://graph.microsoft-ppe.com/beta/groups('37df2ff0-0de0-4c33-8aee-75289364aef6')/threads('AAQkADJizZJpEWwqDHsEpV_KA==')/posts('AAMkADJiUg96QZUkA-ICwMubAADDEd7UAAA=')/extensions('Microsoft.OutlookServices.OpenTypeExtension.Com.Contoso.Estimate') 
 ```
 
-#### Response
+#### Response 4
 
 Here is the response from the fourth example.
 
+<!-- {
+  "blockType": "response",
+  "truncated": false,
+  "@odata.type": "microsoft.graph.opentypeextension"
+} -->
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -298,22 +328,32 @@ Content-Length: 754
 ```
 
 
-#### Request
+#### Request 5
 
 The fifth example looks at all messages in the signed-in user's mailbox to find those that contain an extension matching a filter, and 
 expands them by including the extension. The filter returns extensions that has the **id** property matching the extension name 
 `Com.Contoso.Referral`.
 
+<!-- {
+  "blockType": "request",
+  "name": "get_opentypeextension_5"
+}-->
 ```http
 GET https://graph.microsoft.com/beta/me/messages?$filter=Extensions/any(f:f/id%20eq%20'Com.Contoso.Referral')&$expand=Extensions($filter=id%20eq%20'Com.Contoso.Referral')
 ```
 
 
-####Response
+####Response 5
 
 In this response for the fifth example, there is only one message in the user's mailbox that has an extension with its **id** equal to
 `Com.Contoso.Referral`.
 
+<!-- {
+  "blockType": "response",
+  "truncated": false,
+  "@odata.type": "microsoft.graph.message",
+  "isCollection": true
+} -->
 ```http
 HTTP/1.1 200 OK
 

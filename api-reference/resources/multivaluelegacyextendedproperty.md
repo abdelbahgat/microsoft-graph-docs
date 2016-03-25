@@ -8,8 +8,7 @@ An extended property that can contain a collection of multiple values.
 | Method		   | Return Type	|Description|
 |:---------------|:--------|:----------|
 |[Get multiValueLegacyExtendedProperty](../api/multivaluelegacyextendedproperty_get.md) | [multiValueLegacyExtendedProperty](multivaluelegacyextendedproperty.md) |Read properties and relationships of multiValueLegacyExtendedProperty object.|
-|[Update](../api/multivaluelegacyextendedproperty_update.md) | [multiValueLegacyExtendedProperty](multivaluelegacyextendedproperty.md)	|Update multiValueLegacyExtendedProperty object. |
-|[Delete](../api/multivaluelegacyextendedproperty_delete.md) | None |Delete multiValueLegacyExtendedProperty object. |
+
 
 ### Properties
 | Property	   | Type	|Description|

@@ -76,10 +76,9 @@ If successful, this method returns a `200 OK` response code and the updated
 ### Example
 #### Request 1
 
-
-
 The first example shows how to update an extension in a message. The extension is initially represented by the following JSON payload:
 
+<!-- { "blockType": "ignored" } -->
 ```http
 {
     "@odata.context": "https://graph.microsoft.com/beta/$metadata#Me/messages('AAMkAGE1M2IyNGNmLTI5MTktNDUyZi1iOTVl===')/extensions/$entity",
@@ -96,21 +95,24 @@ The first example shows how to update an extension in a message. The extension i
 
 You can reference the extension by its name:
 
+<!-- { "blockType": "ignored" } -->
 ```http
 PATCH https://graph.microsoft.com/beta/me/messages('AAMkAGE1M2IyNGNmLTI5MTktNDUyZi1iOTVl===')/extensions('Com.Contoso.Referral')
 ```
 
 Or you can reference the extension by its fully qualified name:
 
+<!-- { "blockType": "ignored" } -->
 ```http
 PATCH https://graph.microsoft.com/beta/me/messages('AAMkAGE1M2IyNGNmLTI5MTktNDUyZi1iOTVl===')/extensions('Microsoft.OutlookServices.OpenTypeExtension.Com.Contoso.Referral')
 ```
 
-You can use either example request and the following request body to update the original extension in Request 1 above by:
+You can use either example request and the following request body to update the above extension by:
 - Changing `companyName` from `Wingtip Toys` to `Wingtip Toys (USA)`
 - Changing `dealValue` from `500050` to `500100`
 - Adding new data as the custom property `updated`
 
+<!-- { "blockType": "ignored" } -->
 ```http
 {
     "@odata.type": "Microsoft.Graph.OpenTypeExtension",
@@ -127,12 +129,7 @@ You can use either example request and the following request body to update the 
 
 Here is the response which is the same regardless of the way used to reference the extension.
 
-<!-- {  
-  "blockType": "response",  
-  "truncated": true,  
-  "@odata.type": "microsoft.graph.opentypeextension"  
-} --> 
-
+<!-- { "blockType": "ignored" } -->
 ```http
 HTTP/1.1 200 OK
 Content-type: application/json
@@ -158,6 +155,7 @@ Content-type: application/json
 The second example shows how to update an extension in a group post. The extension is initially represented by the following JSON payload, 
 with an `expirationDate` value of `2015-07-03T13:04:00Z`:
 
+<!-- { "blockType": "ignored" } -->
 ```http
 {
     "@odata.context": "https://graph.microsoft-ppe.com/beta/$metadata#groups('37df2ff0-0de0-4c33-8aee-75289364aef6')/threads('AAQkADJizZJpEWwqDHsEpV_KA%3D%3D')/posts('AAMkADJiUg96QZUkA-ICwMubAADDEd7UAAA%3D')/extensions/$entity",
@@ -178,6 +176,10 @@ with an `expirationDate` value of `2015-07-03T13:04:00Z`:
 
 The following is the request and request body to change the `expirationDate` to `2016-07-30T11:00:00Z`:
 
+<!-- {
+  "blockType": "request",
+  "name": "update_opentypeextension"
+}-->
 ```http
 PATCH https://graph.microsoft-ppe.com/beta/groups('37df2ff0-0de0-4c33-8aee-75289364aef6')/threads('AAQkADJizZJpEWwqDHsEpV_KA==')/posts('AAMkADJiUg96QZUkA-ICwMubAADDEd7UAAA=')/extensions('Microsoft.OutlookServices.OpenTypeExtension.Com.Contoso.Estimate')
 Content-type: application/json
@@ -200,6 +202,11 @@ Content-type: application/json
 
 Here is the response of the second example which shows the updated `expirationDate` in the extension.
 
+<!-- {  
+  "blockType": "response",  
+  "truncated": true,  
+  "@odata.type": "microsoft.graph.opentypeextension"  
+} --> 
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json

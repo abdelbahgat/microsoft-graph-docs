@@ -68,6 +68,7 @@ DELETE https://graph.microsoft.com/beta/me/messages('AAMkAGE1M2IyNGNmLTI5MTktNDU
 
 The second example deletes an extension in the specified group event.
 
+<!-- { "blockType": "ignored" } -->
 ```http
 DELETE https://graph.microsoft.com/beta/groups('f5480dfd-7d77-4d0b-ba2e-3391953cc74a')/events('AAMkADVlN17IsAAA=')/extensions('Com.Contoso.Referral')
 ```
