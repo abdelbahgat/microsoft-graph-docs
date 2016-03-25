@@ -49,7 +49,7 @@ for Business.
   "name": "get_drive"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/me/drive
+GET https://graph.microsoft.com/beta/me/drive
 ```
 ##### Response
 Here is an example of the response.

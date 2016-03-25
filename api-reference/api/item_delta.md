@@ -154,7 +154,7 @@ Content-type: application/json
             "file": { }
         }
     ],
-    "@odata.deltaLink": "https://graph.microsoft.com/v1.0/me/drive/root/delta?(token='1230919asd190410jlka')"
+    "@odata.deltaLink": "https://graph.microsoft.com/beta/me/drive/root/delta?(token='1230919asd190410jlka')"
 }
 ```
 

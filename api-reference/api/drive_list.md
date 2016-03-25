@@ -43,7 +43,7 @@ Here is an example of the request for the user's drives.
   "name": "get_drives"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/me/drives
+GET https://graph.microsoft.com/beta/me/drives
 ```
 
 ##### Response

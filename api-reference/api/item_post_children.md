@@ -45,7 +45,7 @@ OneDrive.
   "name": "create_item_from_item"
 }-->
 ```http
-POST https://graph.microsoft.com/v1.0/me/drive/root/children
+POST https://graph.microsoft.com/beta/me/drive/root/children
 Content-Type: application/json
 
 {

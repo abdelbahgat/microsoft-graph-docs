@@ -90,7 +90,7 @@ Content-type: application/json
         "searchResult": { "onClickTelemetryUrl": "https://bing.com/0123456789abc!456" }
       }
     ],
-    "@odata.nextLink": "https://graph.microsoft.com/v1.0/drive/root/microsoft.graph.search(query='vacation')&skipToken=1asdlnjnkj1nalkm!asd"
+    "@odata.nextLink": "https://graph.microsoft.com/beta/drive/root/microsoft.graph.search(query='vacation')&skipToken=1asdlnjnkj1nalkm!asd"
 }
 ```
 

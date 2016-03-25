@@ -33,7 +33,7 @@ Here is a JSON representation of the resource
 To address an item from an **itemReference** instance, construct a URL of the format:
 
 ```http
-GET https://graph.microsoft.com/v1.0/drives/<driveId>/items/<id>
+GET https://graph.microsoft.com/beta/drives/<driveId>/items/<id>
 ```
 
 The **path** value is an API path relative to the target drive,

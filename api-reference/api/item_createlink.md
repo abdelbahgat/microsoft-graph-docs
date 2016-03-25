@@ -121,7 +121,7 @@ value of `organization`.
 ### HTTP request
 
 <!-- { "blockType": "request", "name": "create-link-scoped", "scopes": "files.readwrite service.sharepoint" } -->
-```
+```http
 POST /drive/items/{item-id}/action.createLink
 Content-Type: application/json
 
