@@ -1,7 +1,7 @@
 # driveRecipient resource type
 
 The recipients resource represents a single recipient for the
-[invite](../items/invite.md) action and [item permissions](../items/permissions.md).
+[invite](../api/item_invite.md) action.
 
 ## JSON representation
 
