@@ -172,7 +172,7 @@ and the following for the new extension:
 Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
 <!-- {
   "blockType": "response",
-  "truncated": false,
+  "truncated": true,
   "@odata.type": "microsoft.graph.message"
 } -->
 ```http

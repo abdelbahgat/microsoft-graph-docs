@@ -208,11 +208,11 @@ GET https://graph.microsoft.com/beta/me/messages('AAMkAGE1M2IyNGNmLTI5MTktNDUyZi
 
 #### Response 3
 
-And here is the response from the third example.
+And here is the response from the third example. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
 
 <!-- {
   "blockType": "response",
-  "truncated": false,
+  "truncated": true,
   "@odata.type": "microsoft.graph.message"
 } -->
 ```http
