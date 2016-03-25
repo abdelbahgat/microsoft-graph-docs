@@ -20,13 +20,14 @@ deleting the extension from:
 <!-- { "blockType": "ignored" } -->
 ```http
 DELETE /me/messages/<id>/extensions/<extensionId>
-DELETE /users/<id>/messages/<id>/extensions/<extensionId>
+DELETE /users/<id|userPrincipalName>/messages/<id>/extensions/<extensionId>
+DELETE /me/mailFolders/<id>/messages/<id>/extensions/<extensionId>
 
 DELETE /me/events/<id>/extensions/<extensionId>
-DELETE /users/<id>/events/<id>/extensions/<extensionId>
+DELETE /users/<id|userPrincipalName>/events/<id>/extensions/<extensionId>
 
 DELETE /me/contacts/<id>/extensions/<extensionId>
-DELETE /users/<id>/contacts/<id>/extensions/<extensionId>
+DELETE /users/<id|userPrincipalName>/contacts/<id>/extensions/<extensionId>
 
 DELETE /groups/<id>/events/<id>/extensions/<extensionId>
 

@@ -30,13 +30,14 @@ The following is the syntax of the requests.
 <!-- { "blockType": "ignored" } -->
 ```http
 POST /me/messages
-POST /users/<id>/messages
+POST /users/<id|userPrincipalName>/messages
+POST /me/mailFolders/<id>/messages
 
 POST /me/events
-POST /users/<id>/events
+POST /users/<id|userPrincipalName>/events
 
 POST /me/contacts
-POST /users/<id>/contacts
+POST /users/<id|userPrincipalName>/contacts
 
 POST /groups/<id>/events
 
@@ -54,13 +55,14 @@ request, and include the extension in the request body.
 <!-- { "blockType": "ignored" } -->
 ```http
 POST /me/messages/<id>/extensions
-POST /users/<id>/messages/<id>/extensions
+POST /users/<id|userPrincipalName>/messages/<id>/extensions
+POST /me/mailFolders/<id>/messages/<id>/extensions
 
 POST /me/events/<id>/extensions
-POST /users/<id>/events/<id>/extensions
+POST /users/<id|userPrincipalName>/events/<id>/extensions
 
 POST /me/contacts/<id>/extensions
-POST /users/<id>/contacts/<id>/extensions
+POST /users/<id|userPrincipalName>/contacts/<id>/extensions
 
 POST /groups/<id>/events/<id>/extensions
 
