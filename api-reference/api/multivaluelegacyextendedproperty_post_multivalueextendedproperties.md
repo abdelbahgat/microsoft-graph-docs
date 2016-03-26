@@ -105,6 +105,10 @@ PATCH /groups/<id>/events/<id>
 |:-----|:-----|:-----|
 |_URL parameters_|
 |id|string|A unique identifier for an object in the corresponding collection. Required.|
+|_Body parameters_|
+|multiValueExtendedProperties|[multiValueLegacyExtendedProperty](../resources/multiValueLegacyExtendedProperty.md) collection| An array of one or more multi-valued extended properties. |
+|propertyId|String|For each property in the **multiValueExtendedProperties** collection, specify this to identify the property. It must follow one of the supported formats. See [Outlook extended properties overview](../resources/extended-properties-overview.md) for more information. Required.|
+|value|string|For each property in the **multiValueExtendedProperties** collection, specify the property value. Required.|
 
 
 ### Request headers
@@ -134,13 +138,124 @@ In an existing resource instance, a successful create operation returns `200 OK`
 #### Response body
 
 When creating an extended property in a new resource instance, the response includes only the new instance but not the new extended property. To see the newly
-created extended property, [get the new instance expanded with the extended property](../api/multivaluelegacyextendedproperty_get.md).
+created extended property, [get the instance expanded with the extended property](../api/multivaluelegacyextendedproperty_get.md).
 
 When creating an extended property in a _new_ [group post](../resources/post.md), the response includes only a response code but not the new post nor 
 the extended property.
 
 When creating an extended property in a _existing_ resource instance, the 
-response body includes the new instance expanded with the [multiValueLegacyExtendedProperty](../resources/multiValueLegacyExtendedProperty.md). 
+response body includes the new instance expanded with a collection of one or more [multiValueLegacyExtendedProperty](../resources/multiValueLegacyExtendedProperty.md)
+objects. 
+
+
+### Example
+##### Request 1
+
+The first example creates a multi-value extended property in a new event all in the same POST operation. Apart from the properties you'd normally 
+include for a new event, the request body includes the **multiValueExtendedProperties** collection which contains one extended property. 
+The request body includes the following for that multi-value extended property:
+- **propertyId** which specifies the property as an array of strings with the specified GUID and the name `Recreation`. 
+- **value** which specifies `Recreation` as an array of 3 string values, `["Food", "Hiking", "Swimming"]`.
+ 
+
+<!-- { "blockType": "ignored" } -->
+```http
+POST https://graph.microsoft.com/beta/me/events
+Content-Type: application/json
+
+{
+  "subject": "Family reunion",
+  "body": {
+    "contentType": "HTML",
+    "content": "Let's get together this Thanksgiving!"
+  },
+  "start": {
+      "dateTime": "2015-11-26T09:00:00",
+      "timeZone": "Pacific Standard Time"
+  },
+  "end": {
+      "dateTime": "2015-11-29T21:00:00",
+      "timeZone": "Pacific Standard Time"
+  },
+  "attendees": [
+    {
+      "emailAddress": {
+        "address": "Terrie@contoso.com",
+        "name": "Terrie Barrera"
+      },
+      "type": "Required"
+    },
+    {
+      "emailAddress": {
+        "address": "Lauren@contoso.com",
+        "name": "Lauren Solis"
+      },
+      "type": "Required"
+    }
+  ],
+  "multiValueExtendedProperties": [
+     {
+           "propertyId":"StringArray {66f5a359-4659-4830-9070-00050ec6ac6e} Name Recreation",
+           "value": ["Food", "Hiking", "Swimming"]
+     }
+  ]
+}
+```
+
+##### Response 1
+
+A successful response is indicated by an `HTTP 201 Created` response code, and includes the new event 
+in the response body, similar to the response from [creating just an event](../api/user_post_events.md). 
+The response does not include any newly created extended properties.
+
+To see the newly created extended property, [get the event expanded with the extended property](../api/multivaluelegacyextendedproperty_get.md).
+
+
+****
+
+##### Request 2
+
+The second example creates one multi-value extended property for the specified message. That extended property is the only
+element in the **multiValueExtendedProperties** collection. The request body includes the following for the 
+extended property:
+- **propertyId** specifies the property as an array of strings with the specified GUID and the name `Palette`.
+- **value** specifies `Palette` as an array of 3 string values, `["Green", "Aqua", "Blue"]`.
+
+<!-- { "blockType": "ignored" } -->
+```http
+PATCH https://graph.microsoft.com/beta/me/messages('AAMkAGE1M2_as77AACHsLrBBBA=')
+
+Content-Type: application/json
+
+{
+  "multiValueExtendedProperties": [
+      {
+         "propertyId":"StringArray {66f5a359-4659-4830-9070-00049ec6ac6e} Name Palette",
+         "value":["Green", "Aqua", "Blue"]
+      }
+    ]
+}
+```
+
+##### Response 2
+
+A successful response is indicated by an `HTTP 200 OK` response code, and includes the specified message in the response body, 
+similar to the response from [updating a message](../api/message_update.md). The response does not 
+include the newly created extended property.
+
+To see the newly created extended property, [get the message expanded with the extended property](../api/multivaluelegacyextendedproperty_get.md).
+
+
+<!-- This page was manually created. -->
+<!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79
+2015-10-25 14:57:30 UTC -->
+<!-- {
+  "type": "#page.annotation",
+  "description": "Create a single-value extended property",
+  "keywords": "",
+  "section": "documentation",
+  "tocPath": ""
+}-->
 
 
 
