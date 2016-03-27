@@ -88,7 +88,7 @@ Here is an example of the response. Note: The response object shown here may be 
 <!-- {
   "blockType": "response",
   "truncated": true,
-  "@odata.type": "microsoft.graph.meetingTimeCandidate",
+  "@odata.type": "microsoft.graph.meetingtimecandidate",
   "isCollection": true
 } -->
 ```http
@@ -113,6 +113,7 @@ Content-length: 1140
       },
       "confidence": 99,
       "score": 99,
+      "suggestionHint": "suggestionHint-value",
       "organizerAvailability": "organizerAvailability-value",
       "attendeeAvailability": [
         {

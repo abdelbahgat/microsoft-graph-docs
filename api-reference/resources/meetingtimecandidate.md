@@ -22,7 +22,8 @@ Here is a JSON representation of the resource
   "locations": [{"@odata.type": "microsoft.graph.location"}],
   "meetingTimeSlot": {"@odata.type": "microsoft.graph.timeSlot"},
   "organizerAvailability": "String",
-  "score": 1024
+  "score": 1024,
+  "suggestionHint": "String"
 }
 
 ```
@@ -35,6 +36,7 @@ Here is a JSON representation of the resource
 |meetingTimeSlot|[TimeSlot](timeslot.md)|A time period suggested for the meeting.|
 |organizerAvailability|String| Availability of the meeting organizer for this meeting suggestion. Possible values are: `free`, `tentative`, `busy`, `oof`, `workingElsewhere`, `unknown`.|
 |score|Int32|The numerical order of this meeting suggestion, among those that have the same level of confidence.|
+|suggestionHint|String|Reason for suggesting the meeting time.|
 
 <!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79
 2015-10-25 14:57:30 UTC -->
