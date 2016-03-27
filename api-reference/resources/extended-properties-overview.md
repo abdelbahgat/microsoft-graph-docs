@@ -28,26 +28,26 @@ Depending on whether you intend to store a single or multiple values (of the sam
 create an extended property as a [singleValueLegacyExtendedProperty](../resources/singleValueLegacyExtendedProperty.md), 
 or [multiValueLegacyExtendedProperty](../resources/multiValueLegacyExtendedProperty.md).
 
-Each of these types identifies the property by its **PropertyId** and stores data in **Value**. 
+Each of these types identifies the property by its **propertyId** and stores data in **value**. 
 
-You can use **PropertyId** to get a specific resource instance together with that extended property, or filter on 
+You can use **propertyId** to get a specific resource instance together with that extended property, or filter on 
 a single-value extended property to get all the instances that have that property. 
 
 **Note** You cannot use the REST API to get all the extended properties of a specific instance in one call.
   
 
-### PropertyId Formats
+### propertyId Formats
 
-When creating a single-value or multi-value extended property, you can specify the **PropertyId** in one of two formats, 
+When creating a single-value or multi-value extended property, you can specify the **propertyId** in one of two formats, 
 based on either a string name or numeric identifier, and on the actual type of value or values of the property. Since 
 extended properties are in most cases inter-operating with defined MAPI properties not exposed in the 
 Microsoft Graph API metadata, for simplicity, the format you choose should reflect whether the corresponding MAPI 
 property uses a character string or numeric value in its [MAPI property identifier](https://msdn.microsoft.com/en-us/library/office/cc815528.aspx).
 
-**Note** After you have chosen one format for the **PropertyId**, you should access that extended property by only that format.
+**Note** After you have chosen one format for the **propertyId**, you should access that extended property by only that format.
 
 
-**Valid PropertyId formats for single-value extended properties**
+**Valid propertyId formats for single-value extended properties**
 
 |**Format**|**Example**|**Description**|
 |:---------|:----------|:--------------|
@@ -55,7 +55,7 @@ property uses a character string or numeric value in its [MAPI property identifi
 | "*{type} {guid} **Id** {id}*"     | ```"Integer {8ECCC264-6880-4EBE-992F-8888D2EEAA1D} Id 0x8012"```        | Identifies a property by the namespace (the GUID) it belongs to, and an identifier.  |
 
 
-**Valid PropertyId formats for multi-value extended properties**
+**Valid propertyId formats for multi-value extended properties**
 
 |**Format**|**Example**|**Description**|
 |:---------|:----------|:--------------|
@@ -67,9 +67,9 @@ property uses a character string or numeric value in its [MAPI property identifi
  
 Single-value extended property operations:
 - [Create an extended property in a new or existing resource instance](../api/singlevaluelegacyextendedproperty_post_singlevalueextendedproperties.md)
-- [Get a resource instance with an extended property using expand or filter](../api/singlevaluelegacyextendedproperty_get.md)
+- [Get one or a collection of resource instances with an extended property using `$expand` or `$filter`](../api/singlevaluelegacyextendedproperty_get.md)
 
 Multi-value extended property operations:
 - [Create an extended property in a new or existing resource instance](../api/multivaluelegacyextendedproperty_post_multivalueextendedproperties.md)
-- [Get a resource instance with an extended property using expand](../api/multivaluelegacyextendedproperty_get.md)
+- [Get a resource instance with an extended property using `$expand`](../api/multivaluelegacyextendedproperty_get.md)
 

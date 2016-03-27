@@ -1,59 +1,171 @@
 # Get multiValueLegacyExtendedProperty
 
-Retrieve the properties and relationships of multivaluelegacyextendedproperty object.
+Get a resource instance that contains a multi-value extended property by using `$expand`.
+
+Using the query parameter `$expand` allows you to get the specified instance expanded with the indicated extended 
+property. This is currently the only way to get the [singleValueLegacyExtendedProperty](../resources/singleValueLegacyExtendedProperty.md)
+object that represents an extended property.
+
+The following user resources are supported:
+- [message](../resources/message.md)
+- [mailFolder](../resources/mailfolder.md)
+- [event](../resources/event.md)
+- [calendar](../resources/calendar.md)
+- [contact](../resources/contact.md)
+- [contactFolder](../resources/contactfolder.md) 
+
+As well as the following group resources:
+- group [event](../resources/event.md)
+- group [calendar](../resources/calendar.md)
+- group [post](../resources/post.md) 
+
+See [Extended properties overview](../resources/extended-properties-overview.md) for more information about when to use 
+Office 365 Data Extensions or extended properties, and how to specify extended properties.
+
 ### Prerequisites
-The following **scopes** are required to execute this API: 
+One of the following **scopes** is required to execute this API, depending on the resource you're
+getting:
+- _Mail.Read_
+- _Calendars.Read_
+- _Contacts.Read_
+- _Group.Read.All_ 
+ 
 ### HTTP request
+
+Get a resource instance expanded with the extended property which matches a filter on the 
+**propertyId** property. Make sure you apply 
+[URL encoding](http://www.w3schools.com/tags/ref_urlencode.asp) to the space characters in the filter string.
+
+Get a **message** instance:
 <!-- { "blockType": "ignored" } -->
 ```http
-GET /me/calendar/multiValueExtendedProperties/<propertyId>
-GET /me/events/<id>/multiValueExtendedProperties/<propertyId>
-GET /me/contacts/<id>/multiValueExtendedProperties/<propertyId>
+GET /me/messages/<id>?$expand=singleValueExtendedProperties($filter=propertyId eq '{propertyId_value}')
+GET /users/<id|userPrincipalName>/messages/<id>?$expand=singleValueExtendedProperties($filter=propertyId eq '{propertyId_value}')
+GET /me/mailFolders/<id>/messages/<id>?$expand=singleValueExtendedProperties($filter=propertyId eq '{propertyId_value}')
 ```
-### Optional query parameters
-|Name|Value|Description|
-|:---------------|:--------|:-------|
-|$count|none|The count of related entities can be requested by specifying the $count query option.|
-|$expand|string|Comma-separated list of relationships to expand and include in the response. See relationships table of [multiValueLegacyExtendedProperty](../resources/multivaluelegacyextendedproperty.md) object for supported names. |
-|$select|string|Comma-separated list of properties to include in the response.|
+Get a **mailFolder** instance:
+<!-- { "blockType": "ignored" } -->
+```http
+GET /me/mailFolders/<id>?$expand=singleValueExtendedProperties($filter=propertyId eq '{propertyId_value}')
+GET /users/<id|userPrincipalName>/mailFolders/<id>?$expand=singleValueExtendedProperties($filter=propertyId eq '{propertyId_value}')
+```
+
+Get an **event** instance:
+<!-- { "blockType": "ignored" } -->
+```http
+GET /me/events/<id>?$expand=singleValueExtendedProperties($filter=propertyId eq '{propertyId_value}')
+GET /users/<id|userPrincipalName>/events/<id>?$expand=singleValueExtendedProperties($filter=propertyId eq '{propertyId_value}')
+```
+Get a **calendar** instance:
+<!-- { "blockType": "ignored" } -->
+```http
+GET /me/calendars/<id>?$expand=singleValueExtendedProperties($filter=propertyId eq '{propertyId_value}')
+GET /users/<id|userPrincipalName>/calendars/<id>?$expand=singleValueExtendedProperties($filter=propertyId eq '{propertyId_value}')
+```
+Get a **contact** instance:
+<!-- { "blockType": "ignored" } -->
+```http
+GET /me/contacts/<id>?$expand=singleValueExtendedProperties($filter=propertyId eq '{propertyId_value}')
+GET /users/<id|userPrincipalName>/contacts/<id>?$expand=singleValueExtendedProperties($filter=propertyId eq '{propertyId_value}')
+GET /me/contactFolders/<id>/contacts/<id>?$expand=singleValueExtendedProperties($filter=propertyId eq '{propertyId_value}')
+GET /users/<id|userPrincipalName>/contactFolders/<id>/contacts/<id>?$expand=singleValueExtendedProperties($filter=propertyId eq '{propertyId_value}')
+```
+Get a **contactFolder** instance:
+<!-- { "blockType": "ignored" } -->
+```http
+GET /me/contactfolders/<id>?$expand=singleValueExtendedProperties($filter=propertyId eq '{propertyId_value}')
+GET /users/<id|userPrincipalName>/contactFolders/<id>?$expand=singleValueExtendedProperties($filter=propertyId eq '{propertyId_value}')
+```
+Get a group **event** instance:
+<!-- { "blockType": "ignored" } -->
+```http
+GET /groups/<id>/events/<id>?$expand=singleValueExtendedProperties($filter=propertyId eq '{propertyId_value}')
+```
+
+Get a group **post** instance:
+<!-- { "blockType": "ignored" } -->
+```http
+GET /groups/<id>/threads/<id>/posts/<id>?$expand=singleValueExtendedProperties($filter=propertyId eq '{propertyId_value}')
+GET /groups/<id>/conversations/<id>/threads/<id>/posts/<id>?$expand=singleValueExtendedProperties($filter=propertyId eq '{propertyId_value}')
+```
+
+### Parameters
+|**Parameter**|**Type**|**Description**|
+|:-----|:-----|:-----|
+|_URL parameters_|
+|propertyId_value|String|The ID of the extended property to match. It must follow one of the supported formats. See [Outlook extended properties overview](../resources/extended-properties-overview.md) for more information. Required.|
+
 
 ### Request headers
 | Name      |Description|
 |:----------|:----------|
 | Authorization  | Bearer <code>|
-| Workbook-Session-Id  | Workbook session Id that determines if changes are persisted or not. Optional.|
+
 
 ### Request body
 Do not supply a request body for this method.
 ### Response
-If successful, this method returns a `200 OK` response code and [multiValueLegacyExtendedProperty](../resources/multivaluelegacyextendedproperty.md) object in the response body.
+If successful, this method returns a `200 OK` response code. 
+
+The response body includes an object representing the requested resource instance, expanded with the matching 
+[multiValueLegacyExtendedProperty](../resources/multivaluelegacyextendedproperty.md) object.
+
 ### Example
 ##### Request
-Here is an example of the request.
+This example gets and expands the specified event by including a multi-value extended property. The filter returns the 
+extended property that has its **propertyId** matching the string `StringArray {66f5a359-4659-4830-9070-00050ec6ac6e} Name Recreation`
+(with URL encoding removed here for ease of reading).
+
 <!-- {
   "blockType": "request",
   "name": "get_multivaluelegacyextendedproperty"
 }-->
 ```http
-GET https://graph.microsoft.com/v1.0/me/calendar/multiValueExtendedProperties/<propertyId>
+GET https://graph.microsoft.com/beta/me/events('AAMkAGE1M2_bs88AACbuFiiAAA=')?$expand=multiValueExtendedProperties($filter=propertyId%20eq%20'StringArray%20{66f5a359-4659-4830-9070-00050ec6ac6e}%20Name%20Recreation')
 ```
 ##### Response
-Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
+
+The response body includes all the properties of the specified event and extended property returned from the filter.
+
+Note: The **event** object shown here is truncated for brevity. All of the properties will be returned from an actual call.
 <!-- {
   "blockType": "response",
   "truncated": true,
-  "@odata.type": "microsoft.graph.multivaluelegacyextendedproperty"
+  "@odata.type": "microsoft.graph.event"
 } -->
 ```http
 HTTP/1.1 200 OK
 Content-type: application/json
-Content-length: 74
-
 {
-  "value": [
-    "value-value"
-  ],
-  "propertyId": "propertyId-value"
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#Me/events/$entity",
+    "@odata.id": "https://graph.microsoft.com/beta/users('ddfcd489-628b-40d7-b48b-57002df800e5@1717622f-1d94-4d0c-9d74-709fad664b77')/events('AAMkAGE1M2_bs88AACbuFiiAAA=')",
+    "@odata.etag": "W/\"mODEKWhc/Um6lA3uPm7PPAAAm8k15A==\"",
+    "id": "AAMkAGE1M2_bs88AACbuFiiAAA=",
+    "start": {
+        "dateTime": "2015-11-26T17:00:00.0000000",
+        "timeZone": "UTC"
+    },
+    "end": {
+        "dateTime": "2015-11-30T05:00:00.0000000",
+        "timeZone": "UTC"
+    },
+    "organizer": {
+        "emailAddress": {
+            "name": "Christine Irwin",
+            "address": "christine@contoso.com"
+        }
+    },
+    "multiValueExtendedProperties@odata.context": "https://graph.microsoft.com/beta/$metadata#Me/events('AAMkAGE1M2_bs88AACbuFiiAAA%3D')/multiValueExtendedProperties",
+    "multiValueExtendedProperties": [
+        {
+            "propertyId": "StringArray {66f5a359-4659-4830-9070-00050ec6ac6e} Name Recreation",
+            "value": [
+                "Food",
+                "Hiking",
+                "Swimming"
+            ]
+        }
+    ]
 }
 ```
 

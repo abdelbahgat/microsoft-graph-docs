@@ -15,6 +15,8 @@ As well as the following group resources:
 - group [calendar](../resources/calendar.md)
 - group [post](../resources/post.md) 
 
+See [Extended properties overview](../resources/extended-properties-overview.md) for more information about when to use 
+Office 365 Data Extensions or extended properties, and how to specify extended properties.
 
 ### Prerequisites
 

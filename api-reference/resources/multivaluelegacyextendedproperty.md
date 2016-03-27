@@ -1,14 +1,16 @@
 # multiValueLegacyExtendedProperty resource type
 
-An extended property that can contain a collection of multiple values.
+An extended property that contains a collection of values.
 
+See [Extended properties overview](../resources/extended-properties-overview.md) for more information about when to use 
+Office 365 Data Extensions or extended properties, and how to specify extended properties.
 
 ### Methods
 
 | Method		   | Return Type	|Description|
 |:---------------|:--------|:----------|
-|[Get multiValueLegacyExtendedProperty](../api/multivaluelegacyextendedproperty_get.md) | [multiValueLegacyExtendedProperty](multivaluelegacyextendedproperty.md) |Read properties and relationships of multiValueLegacyExtendedProperty object.|
-
+|[Post](../api/multivaluelegacyextendedproperty_post_multivalueextendedproperties.md) | A supported resource instance: [message](../resources/message.md), [mailFolder](../resources/mailfolder.md), [event](../resources/event.md), [calendar](../resources/calendar.md), [contact](../resources/contact.md), or [contactFolder](../resources/contactfolder.md), but not group [post](../resources/post.md). | Create a **multiValueLegacyExtendedProperty** in a new or existing instance of a supported resource. |
+|[Get](../api/multivaluelegacyextendedproperty_get.md) |A supported resource instance ([message](../resources/message.md), [mailFolder](../resources/mailfolder.md), [event](../resources/event.md), [calendar](../resources/calendar.md), [contact](../resources/contact.md), [contactFolder](../resources/contactfolder.md), or group [post](../resources/post.md)) expanded with a [multiValueLegacyExtendedProperty](multivaluelegacyextendedproperty.md) object. |Get a resource instance with an extended property using `$expand`.|
 
 ### Properties
 | Property	   | Type	|Description|
