@@ -29,7 +29,7 @@ In the request body, provide a JSON object with the following parameters.
 |returnSuggestionHints|boolean|`True` to return the reasons for suggesting the meeting time.|
 
 ### Response
-If successful, this method returns `200, OK` response code and [meetingTimeCandidate](../resources/meetingtimecandidate.md) object in the response body.
+If successful, this method returns `200, OK` response code and a collection of [meetingTimeCandidate](../resources/meetingtimecandidate.md) objects in the response body.
 
 ### Example
 Here is an example of how to call this API.
@@ -88,7 +88,8 @@ Here is an example of the response. Note: The response object shown here may be 
 <!-- {
   "blockType": "response",
   "truncated": true,
-  "@odata.type": "microsoft.graph.meetingtimecandidate"
+  "@odata.type": "microsoft.graph.meetingtimecandidate",
+  "isCollection": true
 } -->
 ```http
 HTTP/1.1 200 OK
@@ -96,50 +97,54 @@ Content-type: application/json
 Content-length: 1140
 
 {
-  "meetingTimeSlot": {
-    "start": {
-      "date": "datetime-value",
-      "time": "datetime-value",
-      "timeZone": "timeZone-value"
-    },
-    "end": {
-      "date": "datetime-value",
-      "time": "datetime-value",
-      "timeZone": "timeZone-value"
-    }
-  },
-  "confidence": 99,
-  "score": 99,
-  "organizerAvailability": "organizerAvailability-value",
-  "attendeeAvailability": [
+  "value": [
     {
-      "attendee": {
-        "type": "type-value"
+      "meetingTimeSlot": {
+        "start": {
+          "date": "datetime-value",
+          "time": "datetime-value",
+          "timeZone": "timeZone-value"
+        },
+        "end": {
+          "date": "datetime-value",
+          "time": "datetime-value",
+          "timeZone": "timeZone-value"
+        }
       },
-      "availability": "availability-value"
-    }
-  ],
-  "locations": [
-    {
-      "displayName": "displayName-value",
-      "locationEmailAddress": "locationEmailAddress-value",
-      "address": {
-        "type": "type-value",
-        "postOfficeBox": "postOfficeBox-value",
-        "street": "street-value",
-        "city": "city-value",
-        "state": "state-value",
-        "countryOrRegion": "countryOrRegion-value",
-        "postalCode": "postalCode-value"
-      },
-      "coordinates": {
-        "altitude": 99,
-        "latitude": 99,
-        "longitude": 99,
-        "accuracy": 99,
-        "altitudeAccuracy": 99
-      },
-      "locationUri": "locationUri-value"
+      "confidence": 99,
+      "score": 99,
+      "organizerAvailability": "organizerAvailability-value",
+      "attendeeAvailability": [
+        {
+          "attendee": {
+            "type": "type-value"
+          },
+          "availability": "availability-value"
+        }
+      ],
+      "locations": [
+        {
+          "displayName": "displayName-value",
+          "locationEmailAddress": "locationEmailAddress-value",
+          "address": {
+            "type": "type-value",
+            "postOfficeBox": "postOfficeBox-value",
+            "street": "street-value",
+            "city": "city-value",
+            "state": "state-value",
+            "countryOrRegion": "countryOrRegion-value",
+            "postalCode": "postalCode-value"
+          },
+          "coordinates": {
+            "altitude": 99,
+            "latitude": 99,
+            "longitude": 99,
+            "accuracy": 99,
+            "altitudeAccuracy": 99
+          },
+          "locationUri": "locationUri-value"
+        }
+      ]
     }
   ]
 }
