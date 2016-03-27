@@ -88,7 +88,7 @@ Here is an example of the response. Note: The response object shown here may be 
 <!-- {
   "blockType": "response",
   "truncated": true,
-  "@odata.type": "microsoft.graph.meetingtimecandidate",
+  "@odata.type": "microsoft.graph.meetingTimeCandidate",
   "isCollection": true
 } -->
 ```http
