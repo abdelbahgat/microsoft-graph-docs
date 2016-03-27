@@ -10,6 +10,7 @@ Represents location information of an event.
 | coordinates | [outlookGeoCoordinates](outlookGeoCoordinates.md) |The geographic coordinates, elevation, and their degree of accuracy for a physical location. |
 | displayName  | String | The name associated with the location.                       |
 | locationEmailAddress | String | Optional email address of the location.              |
+| locationUri | String | Optional URI representing the location.|
 
 
 ### JSON representation
@@ -26,7 +27,8 @@ Represents location information of an event.
   "address": {"@odata.type": "microsoft.graph.physicalAddress"},
   "coordinates": {"@odata.type": "microsoft.graph.outlookGeoCoordinates"},  
   "displayName": "string",
-  "locationEmailAddress": "string"
+  "locationEmailAddress": "string",
+  "locationUri": "string"
 }
 
 ```
