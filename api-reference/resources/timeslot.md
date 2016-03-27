@@ -11,7 +11,7 @@ Here is a JSON representation of the resource
   "optionalProperties": [
 
   ],
-  "@odata.type": "microsoft.graph.timeslot"
+  "@odata.type": "microsoft.graph.timeSlot"
 }-->
 
 ```json
