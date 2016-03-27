@@ -25,8 +25,8 @@ In the request body, provide a JSON object with the following parameters.
 |timeConstraint|timeConstraint|Conditions stated by a client for the time periods for an acitivity of a certain nature.|
 |meetingDuration|duration|The length of time for the meeting, denoted in [ISO8601](http://www.iso.org/iso/iso8601) format. For example, 1 hour is denoted as 'PT1H', where 'P' is the duration designator, 'T' is the time designator, 'H' is the hour designator.  |
 |maxCandidates|int32|The maximum number of meeting time suggestions to be returned.|
-|isOrganizerOptional|boolean|`True` if the organizer's attendance is not necessary.|
-|returnSuggestionHints|boolean|`True` to return the reasons for suggesting the meeting time.|
+|isOrganizerOptional|boolean|`True` if the organizer's attendance is not necessary, `false` otherwise.|
+|returnSuggestionHints|boolean|`True` to return the reasons for suggesting the meeting time, `false` otherwise.|
 
 ### Response
 If successful, this method returns `200, OK` response code and a collection of [meetingTimeCandidate](../resources/meetingtimecandidate.md) objects in the response body.
