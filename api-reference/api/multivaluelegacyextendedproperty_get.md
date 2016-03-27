@@ -116,10 +116,7 @@ This example gets and expands the specified event by including a multi-value ext
 extended property that has its **propertyId** matching the string `StringArray {66f5a359-4659-4830-9070-00050ec6ac6e} Name Recreation`
 (with URL encoding removed here for ease of reading).
 
-<!-- {
-  "blockType": "request",
-  "name": "get_multivaluelegacyextendedproperty"
-}-->
+<!-- { "blockType": "ignored" } -->
 ```http
 GET https://graph.microsoft.com/beta/me/events('AAMkAGE1M2_bs88AACbuFiiAAA=')?$expand=multiValueExtendedProperties($filter=propertyId%20eq%20'StringArray%20{66f5a359-4659-4830-9070-00050ec6ac6e}%20Name%20Recreation')
 ```
@@ -128,11 +125,8 @@ GET https://graph.microsoft.com/beta/me/events('AAMkAGE1M2_bs88AACbuFiiAAA=')?$e
 The response body includes all the properties of the specified event and extended property returned from the filter.
 
 Note: The **event** object shown here is truncated for brevity. All of the properties will be returned from an actual call.
-<!-- {
-  "blockType": "response",
-  "truncated": true,
-  "@odata.type": "microsoft.graph.event"
-} -->
+
+<!-- { "blockType": "ignored" } -->
 ```http
 HTTP/1.1 200 OK
 Content-type: application/json
