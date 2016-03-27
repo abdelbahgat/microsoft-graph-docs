@@ -29,7 +29,7 @@ If successful, this method returns a `200 OK` response code and [automaticReplie
 Here is an example of the request.
 <!-- {
   "blockType": "request",
-  "name": "user_get_automaticRepliesSetting"
+  "name": "user_get_automaticrepliessetting"
 }-->
 ```http
 GET https://graph.microsoft.com/beta/me/mailboxSettings/automaticRepliesSetting
@@ -39,7 +39,7 @@ Here is an example of the response. Note: The response object shown here may be 
 <!-- {
   "blockType": "response",
   "truncated": true,
-  "@odata.type": "microsoft.graph.automaticRepliesSetting"
+  "@odata.type": "microsoft.graph.automaticrepliessetting"
 } -->
 ```http
 HTTP/1.1 200 OK
