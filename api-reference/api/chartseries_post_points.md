@@ -16,11 +16,11 @@ POST /workbook/worksheets(<id|name>)/charts(<name>)/series(<undefined>)/points
 
 
 ### Request body
-In the request body, supply a JSON representation of [ChartPoints](../resources/chartpoints.md) object.
+In the request body, supply a JSON representation of [ChartPoints](../resources/chartpoint.md) object.
 
 
 ### Response
-If successful, this method returns `201, Created` response code and [ChartPoints](../resources/chartpoints.md) object in the response body.
+If successful, this method returns `201, Created` response code and [ChartPoints](../resources/chartpoint.md) object in the response body.
 
 ### Example
 ##### Request
@@ -37,7 +37,7 @@ Content-length: 3
 {
 }
 ```
-In the request body, supply a JSON representation of [ChartPoints](../resources/chartpoints.md) object.
+In the request body, supply a JSON representation of [ChartPoints](../resources/chartpoint.md) object.
 ##### Response
 Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
 <!-- {

@@ -30,7 +30,7 @@ In the request body, supply the values for relevant fields that should be update
 |values|object[]|The set of values to be used as part of "values" filtering.|
 
 ### Response
-If successful, this method returns a `200 OK` response code and updated [FilterCriteria](../resources/filtercriteria.md) object in the response body.
+If successful, this method returns a `200 OK` response code and updated FilterCriteria object in the response body.
 ### Example
 ##### Request
 Here is an example of the request.

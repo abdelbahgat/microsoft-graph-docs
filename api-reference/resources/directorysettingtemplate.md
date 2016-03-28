@@ -6,7 +6,7 @@
 |description|string||
 |displayName|string||
 |id|string| Read-only.|
-|values|[settingTemplateValue](settingtemplatevalue.md) collection||
+|values|settingTemplateValue collection||
 
 ### Relationships
 None

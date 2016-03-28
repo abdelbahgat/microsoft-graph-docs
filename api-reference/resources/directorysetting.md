@@ -17,7 +17,7 @@
 |displayName|string||
 |id|string| Read-only.|
 |templateId|string||
-|values|[settingValue](settingvalue.md) collection||
+|values|settingValue collection||
 
 ### Relationships
 None
