@@ -115,7 +115,6 @@ Here is a JSON representation of the resource
 
 ```json
 {
-  "accessType": "String",
   "allowExternalSenders": true,
   "autoSubscribeNewMembers": true,
   "description": "string",
