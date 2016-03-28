@@ -1,16 +1,6 @@
 # directorySetting resource type
 
 
-
-
-### Methods
-
-| Method		   | Return Type	|Description|
-|:---------------|:--------|:----------|
-|[Get directorySetting](../api/directorysetting_get.md) | [directorySetting](directorysetting.md) |Read properties and relationships of directorySetting object.|
-|[Update](../api/directorysetting_update.md) | [directorySetting](directorysetting.md)	|Update directorySetting object. |
-|[Delete](../api/directorysetting_delete.md) | None |Delete directorySetting object. |
-
 ### Properties
 | Property	   | Type	|Description|
 |:---------------|:--------|:----------|
