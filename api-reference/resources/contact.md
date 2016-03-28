@@ -8,9 +8,15 @@ A contact is an item in Outlook where you can organize and save information abou
 |:---------------|:--------|:----------|
 |[Get contact](../api/contact_get.md) | [contact](contact.md) |Read properties and relationships of contact object.|
 |[Create](../api/user_post_contacts.md) | [contact](contact.md) |Add a contact to the root Contacts folder or to the contacts endpoint of another contact folder.|
-|[List extensions](../api/contact_list_extensions.md) |[Extension](extension.md) collection| Get a Extension object collection.|
 |[Update](../api/contact_update.md) | [contact](contact.md) |Update contact object. |
 |[Delete](../api/contact_delete.md) | None |Delete contact object. |
+|[Create data extension](../api/opentypeextension_post_opentypeextension.md) | [openTypeExtension](opentypeextension.md) | Create an open type data extension and add custom properties in a new or existing contact. |
+|[Get data extension](../api/opentypeextension_get.md) |[openTypeExtension](../resources/opentypeextension.md) | Get an open type data extension from the specified contact. |
+|[Create single-value extended property](../api/singlevaluelegacyextendedproperty_post_singlevalueextendedproperties.md) |[contact](contact.md)  |Create one or more single-value extended properties in a new or existing contact.   |
+|[Get contact with single-value extended property](../api/singlevaluelegacyextendedproperty_get.md)  | [contact](contact.md) | Get contacts that contain a single-value extended property by using `$expand` or `$filter`. |
+|[Create multi-value extended property](../api/multivaluelegacyextendedproperty_post_multivalueextendedproperties.md) | [contact](contact.md) | Create one or more multi-value extended properties in a new or existing contact.  |
+|[Get contact with multi-value extended property](../api/multivaluelegacyextendedproperty_get.md)  | [contact](contact.md) | Get a contact that contains a multi-value extended property by using `$expand`. |
+
 
 
 ### Properties
@@ -58,8 +64,10 @@ A contact is an item in Outlook where you can organize and save information abou
 ### Relationships
 | Relationship | Type	|Description|
 |:---------------|:--------|:----------|
-|extensions|[Extension](extension.md) collection| Read-only. Nullable.|
-|photo|[profilePhoto](profilephoto.md)| Optional contact picture. You can get or set a photo for a contact.|
+|extensions|[Extension](extension.md) collection| The collection of open type data extensions defined for the contact. Read-only. Nullable.|
+|multiValueExtendedProperties|[multiValueLegacyExtendedProperty](multivaluelegacyextendedproperty.md) collection| The collection of multi-value extended properties defined for the contact. Read-only. Nullable.|
+|photo|[profilePhoto](profilephoto.md)|Optional contact picture. You can get or set a photo for a contact. Read-only. Nullable.|
+|singleValueExtendedProperties|[singleValueLegacyExtendedProperty](singlevaluelegacyextendedproperty.md) collection| The collection of single-value extended properties defined for the contact. Read-only. Nullable.|
 
 
 ### JSON representation

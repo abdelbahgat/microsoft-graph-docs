@@ -139,15 +139,12 @@ In an existing resource instance, a successful create operation returns `200 OK`
 
 #### Response body
 
-When creating an extended property in a new resource instance, the response includes only the new instance but not the new extended property. To see the newly
+When creating an extended property in a supported resource other than [group post](../resources/post.md), the response includes only 
+the new or existing instance but not the new extended property. To see the newly
 created extended property, [get the instance expanded with the extended property](../api/multivaluelegacyextendedproperty_get.md).
 
-When creating an extended property in a _new_ [group post](../resources/post.md), the response includes only a response code but not the new post nor 
-the extended property.
-
-When creating an extended property in a _existing_ resource instance, the 
-response body includes the new instance expanded with a collection of one or more [multiValueLegacyExtendedProperty](../resources/multiValueLegacyExtendedProperty.md)
-objects. 
+When creating an extended property in a _new_ group post, the response includes only a response code but not the new post nor 
+the extended property. You cannot create an extended property in an existing group post.
 
 
 ### Example

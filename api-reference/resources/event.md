@@ -8,7 +8,6 @@ An event in a calendar.
 |:---------------|:--------|:----------|
 |[List events](../api/user_list_events.md)|[Event](event.md) collection |Retrieve a list of [event](../resources/event.md) objects in the user's mailbox. The list contains single instance meetings and series masters.|
 |[Create Event](../api/user_post_events.md) |[Event](event.md)| Create a new Event by posting to the instances collection.|
-|[List extensions](../api/event_list_extensions.md) |[Extension](extension.md) collection| Get a Extension object collection.|
 |[Get event](../api/event_get.md) | [event](event.md) |Read properties and relationships of event object.|
 |[Update](../api/event_update.md) | [event](event.md) |Update event object. |
 |[Delete](../api/event_delete.md) | None |Delete event object. |
@@ -20,6 +19,12 @@ An event in a calendar.
 |[List instances](../api/event_list_instances.md) |[Event](event.md) collection| Get the instances (occurrences) of an event for a specified time range. If the event is a `SeriesMaster` type, this returns the occurrences and exceptions of the event in the specified time range.|
 |[List attachments](../api/event_list_attachments.md) |[Attachment](attachment.md) collection| Get a Attachment object collection.|
 |[Create Attachment](../api/event_post_attachments.md) |[Attachment](attachment.md)| Create a new Attachment by posting to the attachments collection.|
+|[Create data extension](../api/opentypeextension_post_opentypeextension.md) | [openTypeExtension](opentypeextension.md) | Create an open type data extension and add custom properties in a new or existing event. |
+|[Get data extension](../api/opentypeextension_get.md) |[openTypeExtension](../resources/opentypeextension.md) | Get an open type data extension from the specified event. |
+|[Create single-value extended property](../api/singlevaluelegacyextendedproperty_post_singlevalueextendedproperties.md) |[event](event.md)  |Create one or more single-value extended properties in a new or existing event.   |
+|[Get event with single-value extended property](../api/singlevaluelegacyextendedproperty_get.md)  | [event](event.md) | Get events that contain a single-value extended property by using `$expand` or `$filter`. |
+|[Create multi-value extended property](../api/multivaluelegacyextendedproperty_post_multivalueextendedproperties.md) | [event](event.md) | Create one or more multi-value extended properties in a new or existing event.  |
+|[Get event with multi-value extended property](../api/multivaluelegacyextendedproperty_get.md)  | [event](event.md) | Get a event that contains a multi-value extended property by using `$expand`. |
 
 
 
@@ -62,10 +67,13 @@ An event in a calendar.
 ### Relationships
 | Relationship | Type	|Description|
 |:---------------|:--------|:----------|
-|attachments|[Attachment](attachment.md) collection|The collection of [fileAttachment](fileAttachment.md) and [itemAttachment](itemAttachment.md) attachments for the event. Navigation property. Read-only. Nullable.|
+|attachments|[Attachment](attachment.md) collection|The collection of [fileAttachment](fileAttachment.md), [itemAttachment](itemattachment.md), and [referenceAttachment](referenceAttachment.md) attachments for the event. Navigation property. Read-only. Nullable.|
 |calendar|[Calendar](calendar.md)|The calendar that contains the event. Navigation property. Read-only.|
-|extensions|[Extension](extension.md) collection| Read-only. Nullable.|
+|extensions|[Extension](extension.md) collection| The collection of open type data extensions defined for the event. Read-only. Nullable.|
 |instances|[Event](event.md) collection|The instances of the event. Navigation property. Read-only. Nullable.|
+|multiValueExtendedProperties|[multiValueLegacyExtendedProperty](multivaluelegacyextendedproperty.md) collection| The collection of multi-value extended properties defined for the event. Read-only. Nullable.|
+|singleValueExtendedProperties|[singleValueLegacyExtendedProperty](singlevaluelegacyextendedproperty.md) collection| The collection of single-value extended properties defined for the event. Read-only. Nullable.|
+
 
 ### JSON representation
 

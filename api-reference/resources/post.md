@@ -12,6 +12,12 @@ A new post is created when you create a new conversation or thread, or when you 
 |[Forward](../api/post_forward.md)|None|Forward a post to a recipient.|
 |[List attachments](../api/post_list_attachments.md) |[attachment](attachment.md) collection| Get a list of Attachment objects attached to a post.|
 |[Create Attachment](../api/post_post_attachments.md) |[attachment](attachment.md)| Add an attachment to a post. |
+|[Create data extension](../api/opentypeextension_post_opentypeextension.md) | [openTypeExtension](opentypeextension.md) | Create an open type data extension and add custom properties in a new or existing post. |
+|[Get data extension](../api/opentypeextension_get.md) |[openTypeExtension](../resources/opentypeextension.md) | Get an open type data extension from the specified post. |
+|[Create single-value extended property](../api/singlevaluelegacyextendedproperty_post_singlevalueextendedproperties.md) |[post](post.md)  |Create one or more single-value extended properties in a new post.   |
+|[Get post with single-value extended property](../api/singlevaluelegacyextendedproperty_get.md)  | [post](post.md) | Get posts that contain a single-value extended property by using `$expand` or `$filter`. |
+|[Create multi-value extended property](../api/multivaluelegacyextendedproperty_post_multivalueextendedproperties.md) | [post](post.md) | Create one or more multi-value extended properties in a new or existing post.  |
+|[Get post with multi-value extended property](../api/multivaluelegacyextendedproperty_get.md)  | [post](post.md) | Get a post that contains a multi-value extended property by using `$expand`. |
 
 ### Properties
 | Property	   | Type	|Description|
@@ -33,8 +39,11 @@ A new post is created when you create a new conversation or thread, or when you 
 ### Relationships
 | Relationship | Type	|Description|
 |:---------------|:--------|:----------|
-|attachments|[Attachment](attachment.md) collection| Read-only. Nullable.|
-|inReplyTo|[post](post.md)| Read-only.|
+|attachments|[Attachment](attachment.md) collection|The collection of [fileAttachment](fileAttachment.md), [itemAttachment](itemattachment.md), and [referenceAttachment](referenceAttachment.md) attachments for the event. Navigation property. Read-only. Nullable.|
+|extensions|[Extension](extension.md) collection| The collection of open type data extensions defined for the post. Read-only. Nullable.|
+|inReplyTo|[post](post.md)| The group post that this instance replies to. Read-only.|
+|multiValueExtendedProperties|[multiValueLegacyExtendedProperty](multivaluelegacyextendedproperty.md) collection| The collection of multi-value extended properties defined for the post. Read-only. Nullable.|
+|singleValueExtendedProperties|[singleValueLegacyExtendedProperty](singlevaluelegacyextendedproperty.md) collection| The collection of single-value extended properties defined for the post. Read-only. Nullable.|
 
 
 ### JSON representation

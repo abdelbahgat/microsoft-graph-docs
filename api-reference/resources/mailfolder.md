@@ -8,14 +8,18 @@ A mailFolder in a user's mailbox, such as Inbox, Drafts, and Sent Items. MailFol
 | Method       | Return Type  |Description|
 |:---------------|:--------|:----------|
 |[Get mailFolder](../api/mailfolder_get.md) | [mailFolder](mailfolder.md) |Read properties and relationships of mailFolder object.|
-|[Create MailFolder](../api/mailfolder_post_childfolders.md) |[MailFolder](mailfolder.md)| Create a new mailFolder under the current one by posting to the childFolders collection.|
-|[List childFolders](../api/mailfolder_list_childfolders.md) |[MailFolder](mailfolder.md) collection| Get the folder collection under the specified folder. You can use the `.../me/MailFolders` shortcut to get the top-level folder collection and navigate to another folder.|
-|[Create Message](../api/mailfolder_post_messages.md) |[Message](message.md)| Create a new message in the current mailFolder by posting to the messages collection.|
-|[List messages](../api/mailfolder_list_messages.md) |[Message](message.md) collection| Get all the messages in the signed-in user's mailbox, or those messages in a specified folder in the mailbox.|
+|[Create MailFolder](../api/mailfolder_post_childfolders.md) |[mailFolder](mailfolder.md)| Create a new mailFolder under the current one by posting to the childFolders collection.|
+|[List childFolders](../api/mailfolder_list_childfolders.md) |[mailFolder](mailfolder.md) collection| Get the folder collection under the specified folder. You can use the `.../me/MailFolders` shortcut to get the top-level folder collection and navigate to another folder.|
+|[Create Message](../api/mailfolder_post_messages.md) |[message](message.md)| Create a new message in the current mailFolder by posting to the messages collection.|
+|[List messages](../api/mailfolder_list_messages.md) |[message](message.md) collection| Get all the messages in the signed-in user's mailbox, or those messages in a specified folder in the mailbox.|
 |[Update](../api/mailfolder_update.md) | [mailFolder](mailfolder.md)|Update the specified mailFolder object. |
 |[Delete](../api/mailfolder_delete.md) | None |Delete the specified mailFolder object. |
-|[copy](../api/mailfolder_copy.md)|[MailFolder](mailfolder.md)|Copy a mailFolder and its contents to another mailFolder.|
-|[move](../api/mailfolder_move.md)|[MailFolder](mailfolder.md)|Move a mailFolder and its contents to another mailFolder.|
+|[copy](../api/mailfolder_copy.md)|[mailFolder](mailfolder.md)|Copy a mailFolder and its contents to another mailFolder.|
+|[move](../api/mailfolder_move.md)|[mailFolder](mailfolder.md)|Move a mailFolder and its contents to another mailFolder.|
+|[Create single-value extended property](../api/singlevaluelegacyextendedproperty_post_singlevalueextendedproperties.md) |[mailFolder](mailFolder.md)  |Create one or more single-value extended properties in a new or existing mailFolder.   |
+|[Get mailFolder with single-value extended property](../api/singlevaluelegacyextendedproperty_get.md)  | [mailFolder](mailFolder.md) | Get mailFolders that contain a single-value extended property by using `$expand` or `$filter`. |
+|[Create multi-value extended property](../api/multivaluelegacyextendedproperty_post_multivalueextendedproperties.md) | [mailFolder](mailFolder.md) | Create one or more multi-value extended properties in a new or existing mailFolder.  |
+|[Get mailFolder with multi-value extended property](../api/multivaluelegacyextendedproperty_get.md)  | [mailFolder](mailFolder.md) | Get a mailFolder that contains a multi-value extended property by using `$expand`. |
 
 
 ### Properties
@@ -43,6 +47,8 @@ MailFolders in Outlook can contain more than one type of items, for example, the
 |:---------------|:--------|:----------|
 |childFolders|[MailFolder](mailfolder.md) collection|The collection of child folders in the mailFolder.|
 |messages|[Message](message.md) collection|The collection of messages in the mailFolder.|
+|multiValueExtendedProperties|[multiValueLegacyExtendedProperty](multivaluelegacyextendedproperty.md) collection| The collection of multi-value extended properties defined for the mailFolder. Read-only. Nullable.|
+|singleValueExtendedProperties|[singleValueLegacyExtendedProperty](singlevaluelegacyextendedproperty.md) collection| The collection of single-value extended properties defined for the mailFolder. Read-only. Nullable.|
 
 
 ### JSON representation
