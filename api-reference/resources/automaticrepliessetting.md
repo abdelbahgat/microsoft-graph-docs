@@ -1,17 +1,19 @@
 # automaticRepliesSetting resource type
 
-
+Configuration settings to automatically notify the sender of an incoming email with a message from the 
+signed-in user. For example, an automatic reply to notify that the signed-in user is unavailable to 
+respond to emails. 
 
 
 ### Properties
 | Property	   | Type	|Description|
 |:---------------|:--------|:----------|
-|externalAudience|String| Possible values are: `none`, `contactsOnly`, `all`.|
-|externalReplyMessage|string||
-|internalReplyMessage|string||
-|scheduledEndDateTime|[dateTimeTimeZone](datetimetimezone.md)||
-|scheduledStartDateTime|[dateTimeTimeZone](datetimetimezone.md)||
-|status|String| Possible values are: `disabled`, `alwaysEnabled`, `scheduled`.|
+|externalAudience|String| The set of audience external to the signed-in user's organization who will receive the **ExternalReplyMessage**, if **Status** is `AlwaysEnabled` or `Scheduled`. Possible values are: `none`, `contactsOnly`, `all`.|
+|externalReplyMessage|string|The automatic reply to send to the specified external audience, if **Status** is `AlwaysEnabled` or `Scheduled`.|
+|internalReplyMessage|string|The automatic reply to send to the audience internal to the signed-in user's organization, if **Status** is `AlwaysEnabled` or `Scheduled`. |
+|scheduledEndDateTime|[dateTimeTimeZone](datetimetimezone.md)|The date and time that automatic replies are set to end, if **Status** is set to `Scheduled`. |
+|scheduledStartDateTime|[dateTimeTimeZone](datetimetimezone.md)|The date and time that automatic replies are set to begin, if **Status** is set to `Scheduled`.|
+|status|String|Configurations status for automatic replies. Possible values are: `disabled`, `alwaysEnabled`, `scheduled`.|
 
 ### JSON representation
 
@@ -22,7 +24,7 @@ Here is a JSON representation of the resource.
   "optionalProperties": [
 
   ],
-  "@odata.type": "microsoft.graph.automaticrepliessetting"
+  "@odata.type": "microsoft.graph.automaticRepliesSetting"
 }-->
 
 ```json

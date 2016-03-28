@@ -1,12 +1,13 @@
 # mailboxSettings resource type
 
-
+Settings for the primary mailbox of the signed-in user. They include settings for sending automatic replies to incoming messages.
 
 
 ### Properties
 | Property	   | Type	|Description|
 |:---------------|:--------|:----------|
-|automaticRepliesSetting|[automaticRepliesSetting](automaticrepliessetting.md)||
+|automaticRepliesSetting|[automaticRepliesSetting](automaticrepliessetting.md)|Configuration settings to automatically notify the sender of an incoming email with a message from the 
+signed-in user.|
 
 ### JSON representation
 
@@ -17,7 +18,7 @@ Here is a JSON representation of the resource.
   "optionalProperties": [
 
   ],
-  "@odata.type": "microsoft.graph.mailboxsettings"
+  "@odata.type": "microsoft.graph.mailboxSettings"
 }-->
 
 ```json
