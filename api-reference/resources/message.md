@@ -12,7 +12,6 @@ A message in a mailFolder.
 |[Update](../api/message_update.md) | [message](message.md) |Update message object.|
 |[Delete](../api/message_delete.md) | None |Delete message object. |
 |[copy](../api/message_copy.md)|[Message](message.md)|Copy a message to a folder.|
-|[List extensions](../api/message_list_extensions.md) |[Extension](extension.md) collection| Get a Extension object collection.|
 |[createForward](../api/message_createforward.md)|[Message](message.md)|Create a draft of the Forward message. You can then [update](../api/message_update.md) or [send](../api/message_send.md) the draft.|
 |[createReply](../api/message_createreply.md)|[Message](message.md)|Create a draft of the Reply message. You can then [update](../api/message_update.md) or [send](../api/message_send.md) the draft.|
 |[createReplyAll](../api/message_createreplyall.md)|[Message](message.md)|Create a draft of the Reply All message. You can then [update](../api/message_update.md) or [send](../api/message_send.md) the draft.|
@@ -21,6 +20,12 @@ A message in a mailFolder.
 |[reply](../api/message_reply.md)|None|Reply to the sender of a message. The message is then saved in the Sent Items folder.|
 |[replyAll](../api/message_replyall.md)|None|Reply to all recipients of a message. The message is then saved in the Sent Items folder.|
 |[send](../api/message_send.md)|None|Sends a previously created message draft. The message is then saved in the Sent Items folder.|
+|[Create data extension](../api/opentypeextension_post_opentypeextension.md) | [openTypeExtension](opentypeextension.md) | Create an open type data extension and add custom properties in a new or existing message. |
+|[Get data extension](../api/opentypeextension_get.md) |[openTypeExtension](../resources/opentypeextension.md) | Get an open type data extension from the specified message. |
+|[Create single-value extended property](../api/singlevaluelegacyextendedproperty_post_singlevalueextendedproperties.md) |[message](message.md)  |Create one or more single-value extended properties in a new or existing message.   |
+|[Get message with single-value extended property](../api/singlevaluelegacyextendedproperty_get.md)  | [message](message.md) | Get messages that contain a single-value extended property by using `$expand` or `$filter`. |
+|[Create multi-value extended property](../api/multivaluelegacyextendedproperty_post_multivalueextendedproperties.md) | [message](message.md) | Create one or more multi-value extended properties in a new or existing message.  |
+|[Get message with multi-value extended property](../api/multivaluelegacyextendedproperty_get.md)  | [message](message.md) | Get a message that contains a multi-value extended property by using `$expand`. |
 
 
 ### Properties
@@ -72,8 +77,10 @@ When a message is being composed, in most cases, the From and Sender properties 
 ### Relationships
 | Relationship | Type	|Description|
 |:---------------|:--------|:----------|
-|attachments|[Attachment](attachment.md) collection|The [fileAttachment](fileattachment.md) and [itemAttachment](itemattachment.md) attachments for the message.|
-|extensions|[Extension](extension.md) collection| Read-only. Nullable.|
+|attachments|[Attachment](attachment.md) collection|The collection of [fileAttachment](fileattachment.md), [itemAttachment](itemattachment.md), and [referenceAttachment](referenceAttachment.md) attachments for the message.|
+|extensions|[Extension](extension.md) collection| The collection of open type data extensions defined for the message. Read-only. Nullable.|
+|multiValueExtendedProperties|[multiValueLegacyExtendedProperty](multivaluelegacyextendedproperty.md) collection| The collection of multi-value extended properties defined for the message. Read-only. Nullable.|
+|singleValueExtendedProperties|[singleValueLegacyExtendedProperty](singlevaluelegacyextendedproperty.md) collection| The collection of single-value extended properties defined for the message. Read-only. Nullable.|
 
 ### JSON representation
 

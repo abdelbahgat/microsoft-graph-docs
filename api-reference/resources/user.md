@@ -14,6 +14,8 @@ Represents an Azure AD user account. Inherits from [directoryObject](directoryob
 |[List mailFolders](../api/user_list_mailfolders.md) |[MailFolder](mailfolder.md) collection| Get the mail folder collection under the root folder of the signed-in user. |
 |[Create mailFolder](../api/user_post_mailfolders.md) |[MailFolder](mailfolder.md)| Create a new MailFolder by posting to the mailFolders collection.|
 |[sendMail](../api/user_sendmail.md)|None|Send the message specified in the request body.|
+|[Get auto reply settings](../api/user_get_mailboxsettings.md) |[automaticRepliesSetting](../resources/automaticRepliesSetting.md) | Get the settings for notifying people automatically upon receipt of their email. |
+|[Update auto reply settings](../api/user_update_mailboxsettings.md) |[mailboxSettings](../resources/mailboxSettings.md) | Update the settings for notifying people automatically upon receipt of their email. |
 |[List events](../api/user_list_events.md) |[Event](event.md) collection| Get a list of event objects in the user's mailbox. The list contains single instance meetings and series masters.|
 |[Create event](../api/user_post_events.md) |[Event](event.md)| Create a new Event by posting to the events collection.|
 |[List calendars](../api/user_list_calendars.md) |[Calendar](calendar.md) collection| Get a Calendar object collection.|
@@ -34,6 +36,7 @@ Represents an Azure AD user account. Inherits from [directoryObject](directoryob
 |[List createdObjects](../api/user_list_createdobjects.md) |[directoryObject](directoryobject.md) collection| Get the directory objects created by the user from the createdObjects navigation property.|
 |[assignLicense](../api/user_assignlicense.md)|[user](user.md)|Add or remove subscriptions for the user. You can also enable and disable specific plans associated with a subscription.|
 |[checkMemberGroups](../api/user_checkmembergroups.md)|String collection|Check for membership in a list of groups. The check is transitive.|
+|[findmeetingtimes](../api/user_findmeetingtimes.md)|[meetingTimeCandidate](meetingtimecandidate.md)|Find time and locations to meet based on attendee availability, location or time constraints.|
 |[getMemberGroups](../api/user_getmembergroups.md)|String collection|Return all the groups that the user is a member of. The check is transitive.|
 |[getMemberObjects](../api/user_getmemberobjects.md)|String collection| Return all of the groups and directory roles that the user is a member of. The check is transitive. |
 |[reminderView](../api/user_reminderview.md)|[Reminder](reminder.md) collection|Return a list of calendar reminders within the start and end times specified.|
@@ -58,6 +61,7 @@ Represents an Azure AD user account. Inherits from [directoryObject](directoryob
 |interests|String collection|A list for the user to describe their interests.|
 |jobTitle|String|The user’s job title. Supports $filter.|
 |mail|String|The SMTP address for the user, for example, "jeff@contoso.onmicrosoft.com". Read-Only. Supports $filter.|
+|mailboxSettings|[mailboxSettings](mailboxsettings.md)|Settings for the primary mailbox of the signed-in user. They include settings for sending automatic replies to incoming messages.|
 |mailNickname|String|The mail alias for the user. This property must be specified when a user is created. Supports $filter.|
 |mobilePhone|String|The primary cellular telephone number for the user.|
 |mySite|String|The URL for the user's personal site.|
@@ -168,6 +172,7 @@ Here is a JSON representation of the resource
   "interests": ["string"],
   "jobTitle": "string",
   "mail": "string",
+  "mailboxSettings": {"@odata.type": "microsoft.graph.mailboxSettings"},
   "mailNickname": "string",
   "mobilePhone": "string",
   "mySite": "string",
