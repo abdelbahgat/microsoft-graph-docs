@@ -14,7 +14,7 @@ Represents a point of a series in a chart.
 ### Properties
 | Property	   | Type	|Description|
 |:---------------|:--------|:----------|
-|value|[object](object.md)|Returns the value of a chart point. Read-only.|
+|value|object|Returns the value of a chart point. Read-only.|
 
 ### Relationships
 | Relationship | Type	|Description|

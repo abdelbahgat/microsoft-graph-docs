@@ -13,10 +13,10 @@ Represents a single axis in a chart.
 ### Properties
 | Property	   | Type	|Description|
 |:---------------|:--------|:----------|
-|majorUnit|[object](object.md)|Represents the interval between two major tick marks. Can be set to a numeric value or an empty string.  The returned value is always a number.|
-|maximum|[object](object.md)|Represents the maximum value on the value axis.  Can be set to a numeric value or an empty string (for automatic axis values).  The returned value is always a number.|
-|minimum|[object](object.md)|Represents the minimum value on the value axis. Can be set to a numeric value or an empty string (for automatic axis values).  The returned value is always a number.|
-|minorUnit|[object](object.md)|Represents the interval between two minor tick marks. "Can be set to a numeric value or an empty string (for automatic axis values). The returned value is always a number.|
+|majorUnit|object|Represents the interval between two major tick marks. Can be set to a numeric value or an empty string.  The returned value is always a number.|
+|maximum|object|Represents the maximum value on the value axis.  Can be set to a numeric value or an empty string (for automatic axis values).  The returned value is always a number.|
+|minimum|object|Represents the minimum value on the value axis. Can be set to a numeric value or an empty string (for automatic axis values).  The returned value is always a number.|
+|minorUnit|object|Represents the interval between two minor tick marks. "Can be set to a numeric value or an empty string (for automatic axis values). The returned value is always a number.|
 
 ### Relationships
 | Relationship | Type	|Description|

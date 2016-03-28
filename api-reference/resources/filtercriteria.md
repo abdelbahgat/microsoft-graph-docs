@@ -24,7 +24,7 @@ Represents the filtering criteria applied to a column.
 | Relationship | Type	|Description|
 |:---------------|:--------|:----------|
 |icon|[Icon](icon.md)|The icon used to filter cells. Used with "icon" filtering.|
-|operator|[FilterOperator](filteroperator.md)|The operator used to combine criterion 1 and 2 when using "custom" filtering.|
+|operator|FilterOperator|The operator used to combine criterion 1 and 2 when using "custom" filtering.|
 
 ### JSON representation
 

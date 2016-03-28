@@ -25,7 +25,7 @@ In the request body, provide a JSON object with the following parameters.
 |fittingMode|string|Optional. The method used to scale the chart to the specified to the specified dimensions (if both height and width are set)."  Possible values are: `Fit`, `FitAndCenter`, `Fill`.|
 
 ### Response
-If successful, this method returns `200, OK` response code and [System.IO.Stream](../resources/system.io.stream.md) object in the response body.
+If successful, this method returns `200, OK` response code and base-64 image string in the response body.
 
 ### Example
 Here is an example of how to call this API.

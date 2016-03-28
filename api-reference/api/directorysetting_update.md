@@ -49,7 +49,7 @@ Content-length: 178
 <!-- {
   "blockType": "response",
   "truncated": true,
-  "@odata.type": "microsoft.graph.directorysetting"
+  "@odata.type": "microsoft.graph.directorySetting"
 } -->
 ```http
 HTTP/1.1 204 OK

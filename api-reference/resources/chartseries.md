@@ -8,8 +8,8 @@ Represents a series in a chart.
 | Method		   | Return Type	|Description|
 |:---------------|:--------|:----------|
 |[Get ChartSeries](../api/chartseries_get.md) | [ChartSeries](chartseries.md) |Read properties and relationships of chartSeries object.|
-|[Create ChartPoints](../api/chartseries_post_points.md) |[ChartPoints](chartpoints.md)| Create a new ChartPoints by posting to the points collection.|
-|[List points](../api/chartseries_list_points.md) |[ChartPoints](chartpoints.md) collection| Get a ChartPoints object collection.|
+|[Create ChartPoints](../api/chartseries_post_points.md) |[ChartPoints](chartpoint.md)| Create a new ChartPoints by posting to the points collection.|
+|[List points](../api/chartseries_list_points.md) |[ChartPoints](chartpoint.md) collection| Get a ChartPoints object collection.|
 |[Update](../api/chartseries_update.md) | [ChartSeries](chartseries.md)	|Update ChartSeries object. |
 |[List](../api/chartseries_list.md) | [ChartSeries](chartseries.md) collection |Get chartSeries object collection. |
 |[Itemat](../api/chartseriescollection_itemat.md)|[ChartSeries](chartseries.md)|Retrieves a series based on its position in the collection|
@@ -23,7 +23,7 @@ Represents a series in a chart.
 | Relationship | Type	|Description|
 |:---------------|:--------|:----------|
 |format|[ChartSeriesFormat](chartseriesformat.md)|Represents the formatting of a chart series, which includes fill and line formatting. Read-only.|
-|points|[ChartPoints](chartpoints.md) collection|Represents a collection of all points in the series. Read-only.|
+|points|[ChartPoints](chartpoint.md) collection|Represents a collection of all points in the series. Read-only.|
 
 ### JSON representation
 

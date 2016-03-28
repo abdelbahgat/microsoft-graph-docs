@@ -11,7 +11,7 @@ Represents a chart object in a workbook.
 |[Create ChartSeries](../api/chart_post_series.md) |[ChartSeries](chartseries.md)| Create a new ChartSeries by posting to the series collection.|
 |[List series](../api/chart_list_series.md) |[ChartSeries](chartseries.md) collection| Get a ChartSeries object collection.|
 |[Update](../api/chart_update.md) | [Chart](chart.md)	|Update Chart object. |
-|[Image](../api/chart_image.md)|[System.IO.Stream](system.io.stream.md)|Renders the chart as a base64-encoded image by scaling the chart to fit the specified dimensions.|
+|[Image](../api/chart_image.md)|Image base64 encoded string|Renders the chart as a base64-encoded image by scaling the chart to fit the specified dimensions.|
 |[Delete](../api/chart_delete.md)|None|Deletes the chart object.|
 |[Setdata](../api/chart_setdata.md)|None|Resets the source data for the chart.|
 |[Setposition](../api/chart_setposition.md)|None|Positions the chart relative to cells on the worksheet.|
