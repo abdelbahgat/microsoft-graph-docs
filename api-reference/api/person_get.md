@@ -139,7 +139,7 @@ The following request does a search for a person named "Hermaini Hall." Because 
 ```http
 GET https://graph.microsoft.com/beta/me/people/?$search="hermaini hall"
 ```
-#### Relevant people
+#### Related people
 
 The following request gets the people most relevant to another person in the user's organization. In this example, Nestor Kellum's relevant people are displayed.
 
