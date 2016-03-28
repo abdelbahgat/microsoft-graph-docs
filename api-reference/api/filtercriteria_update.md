@@ -23,7 +23,7 @@ In the request body, supply the values for relevant fields that should be update
 |color|string|The HTML color string used to filter cells. Used with "cellColor" and "fontColor" filtering.|
 |criterion1|string|The first criterion used to filter data. Used as an operator in the case of "custom" filtering.|
 |criterion2|string|The second criterion used to filter data. Only used as an operator in the case of "custom" filtering.|
-|dynamicCriteria|string|The dynamic criteria from the Excel.DynamicFilterCriteria set to apply on this column. Used with "dynamic" filtering. Possible values are: `Unknown`, `AboveAverage`, `AllDatesInPeriodApril`, `AllDatesInPeriodAugust`, `AllDatesInPeriodDecember`, `AllDatesInPeriodFebruray`, `AllDatesInPeriodJanuary`, `AllDatesInPeriodJuly`, `AllDatesInPeriodJune`, `AllDatesInPeriodMarch`, `AllDatesInPeriodMay`, `AllDatesInPeriodNovember`, `AllDatesInPeriodOctober`, `AllDatesInPeriodQuarter1`, `AllDatesInPeriodQuarter2`, `AllDatesInPeriodQuarter3`, `AllDatesInPeriodQuarter4`, `AllDatesInPeriodSeptember`, `BelowAverage`, `LastMonth`, `LastQuarter`, `LastWeek`, `LastYear`, `NextMonth`, `NextQuarter`, `NextWeek`, `NextYear`, `ThisMonth`, `ThisQuarter`, `ThisWeek`, `ThisYear`, `Today`, `Tomorrow`, `YearToDate`, `Yesterday`.|
+|dynamicCriteria|string|The dynamic criteria from the Excel.DynamicFilterCriteria set to apply on this column. Used with dynamic filtering. |
 |filterOn|string|The property used by the filter to determine whether the values should stay visible. Possible values are: `And`, `Or`.|
 |icon|Icon|The icon used to filter cells. Used with "icon" filtering.|
 |operator|FilterOperator|The operator used to combine criterion 1 and 2 when using "custom" filtering.|
@@ -34,10 +34,7 @@ If successful, this method returns a `200 OK` response code and updated FilterCr
 ### Example
 ##### Request
 Here is an example of the request.
-<!-- {
-  "blockType": "request",
-  "name": "update_filtercriteria"
-}-->
+<!-- { "blockType": "ignored" } -->
 ```http
 PATCH https://graph.microsoft.com/beta/me/drive/items/<id>/workbook/tables(<id|name>)/columns(<id|name>)/filter/criteria
 Content-type: application/json
@@ -52,11 +49,7 @@ Content-length: 146
 ```
 ##### Response
 Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
-<!-- {
-  "blockType": "response",
-  "truncated": true,
-  "@odata.type": "microsoft.graph.filterCriteria"
-} -->
+<!-- { "blockType": "ignored" } -->
 ```http
 HTTP/1.1 200 OK
 Content-type: application/json
@@ -69,13 +62,3 @@ Content-length: 146
   "dynamicCriteria": "dynamicCriteria-value"
 }
 ```
-
-<!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79
-2015-10-25 14:57:30 UTC -->
-<!-- {
-  "type": "#page.annotation",
-  "description": "Update filtercriteria",
-  "keywords": "",
-  "section": "documentation",
-  "tocPath": ""
-}-->
