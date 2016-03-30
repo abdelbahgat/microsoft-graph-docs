@@ -53,7 +53,7 @@ Microsoft Graph validates the notification URL in a subscription request before 
 1. Microsoft Graph sends a POST request to the notification URL:
 
   ```
-  POST https://{notificationUrl}?validationtoken={TokenDefinedByMicrosoftGraph}
+  POST https://{notificationUrl}?validationToken={TokenDefinedByMicrosoftGraph}
   ClientState: {Data sent in ClientState value in subscription request (if any)}
   ```
  
