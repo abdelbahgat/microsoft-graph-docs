@@ -2,7 +2,7 @@
 
 The Microsoft Graph REST API uses a webhook mechanism to deliver notifications to clients. A client is a web service that configures its own URL to receive notifications. Client apps use notifications to update their state upon changes.
 
-Using the Microsoft Graph API, an app can subscribe to changes on the following resources:
+Using the Microsoft Graph REST API, an app can subscribe to changes on the following resources:
 
 * Messages
 * Events
@@ -13,7 +13,7 @@ After Microsoft Graph accepts the subscription request, it pushes notifications 
 
 Apps should renew their subscriptions before they expire. They can also unsubscribe at any time to stop getting notifications.
 
-If you want to see code samples, they're hosted on GitHub.
+See the following code samples on GitHub.
 
 * [Microsoft Graph Webhooks Sample for Node.js](https://github.com/OfficeDev/Microsoft-Graph-Nodejs-Webhooks)
 * [Microsoft Graph Webhooks Sample for ASP.NET](https://github.com/OfficeDev/Microsoft-Graph-ASPNET -Webhooks)
@@ -24,7 +24,7 @@ Let's take a look at the subscription process.
 
 Creating a subscription is the first step to start receiving notifications for a resource. The subscription process is as follows:
 
-1. Client sends a subscription (POST) request for a specific resource.
+1. The client sends a subscription (POST) request for a specific resource.
 2. Microsoft Graph verifies the request.
   * If the request is valid, Microsoft Graph sends a validation token to the notification URL.
   * If the request is invalid, Microsoft Graph sends an error response with code and details.
@@ -36,10 +36,10 @@ Client must store the subscription ID to correlate a notification with the corre
 
 You can create subscriptions for resources such as messages, events, and contacts.
 
-You can create a subscription to a specific folder, like
+You can create a subscription to a specific folder:
 `https://graph.microsoft.com/beta/me/mailfolders('inbox')/messages`
 
-Or to a top-level resource, such as
+Or to a top-level resource:
 `https://graph.microsoft.com/beta/me/messages`
 
 Creating a subscription requires read scope to the resource. For example, to get notifications messages, your app needs the `mail.read` permission.
@@ -53,7 +53,7 @@ Microsoft Graph validates the notification URL in a subscription request before 
 1. Microsoft Graph sends a POST request to the notification URL:
 
   ```
-  POST https://{notificationUrl}?validationtoken={TokenDefinedByMicrosoftGraph}
+  POST https://{notificationUrl}?validationToken={TokenDefinedByMicrosoftGraph}
   ClientState: {Data sent in ClientState value in subscription request (if any)}
   ```
  
