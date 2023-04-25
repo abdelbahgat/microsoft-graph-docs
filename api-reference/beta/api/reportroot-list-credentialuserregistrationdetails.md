@@ -7,11 +7,13 @@ ms.prod: "identity-and-access-reports"
 doc_type: "apiPageType"
 ---
 
-# List credentialUserRegistrationDetails
+# List credentialUserRegistrationDetails (deprecated)
 
 Namespace: microsoft.graph
 
 [!INCLUDE [beta-disclaimer](../../includes/beta-disclaimer.md)]
+> [!CAUTION] 
+  > The credential user registration details API is deprecated and will stop returning data on April 25, 2024. Please use the new [User registration details](https://learn.microsoft.com/en-us/graph/api/resources/userregistrationdetails?view=graph-rest-beta) API
 
 Get a list of [credentialUserRegistrationDetails](../resources/credentialuserregistrationdetails.md) objects for a given tenant.
 

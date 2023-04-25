@@ -7,11 +7,13 @@ ms.prod: "identity-and-access-reports"
 doc_type: "apiPageType"
 ---
 
-# List userCredentialUsageDetails
+# List userCredentialUsageDetails (deprecated)
 
 Namespace: microsoft.graph
 
 [!INCLUDE [beta-disclaimer](../../includes/beta-disclaimer.md)]
+> [!CAUTION] 
+  > The user credential usage details API is deprecated and will stop returning data on April 25, 2024. Please use the new [User registration details](https://learn.microsoft.com/en-us/graph/api/resources/userregistrationdetails?view=graph-rest-beta) API
 
 Get a list of [userCredentialUsageDetails](../resources/usercredentialusagedetails.md) objects for a given tenant. Details include user information, status of the reset, and the reason for failure.
 

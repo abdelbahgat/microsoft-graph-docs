@@ -10975,12 +10975,12 @@ items:
             href: api/managedtenants-managedtenant-list-conditionalaccesspolicycoverages.md
           - name: Get conditional access policy coverage
             href: api/managedtenants-conditionalaccesspolicycoverage-get.md
-        - name: Credential user registrations summary
+        - name: Credential user registrations summary (deprecated)
           href: resources/managedtenants-credentialuserregistrationssummary.md
           items:
-          - name: List credential user registration summaries
+          - name: List credential user registration summaries (deprecated)
             href: api/managedtenants-managedtenant-list-credentialuserregistrationssummaries.md
-          - name: Get credential user registrations summary
+          - name: Get credential user registrations summary (deprecated)
             href: api/managedtenants-credentialuserregistrationssummary-get.md
         - name: Device compliance policy setting state summary
           href: resources/managedtenants-devicecompliancepolicysettingstatesummary.md
@@ -15090,25 +15090,25 @@ items:
           items:
           - name: Overview
             href: resources/authenticationmethods-usage-insights-overview.md
-          - name: Credential User Registration Count
+          - name: Credential User Registration Count (deprecated)
             href: resources/credentialuserregistrationcount.md
             items:
             - name: Get
               href: api/reportroot-getcredentialuserregistrationcount.md
-          - name: Credential User Registration Details
+          - name: Credential User Registration Details (deprecated)
             href: resources/credentialuserregistrationdetails.md
             items:
-            - name: List
+            - name: List (deprecated)
               href: api/reportroot-list-credentialuserregistrationdetails.md
-          - name: User Credential Usage Details
+          - name: User Credential Usage Details (deprecated)
             href: resources/usercredentialusagedetails.md
             items:
-            - name: List
+            - name: List (deprecated)
               href: api/reportroot-list-usercredentialusagedetails.md
-          - name: Credential Usage Summary
+          - name: Credential Usage Summary (deprecated)
             href: resources/credentialusagesummary.md
             items:
-            - name: List
+            - name: List (deprecated)
               href: api/reportroot-getcredentialusagesummary.md
           - name: Users registered by feature
             href: resources/userregistrationfeaturesummary.md

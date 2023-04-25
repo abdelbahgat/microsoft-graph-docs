@@ -7,11 +7,13 @@ ms.prod: "identity-and-access-reports"
 doc_type: "resourcePageType"
 ---
 
-# credentialUserRegistrationCount resource type
+# credentialUserRegistrationCount resource type (deprecated)
 
 Namespace: microsoft.graph
 
 [!INCLUDE [beta-disclaimer](../../includes/beta-disclaimer.md)]
+> [!CAUTION] 
+  > The credential user registration count API is deprecated and will stop returning data on April 25, 2024. Please use the new [User registration details](https://learn.microsoft.com/en-us/graph/api/resources/userregistrationdetails?view=graph-rest-beta) API
 
 Represents the current state of how many users in your organization are registered for self-service password reset and multi-factor authentication capabilities.
 
