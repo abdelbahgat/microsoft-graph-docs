@@ -3,6 +3,32 @@
     {
       "ChangeList": [
         {
+          "Id": "7c184bc2-56c6-4580-a706-636276e2b405",
+          "ApiChange": "Resource",
+          "ChangedApiName": "servicePrincipalLockConfiguration",
+          "ChangeType": "Addition",
+          "Description": "Added the [servicePrincipalLockConfiguration](https://learn.microsoft.com/en-us/graph/api/resources/servicePrincipalLockConfiguration?view=graph-rest-v1.0) resource.",
+          "Target": "servicePrincipalLockConfiguration"
+        },
+        {
+          "Id": "7c184bc2-56c6-4580-a706-636276e2b405",
+          "ApiChange": "Property",
+          "ChangedApiName": "servicePrincipalLockConfiguration",
+          "ChangeType": "Addition",
+          "Description": "Added the **servicePrincipalLockConfiguration** property to the [application](https://learn.microsoft.com/en-us/graph/api/resources/application?view=graph-rest-v1.0) resource.",
+          "Target": "application"
+        }
+      ],
+      "Id": "7c184bc2-56c6-4580-a706-636276e2b405",
+      "Cloud": "Prod",
+      "Version": "v1.0",
+      "CreatedDateTime": "2023-08-09T21:02:17.1897204Z",
+      "WorkloadArea": "Applications",
+      "SubArea": ""
+    },
+    {
+      "ChangeList": [
+        {
           "Id": "fb9eeb9e-adf8-43f6-8aee-7a55853c74a5",
           "ApiChange": "Permission",
           "ChangedApiName": "OnPremDirectorySynchronization.Read.All",
@@ -150,45 +176,45 @@
     },
     {
       "ChangeList": [
-            {
-              "Id": "f1a2366e-c693-4a6d-8783-370f38cd9660",
-              "ApiChange": "Property",
-              "ChangedApiName": "tenantRestrictions",
-              "ChangeType": "Addition",
-              "Description": "Added the **tenantRestrictions** property to the [crossTenantAccessPolicyConfigurationDefault](https://learn.microsoft.com/en-us/graph/api/resources/crossTenantAccessPolicyConfigurationDefault?view=graph-rest-beta) resource.",
-              "Target": "crossTenantAccessPolicyConfigurationDefault"
-            },
-            {
-              "Id": "f1a2366e-c693-4a6d-8783-370f38cd9660",
-              "ApiChange": "Property",
-              "ChangedApiName": "tenantRestrictions",
-              "ChangeType": "Addition",
-              "Description": "Added the **tenantRestrictions** property to the [crossTenantAccessPolicyConfigurationPartner](https://learn.microsoft.com/en-us/graph/api/resources/crossTenantAccessPolicyConfigurationPartner?view=graph-rest-beta) resource.",
-              "Target": "crossTenantAccessPolicyConfigurationPartner"
-            },
-            {
-              "Id": "f1a2366e-c693-4a6d-8783-370f38cd9660",
-              "ApiChange": "Resource",
-              "ChangedApiName": "crossTenantAccessPolicyTenantRestrictions",
-              "ChangeType": "Addition",
-              "Description": "Added the **crossTenantAccessPolicyTenantRestrictions** resource.",
-              "Target": "crossTenantAccessPolicyTenantRestrictions"
-            },
-            {
-              "Id": "f1a2366e-c693-4a6d-8783-370f38cd9660",
-              "ApiChange": "Resource",
-              "ChangedApiName": "devicesFilter",
-              "ChangeType": "Addition",
-              "Description": "Added the **devicesFilter** resource.",
-              "Target": "devicesFilter"
-            }
-          ],
+        {
           "Id": "f1a2366e-c693-4a6d-8783-370f38cd9660",
-          "Cloud": "Prod",
-          "Version": "beta",
-          "CreatedDateTime": "2023-05-25T00:00:00.0166075Z",
-          "WorkloadArea": "Identity and access",
-          "SubArea": "Identity and sign-in"
+          "ApiChange": "Property",
+          "ChangedApiName": "tenantRestrictions",
+          "ChangeType": "Addition",
+          "Description": "Added the **tenantRestrictions** property to the [crossTenantAccessPolicyConfigurationDefault](https://learn.microsoft.com/en-us/graph/api/resources/crossTenantAccessPolicyConfigurationDefault?view=graph-rest-beta) resource.",
+          "Target": "crossTenantAccessPolicyConfigurationDefault"
+        },
+        {
+          "Id": "f1a2366e-c693-4a6d-8783-370f38cd9660",
+          "ApiChange": "Property",
+          "ChangedApiName": "tenantRestrictions",
+          "ChangeType": "Addition",
+          "Description": "Added the **tenantRestrictions** property to the [crossTenantAccessPolicyConfigurationPartner](https://learn.microsoft.com/en-us/graph/api/resources/crossTenantAccessPolicyConfigurationPartner?view=graph-rest-beta) resource.",
+          "Target": "crossTenantAccessPolicyConfigurationPartner"
+        },
+        {
+          "Id": "f1a2366e-c693-4a6d-8783-370f38cd9660",
+          "ApiChange": "Resource",
+          "ChangedApiName": "crossTenantAccessPolicyTenantRestrictions",
+          "ChangeType": "Addition",
+          "Description": "Added the **crossTenantAccessPolicyTenantRestrictions** resource.",
+          "Target": "crossTenantAccessPolicyTenantRestrictions"
+        },
+        {
+          "Id": "f1a2366e-c693-4a6d-8783-370f38cd9660",
+          "ApiChange": "Resource",
+          "ChangedApiName": "devicesFilter",
+          "ChangeType": "Addition",
+          "Description": "Added the **devicesFilter** resource.",
+          "Target": "devicesFilter"
+        }
+      ],
+      "Id": "f1a2366e-c693-4a6d-8783-370f38cd9660",
+      "Cloud": "Prod",
+      "Version": "beta",
+      "CreatedDateTime": "2023-05-25T00:00:00.0166075Z",
+      "WorkloadArea": "Identity and access",
+      "SubArea": "Identity and sign-in"
     },
     {
       "ChangeList": [
@@ -324,7 +350,7 @@
     },
     {
       "ChangeList": [
-        { 
+        {
           "Id": "12f096a3-6bd8-49db-8753-24c9272a288b",
           "ApiChange": "Property",
           "ChangedApiName": "isMemberManagementRestricted",
@@ -332,7 +358,7 @@
           "Description": "Added the **isMemberManagementRestricted** property to the [administrativeUnit](https://learn.microsoft.com/en-us/graph/api/resources/administrativeunit?view=graph-rest-beta) resource.",
           "Target": "administrativeUnit"
         },
-        { 
+        {
           "Id": "12f096a3-6bd8-49db-8753-24c9272a288b",
           "ApiChange": "Property",
           "ChangedApiName": "isManagementRestricted",
@@ -340,7 +366,7 @@
           "Description": "Added the **isManagementRestricted** property to the [device](https://learn.microsoft.com/en-us/graph/api/resources/device?view=graph-rest-beta) resource.",
           "Target": "device"
         },
-        { 
+        {
           "Id": "12f096a3-6bd8-49db-8753-24c9272a288b",
           "ApiChange": "Property",
           "ChangedApiName": "isManagementRestricted",
@@ -348,7 +374,7 @@
           "Description": "Added the **isManagementRestricted** property to the [group](https://learn.microsoft.com/en-us/graph/api/resources/group?view=graph-rest-beta) resource.",
           "Target": "group"
         },
-        { 
+        {
           "Id": "12f096a3-6bd8-49db-8753-24c9272a288b",
           "ApiChange": "Property",
           "ChangedApiName": "isManagementRestricted",
@@ -357,12 +383,12 @@
           "Target": "user"
         }
       ],
-        "Id": "12f096a3-6bd8-49db-8753-24c9272a288b",
-        "Cloud": "prd",
-        "Version": "beta",
-        "CreatedDateTime": "2023-06-09T00:00:00.000Z",
-        "WorkloadArea": "Identity and Access",
-        "SubArea": "Directory management"
+      "Id": "12f096a3-6bd8-49db-8753-24c9272a288b",
+      "Cloud": "prd",
+      "Version": "beta",
+      "CreatedDateTime": "2023-06-09T00:00:00.000Z",
+      "WorkloadArea": "Identity and Access",
+      "SubArea": "Directory management"
     },
     {
       "ChangeList": [
@@ -14027,7 +14053,7 @@
       "CreatedDateTime": "2023-04-11T17:56:44.238139Z",
       "WorkloadArea": "Identity and access",
       "SubArea": "Directory management"
-    }, 
+    },
     {
       "ChangeList": [
         {
