@@ -1,10 +1,25 @@
+---
+title: "chunkedUploadSessionDescriptor resource type"
+description: "chunkedUploadSessionDescriptor resource type"
+ms.localizationpriority: medium
+doc_type: resourcePageType
+ms.prod: non-product-specific
+author: "MSGraphDocsVteam"
+---
+
 # chunkedUploadSessionDescriptor resource type
 
+Namespace: microsoft.graph
 
 
-### JSON representation
+## Properties
+| Property	   | Type	|Description|
+|:---------------|:--------|:----------|
+|name|String||
 
-Here is a JSON representation of the resource
+## JSON representation
+
+Here is a JSON representation of the resource.
 
 <!-- {
   "blockType": "resource",
@@ -20,10 +35,6 @@ Here is a JSON representation of the resource
 }
 
 ```
-### Properties
-| Property	   | Type	|Description|
-|:---------------|:--------|:----------|
-|name|String||
 
 <!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79
 2015-10-25 14:57:30 UTC -->
@@ -34,3 +45,5 @@ Here is a JSON representation of the resource
   "section": "documentation",
   "tocPath": ""
 }-->
+
+

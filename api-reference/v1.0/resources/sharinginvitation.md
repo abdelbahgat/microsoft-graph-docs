@@ -1,49 +1,59 @@
+---
+author: JeremyKelley
+ms.date: 09/10/2017
+title: sharingInvitation resource type
+ms.localizationpriority: medium
+description: "The sharingInvitation resource groups invitation-related data items into a single structure."
+ms.prod: files
+doc_type: resourcePageType
+---
+
 # sharingInvitation resource type
 
-Represents information about a sharing invitation for a set of permissions. This object is read-only.
+Namespace: microsoft.graph
 
+Groups invitation-related data items into a single structure.
 
-### Properties
-| Property Name  | Type    | Description                                                                                   |
-|:---------------|:--------|:----------------------------------------------------------------------------------------------|
-| email          | String  | The email address the invitation was sent to                                                  |
-| redeemedBy     | String  | Indicates the redemption status of the invitation. See possible values below.                 |
-| signInRequired | Boolean | If `true` the recipient of the invitation needs to sign in in order to access the shared item |
+## JSON representation
 
-### RedeemedBy Values
-| Value | Description                                                                                               |
-|:------|:----------------------------------------------------------------------------------------------------------|
-| none  | The sharing invitation has not been redeemed or accepted.                                                 |
-| same  | The sharing invitation was redeemed by an account matching the email address of the recipient.            |
-| other | The sharing invitation was redeemed by an account that does not match the email address of the recipient. |
-
-### JSON representation
-
-Here is a JSON representation of the resource
+Here is a JSON representation of the resource.
 
 <!-- {
   "blockType": "resource",
   "optionalProperties": [
 
   ],
-  "@odata.type": "microsoft.graph.sharinginvitation"
+  "@odata.type": "microsoft.graph.sharingInvitation"
 }-->
 
 ```json
 {
   "email": "string",
-  "redeemedBy": "string",
+  "invitedBy": {"@odata.type": "microsoft.graph.identitySet" },
   "signInRequired": true
 }
-
 ```
 
-<!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79
-2015-10-25 14:57:30 UTC -->
+## Properties
+
+| Property Name  | Type            | Description
+|:---------------|:----------------|:------------------------------------------
+| email          | String          | The email address provided for the recipient of the sharing invitation. Read-only.
+| invitedBy      | [identitySet][] | Provides information about who sent the invitation that created this permission, if that information is available. Read-only.
+| signInRequired | Boolean         | If `true` the recipient of the invitation needs to sign in in order to access the shared item. Read-only.
+
+## Remarks
+
+For more information about the facets on a **driveItem**, see [driveItem](driveitem.md).
+
+[DriveItem]: driveitem.md
+[IdentitySet]: identityset.md
+
 <!-- {
   "type": "#page.annotation",
-  "description": "sharingInvitation resource",
-  "keywords": "",
+  "description": "The sharing invitation facet describes details of a sharing invitation associated with a permission.",
+  "keywords": "image,width,height,item,facet",
   "section": "documentation",
-  "tocPath": ""
-}-->
+  "tocPath": "Facets/SharingInvitation"
+} -->
+

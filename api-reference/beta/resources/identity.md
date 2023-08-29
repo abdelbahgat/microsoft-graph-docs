@@ -1,42 +1,53 @@
+---
+author: "JeremyKelley"
+title: "identity resource type"
+description: "Represents an identity of an actor."
+ms.localizationpriority: medium
+doc_type: resourcePageType
+ms.prod: files
+---
 # identity resource type
 
-The **identity** resource represents an identity of an _actor_. For example, and actor can be a user, device, or application.
- 
- 
-### Properties
-| Property	   | Type	|Description|
-|:---------------|:--------|:----------|
-|displayName|String|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, OneDrive may show the new value in a future response, but the items associated with the user won't show up as having changed in `view.delta`|
-|id|String|Unique identifier for the identity.|
+Namespace: microsoft.graph
 
+[!INCLUDE [beta-disclaimer](../../includes/beta-disclaimer.md)]
 
+Represents an identity of an _actor_. For example, an actor can be a user, device, or application.
 
-### JSON representation
+In some circumstances, the unique identifier for the actor might not be available. In this case, the **displayName** property for the identity will be returned, but the **id** property will be missing from the resource.
 
-Here is a JSON representation of the resource.
+## Properties
 
-<!-- {
-  "blockType": "resource",
-  "optionalProperties": [
+| Property            | Type   | Description                                                                                                                                                                                                                                                                                                           |
+|:--------------------|:-------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| displayName         | String | The display name of the identity. Note that this might not always be available or up to date. For example, if a user changes their display name, the API might show the new value in a future response, but the items associated with the user won't show up as having changed when using [delta](../api/driveitem-delta.md).  |
+| id                  | String | Unique identifier for the identity.                                                                                                                                                                                                                                                                                   |
+| tenantId            | String | Unique identity of the tenant (optional).                                                                                                                                                                                                                                                                             |
 
-  ],
-  "@odata.type": "microsoft.graph.identity"
-}-->
+## JSON representation
+
+<!-- { "blockType": "resource", "@odata.type": "microsoft.graph.identity", "optionalProperties": ["displayName", "tenantId", "thumbnails"], "openType": true } -->
 
 ```json
 {
   "displayName": "string",
-  "id": "string"
+  "id": "string",
+  "tenantId": "string",
+  "thumbnails": { "@odata.type": "microsoft.graph.thumbnailSet" }
 }
-
 ```
 
 <!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79
 2015-10-25 14:57:30 UTC -->
-<!-- {
+<!--
+{
   "type": "#page.annotation",
-  "description": "identity resource",
-  "keywords": "",
+  "description": "Identity contains information about an app, user, or group.",
+  "keywords": "identity,owner,modifier,app,user,group",
   "section": "documentation",
-  "tocPath": ""
-}-->
+  "tocPath": "Resources/Identity",
+  "suppressions": []
+}
+-->
+
+
