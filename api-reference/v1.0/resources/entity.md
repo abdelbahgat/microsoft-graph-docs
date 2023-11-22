@@ -1,31 +1,34 @@
+---
+title: "entity resource type"
+description: "Represents an entity."
+ms.localizationpriority: medium
+author: "keylimesoda"
+ms.prod: "applications"
+doc_type: resourcePageType
+---
+
 # entity resource type
 
+Namespace: microsoft.graph
 
-### Methods
+Represents an entity.
 
-| Method       | Return Type  |Description|
-|:---------------|:--------|:----------|
-|[Get entity](../api/entity_get.md) | [entity](entity.md) |Read properties and relationships of entity object.|
-|[Delete](../api/entity_delete.md) | None |Delete entity object. |
-
-### Properties
+## Properties
 | Property	   | Type	|Description|
 |:---------------|:--------|:----------|
-|id|String| Read-only.|
+|id|String| The unique identifier for an entity. Read-only.|
 
-### Relationships
-None
+## Relationships
+None.
 
+## JSON representation
 
-
-
-
-### JSON representation
-
-Here is a JSON representation of the resource
+Here's a JSON representation of the resource.
 
 <!-- {
   "blockType": "resource",
+  "abstract": "true",
+  "keyProperty": "id",
   "optionalProperties": [
 
   ],
@@ -36,7 +39,6 @@ Here is a JSON representation of the resource
 {
   "id": "string (identifier)"
 }
-
 ```
 
 <!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79
@@ -48,3 +50,4 @@ Here is a JSON representation of the resource
   "section": "documentation",
   "tocPath": ""
 }-->
+

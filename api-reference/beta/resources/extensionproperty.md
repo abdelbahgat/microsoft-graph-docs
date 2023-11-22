@@ -1,58 +1,102 @@
-# extensionProperty resource type
+---
+title: "extensionProperty resource type (directory extensions)"
+description: "Represents a directory extension"
+ms.localizationpriority: medium
+author: "dkershaw10"
+ms.prod: "extensions"
+doc_type: "resourcePageType"
+---
 
-Allows an application to define and use a set of additional properties that can be added to directory objects (users, groups, tenant details, devices, applications, and service principals) without the application requiring an external data store. For more information about extension properties, see [Azure AD Graph API Directory Schema Extensions](https://msdn.microsoft.com/en-us/library/azure/dn720459.aspx). Inherits from [directoryObject].
+# extensionProperty resource type (directory extensions)
 
+Namespace: microsoft.graph
 
-### JSON representation
+[!INCLUDE [beta-disclaimer](../../includes/beta-disclaimer.md)]
 
-Here is a JSON representation of the resource
+Represents a **directory extension** that can be used to add a custom property to directory objects without requiring an external data store. For example, if an organization has a line of business (LOB) application that requires a Skype ID for each user in the directory, Microsoft Graph can be used to register a new property named skypeId on the directory's User object, and then write a value to the new property for a specific user. Directory extensions can also be available in multi-tenant apps that have been consented to in the tenant.
+
+Directory extensions can be added to following directory objects:
++ [user](../resources/user.md)
++ [group](../resources/group.md)
++ [administrativeUnit](../resources/administrativeunit.md)
++ [application](../resources/application.md)
++ [device](../resources/device.md)
++ [organization](../resources/organization.md)
+
+Only 100 extension values, across *all* types and *all* applications, can be written to any single Microsoft Entra resource instance.
+
+Use this resource and associated methods to manage the directory extension definitions. To manage the directory extension data on the extended resource instance, use the same REST request that you use to manage the resource instance.
+
+For more information about Microsoft Graph extensibility, see [Add custom properties to resources using extensions](/graph/extensibility-overview).
+
+Inherits from [directoryObject](directoryobject.md).
+
+> [!NOTE]
+> Extensions created through Azure AD Graph (currently in its retirement cycle) and custom data synchronized from on-premises Active Directory using Microsoft Entra Connect Sync are represented as directory extensions in Microsoft Graph.
+
+## Methods
+
+| Method       | Return Type | Description |
+|:-------------|:------------|:------------|
+| [Create extensionProperties](../api/application-post-extensionproperty.md) | [extensionProperty](extensionProperty.md) | Create a directory extension on an application object. |
+| [List extensionProperties](../api/application-list-extensionproperty.md) | [extensionProperty](extensionProperty.md) collection | List directory extensions on an application object. |
+| [Get extensionProperty](../api/extensionproperty-get.md) | [extensionProperty](extensionProperty.md) collection | Get a directory extension an application object. |
+| [Delete extensionProperty](../api/extensionproperty-delete.md) | None | Delete directory extension from an application object. You can delete only directory extensions that aren't synced from on-premises active directory. |
+
+> [!TIP]
+> 1. To set a value for the extension property to an instance of a resource that is specified in **targetObjects**, use the Update operation of the resource. For example, the [Update user](../api/user-update.md) API to set the value for a user.
+> 2. To remove the extension property and its value from an instance of a resource that is specified in **targetObjects**, set the value of the extension property to `null`.
+
+## Properties
+
+| Property     | Type        | Description |
+|:-------------|:------------|:------------|
+|appDisplayName|String| Display name of the application object on which this extension property is defined. Read-only. |
+|dataType|String| Specifies the data type of the value the extension property can hold. Following values are supported. Not nullable. <ul><li>`Binary` - 256 bytes maximum</li><li>`Boolean`</li><li>`DateTime` - Must be specified in ISO 8601 format. Will be stored in UTC.</li><li>`Integer` - 32-bit value.</li><li>`LargeInteger` - 64-bit value.</li><li>`String` - 256 characters maximum</li></ul>|
+|deletedDateTime|DateTimeOffset|Date and time when this object was deleted. Always `null` when the object hasn't been deleted. Inherited from [directoryObject](directoryobject.md).|
+|isSyncedFromOnPremises|Boolean| Indicates if this extension property was synced from on-premises active directory using Microsoft Entra Connect. Read-only. |
+|name|String| Name of the extension property. Not nullable. Supports `$filter` (`eq`).|
+|isMultiValued|Boolean| Defines the directory extension as a multi-valued property. When `true`, the directory extension property can store a collection of objects of the **dataType**; for example, a collection of integers. The default value is `false`.|
+|targetObjects|String collection| Following values are supported. Not nullable. <ul><li>`User`</li><li>`Group`</li><li>`AdministrativeUnit`</li><li>`Application`</li><li>`Device`</li><li>`Organization`</li></ul>|
+
+## Relationships
+
+None
+
+## JSON representation
+
+The following is a JSON representation of the resource.
 
 <!-- {
   "blockType": "resource",
-  "optionalProperties": [
-
-  ],
-  "@odata.type": "microsoft.graph.extensionproperty"
-}-->
-
-```json
-{
-  "appDisplayName": "string",
-  "dataType": "string",
-  "id": "string (identifier)",
-  "isSyncedFromOnPremises": true,
-  "name": "string",
-  "targetObjects": ["string"]
+  "keyProperty": "id",
+  "@odata.type": "microsoft.graph.extensionProperty",
+  "baseType": "microsoft.graph.directoryObject",
+  "openType": true
 }
-
+-->
+``` json
+{
+  "@odata.type": "#microsoft.graph.extensionProperty",
+  "id": "String (identifier)",
+  "deletedDateTime": "String (timestamp)",
+  "appDisplayName": "String",
+  "name": "String",
+  "dataType": "String",
+  "isSyncedFromOnPremises": "Boolean",
+  "isMultiValued": "Boolean",
+  "targetObjects": [
+    "String"
+  ]
+}
 ```
-### Properties
-| Property	   | Type	|Description|
-|:---------------|:--------|:----------|
-|appDisplayName|String|            |
-|dataType|String|Specifies the type of the directory extension property being added.   Supported types are: Integer, LargeInteger, DateTime (must be specified in ISO 8601 - DateTime is stored in UTC), Binary, Boolean, and String.|
-|isSyncedFromOnPremises|Boolean|Indicates whether the extension property is synced from the on premises directory.                            **Notes**: not nullable.            |
-|name|String|Specifies the display name for the directory extension property.                            **Notes**: not nullable.            |
-|id|String|The unique identifier for the permission scope. Inherited from [directoryObject].                            **Notes**: **key**, immutable, not nullable, unique.             Read-only.|
-|targetObjects|String collection|The directory objects to which the directory extension property is being added.  Supported directory entities that can be extended are: “User”, “Group”, “organization”, “Device”, “Application” and “ServicePrincipal”                            **Notes**: not nullable.            |
 
-### Relationships
-None
+## See also
 
++ [Add custom properties to resources using extensions](/graph/extensibility-overview)
 
-### Methods
-
-| Method		   | Return Type	|Description|
-|:---------------|:--------|:----------|
-|[Get extensionProperty](../api/extensionproperty_get.md) | [extensionProperty](extensionproperty.md) |Read properties and relationships of extensionProperty object.|
-|[Update](../api/extensionproperty_update.md) | [extensionProperty](extensionproperty.md)	|Update extensionProperty object. |
-|[Delete](../api/extensionproperty_delete.md) | None |Delete extensionProperty object. |
-|[checkMemberGroups](../api/extensionproperty_checkmembergroups.md)|String collection||
-|[getMemberGroups](../api/extensionproperty_getmembergroups.md)|String collection||
-|[getMemberObjects](../api/extensionproperty_getmemberobjects.md)|String collection||
-
-<!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79
-2015-10-25 14:57:30 UTC -->
+<!-- uuid: 16cd6b66-4b1a-43a1-adaf-3a886856ed98
+2019-02-04 14:57:30 UTC -->
 <!-- {
   "type": "#page.annotation",
   "description": "extensionProperty resource",

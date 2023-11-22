@@ -1,48 +1,65 @@
+---
+title: "profilePhoto resource type"
+description: "Represents a profile photo of a user, group, team, or Outlook contact accessed from Exchange Online or Microsoft Entra ID."
+ms.localizationpriority: medium
+author: "kristinmcleod"
+ms.prod: "people"
+doc_type: resourcePageType
+---
+
 # profilePhoto resource type
-A profile photo of a user, group or an Outlook contact. It's binary data not encoded in base-64.
 
+Namespace: microsoft.graph
 
-### JSON representation
+[!INCLUDE [beta-disclaimer](../../includes/beta-disclaimer.md)]
 
-Here is a JSON representation of the resource.
+Represents a profile photo of a user, group, team, or Outlook contact accessed from Exchange Online or Microsoft Entra ID. The data is binary and not encoded in base-64.
 
-<!-- {
-  "blockType": "resource",
-  "optionalProperties": [
+The supported sizes of HD photos on Exchange Online are as follows: `48x48`, `64x64`, `96x96`, `120x120`, `240x240`,
+`360x360`,`432x432`, `504x504`, and `648x648`. In Microsoft Entra ID, photos can be any dimension.
 
-  ],
-  "@odata.type": "microsoft.graph.profilephoto"
-}-->
+## Methods
 
-```json
-{
-  "id": "240X240",
-  "height": 240,
-  "width": 240
-}
+|Method|Return type|Description|
+|:---|:---|:---|
+|[Get profilePhoto](../api/profilephoto-get.md)|[profilePhoto](../resources/profilephoto.md)|Read the properties and relationships of a profile photo object.|
+|[Update profilePhoto](../api/profilephoto-update.md)|[profilePhoto](../resources/profilephoto.md)|Update the properties of a profile photo object.|
+|[Delete profilePhoto](../api/profilephoto-delete.md)|[profilePhoto](../resources/profilephoto.md)|Delete the profile photo _of a user or group_.|
 
-```
+> [!NOTE]
+> - Managing users' photos using the Microsoft Graph API is currently _not supported in Azure AD B2C tenants_.
+> 
+> - The delete operation supports only user or group photos, but _not Outlook contact nor Teams photos_.
 
-
-### Properties
+## Properties
 | Property	   | Type	|Description|
 |:---------------|:--------|:----------|
 |id|string|Read-only.|
 |height|int32|The height of the photo. Read-only.|
 |width|int32|The width of the photo. Read-only.|
 
+## Relationships
+None.
 
-### Relationships
-None
+## JSON representation
+The following JSON representation shows the resource type.
 
+<!--{
+  "blockType": "resource",
+  "baseType": "microsoft.graph.entity",
+  "optionalProperties": [],
+  "isMediaEntity": true,
+  "keyProperty": "id",
+  "@odata.type": "microsoft.graph.profilePhoto"
+}-->
 
-### Methods
-
-| Method		   | Return Type	|Description|
-|:---------------|:--------|:----------|
-|[Get profilePhoto](../api/profilephoto_get.md) | [profilePhoto](profilephoto.md) |Read the photo and properties of **profilePhoto**. |
-|[Update](../api/profilephoto_update.md) | [profilePhoto](profilephoto.md)  |Update the photo. |
-
+```json
+{
+  "id": "String",
+  "height": 240,
+  "width": 240
+}
+```
 <!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79
 2015-10-25 14:57:30 UTC -->
 <!-- {
@@ -50,5 +67,7 @@ None
   "description": "profilePhoto resource",
   "keywords": "",
   "section": "documentation",
-  "tocPath": ""
-}-->
+  "tocPath": "",
+  "suppressions": []
+}
+-->

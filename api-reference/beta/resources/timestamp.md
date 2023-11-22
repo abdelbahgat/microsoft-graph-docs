@@ -1,8 +1,28 @@
+---
+title: "timeStamp resource type"
+description: "Date and time information for a point in time."
+ms.localizationpriority: medium
+doc_type: resourcePageType
+ms.prod: sites-and-lists
+author: "spgraph-docs-team"
+---
+
 # timeStamp resource type
 
-Date and time information.
+Namespace: microsoft.graph
 
-### JSON representation
+[!INCLUDE [beta-disclaimer](../../includes/beta-disclaimer.md)]
+
+Date and time information for a point in time.
+
+## Properties
+| Property	   | Type	|Description|
+|:---------------|:--------|:----------|
+|date|Date|The date portion of the timestamp.|
+|time|TimeOfDay|The time portion of the timestamp.|
+|timeZone|String|The timezone portion of the timestamp, which is one of the 24 longitudinal areas in the world.|
+
+## JSON representation
 
 Here is a JSON representation of the resource
 
@@ -11,7 +31,7 @@ Here is a JSON representation of the resource
   "optionalProperties": [
 
   ],
-  "@odata.type": "microsoft.graph.timestamp"
+  "@odata.type": "microsoft.graph.timeStamp"
 }-->
 
 ```json
@@ -20,21 +40,19 @@ Here is a JSON representation of the resource
   "time": "String (timestamp)",
   "timeZone": "string"
 }
-
 ```
-### Properties
-| Property	   | Type	|Description|
-|:---------------|:--------|:----------|
-|date|Date|The date portion of the timestamp.|
-|time|TimeOfDay|The time portion of the timestamp.|
-|timeZone|String|The timezone portion of the timestamp.|
 
 <!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79
 2015-10-25 14:57:30 UTC -->
-<!-- {
+<!--
+{
   "type": "#page.annotation",
   "description": "timeStamp resource",
   "keywords": "",
   "section": "documentation",
-  "tocPath": ""
-}-->
+  "tocPath": "",
+  "suppressions": []
+}
+-->
+
+

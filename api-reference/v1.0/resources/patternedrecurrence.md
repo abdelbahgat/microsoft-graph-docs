@@ -1,15 +1,29 @@
+---
+title: "patternedRecurrence resource type"
+description: "The recurrence pattern and range."
+ms.localizationpriority: medium
+author: "iamgirishck"
+ms.prod: "governance"
+doc_type: resourcePageType
+---
+
 # patternedRecurrence resource type
 
-The recurrence pattern and range.
+Namespace: microsoft.graph
 
-### Properties
+The recurrence pattern and range. This shared object is used to define the recurrence of the following objects:
++ [accessReviewScheduleDefinition](accessreviewscheduledefinition.md) objects in Microsoft Entra access reviews APIs
++ [event](event.md) objects in the calendar API
++ [unifiedRoleAssignmentScheduleRequest](unifiedroleassignmentschedulerequest.md) and [unifiedRoleEligibilityScheduleRequest](unifiedroleeligibilityschedulerequest.md) objects in PIM
++ [accessPackageAssignment](accesspackageassignment.md) objects in Microsoft Entra entitlement management.
+
+## Properties
 | Property	   | Type	|Description|
 |:---------------|:--------|:----------|
-|pattern|[RecurrencePattern](recurrencepattern.md)|The frequency of an event.|
-|range|[RecurrenceRange](recurrencerange.md)|The duration of an event.|
+|pattern|[recurrencePattern](recurrencepattern.md)|The frequency of an event. <br/><br/> For access reviews: <li>Do not specify this property for a one-time access review. <li> Only **interval**, **dayOfMonth**, and **type** (`weekly`, `absoluteMonthly`) properties of [recurrencePattern](recurrencepattern.md) are supported.|
+|range|[recurrenceRange](recurrencerange.md)|The duration of an event.|
 
-
-### JSON representation
+## JSON representation
 
 Here is a JSON representation of the resource
 
@@ -18,7 +32,7 @@ Here is a JSON representation of the resource
   "optionalProperties": [
 
   ],
-  "@odata.type": "microsoft.graph.patternedrecurrence"
+  "@odata.type": "microsoft.graph.patternedRecurrence"
 }-->
 
 ```json

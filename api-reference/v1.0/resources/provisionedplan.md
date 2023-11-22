@@ -1,26 +1,36 @@
+---
+title: "provisionedPlan resource type"
+description: "The **provisionedPlans** property of the user entity and the organization entity is a collection of **provisionedPlan**."
+ms.localizationpriority: medium
+author: "adimitui"
+ms.prod: "directory-management"
+doc_type: resourcePageType
+---
+
 # provisionedPlan resource type
+
+Namespace: microsoft.graph
 
 The **provisionedPlans** property of the [user](user.md) entity and the [organization](organization.md) entity is a collection of **provisionedPlan**.
 
 
-### Properties
-| Property	   | Type	|Description|
+## Properties
+| Property       | Type    |Description|
 |:---------------|:--------|:----------|
-|capabilityStatus|String|For example, “Enabled”.|
-|provisioningStatus|String|For example, “Success”.|
-|service|String|The name of the service; for example, “AccessControlS2S”|
+|capabilityStatus|String|For example, "Enabled".|
+|provisioningStatus|String|For example, "Success".|
+|service|String|The name of the service; for example, "AccessControlS2S"|
 
+## JSON representation
 
-### JSON representation
-
-Here is a JSON representation of the resource
+Here's a JSON representation of the resource
 
 <!-- {
   "blockType": "resource",
   "optionalProperties": [
 
   ],
-  "@odata.type": "microsoft.graph.provisionedplan"
+  "@odata.type": "microsoft.graph.provisionedPlan"
 }-->
 
 ```json
@@ -41,3 +51,4 @@ Here is a JSON representation of the resource
   "section": "documentation",
   "tocPath": ""
 }-->
+

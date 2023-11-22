@@ -1,41 +1,39 @@
+---
+title: "alternativeSecurityId resource type"
+description: "For internal use only."
+ms.localizationpriority: medium
+doc_type: resourcePageType
+ms.prod: "directory-management"
+author: "myra-ramdenbourg"
+---
+
 # alternativeSecurityId resource type
 
-Contains an alternative security ID associated with a device. The **alternativeSecurityIds** property of the [Device] entity is a collection of **AlternativeSecurityId**.
+Namespace: microsoft.graph
 
+For internal use only. This complex type will be deprecated in the future.
 
-### JSON representation
+## Properties
 
-Here is a JSON representation of the resource
+| Property         | Type       | Description           |
+|:-----------------|:-----------|:----------------------|
+| identityProvider | String     | For internal use only.|
+| key              | Edm.Binary | For internal use only.|
+| type             | Int32      | For internal use only.|
 
-<!-- {
+## JSON representation
+
+The following is a JSON representation of the resource.
+
+<!--{
   "blockType": "resource",
-  "optionalProperties": [
-
-  ],
-  "@odata.type": "microsoft.graph.alternativesecurityid"
+  "@odata.type": "microsoft.graph.alternativeSecurityId"
 }-->
 
 ```json
 {
-  "identityProvider": "string",
-  "key": "binary",
-  "type": 1024
+  "identityProvider": "String",
+  "key": {"@odata.type": "Edm.Binary"},
+  "type": "Int32"
 }
-
 ```
-### Properties
-| Property	   | Type	|Description|
-|:---------------|:--------|:----------|
-|identityProvider|String|            |
-|key|Binary|            |
-|type|Int32|            |
-
-<!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79
-2015-10-25 14:57:30 UTC -->
-<!-- {
-  "type": "#page.annotation",
-  "description": "alternativeSecurityId resource",
-  "keywords": "",
-  "section": "documentation",
-  "tocPath": ""
-}-->

@@ -1,49 +1,70 @@
+---
+title: "fileAttachment resource type"
+description: "A file (such as a text file or Word document) attached to an event, message, or post."
+ms.localizationpriority: high
+author: "SuryaLashmiS"
+ms.prod: "outlook"
+doc_type: resourcePageType
+---
+
 # fileAttachment resource type
 
-A file (such as a text file or Word document) attached to a message or event. The  **ContentBytes** property contains the base64-encoded contents of the file.
+Namespace: microsoft.graph
 
+A file (such as a text file or Word document) attached to a user [event](../resources/event.md),
+[message](../resources/message.md), or [post](../resources/post.md).
 
+When creating a file attachment, include the following in the request body:
 
-### Methods
+* `"@odata.type": "#microsoft.graph.fileAttachment"`
+* The required properties **name** and **contentBytes**.
+
+Derived from [attachment](attachment.md).
+
+> [!NOTE]
+> Make sure to encode the file content in base64 before assigning it to **contentBytes**.
+
+## Methods
 
 | Method       | Return Type  |Description|
 |:---------------|:--------|:----------|
-|[Get fileAttachment](../api/fileattachment_get.md) | [fileAttachment](fileattachment.md) |Read properties and relationships of fileAttachment object.|
-|[Delete](../api/fileattachment_delete.md) | None |Delete fileAttachment object. |
+|[Get](../api/attachment-get.md) | [fileAttachment](fileattachment.md) |Read properties, relationships, or raw contents of a **fileAttachment** object.|
+|[Delete](../api/attachment-delete.md) | None |Delete a **fileAttachment** object. |
 
-
-### Properties
+## Properties
 | Property	   | Type	|Description|
 |:---------------|:--------|:----------|
-|contentBytes|Binary|The binary contents of the file.|
+|contentBytes|Edm.Binary|The base64-encoded contents of the file.|
 |contentId|String|The ID of the attachment in the Exchange store.|
-|contentLocation|String|The Uniform Resource Identifier (URI) that corresponds to the location of the content of the attachment.|
+|contentLocation|String|Don't use this property as it isn't supported.|
 |contentType|String|The content type of the attachment.|
 |id|String|The attachment ID.|
-|isInline|Boolean|Set to true if this is an inline attachment.|
+|isInline|Boolean|Set to `true` if the attachment is an inline attachment.|
 |lastModifiedDateTime|DateTimeOffset|The date and time when the attachment was last modified.|
-|name|String|The name representing the text that is displayed below the icon representing the embedded attachment.This does not need to be the actual file name.|
+|name|String|The name representing the text that is displayed below the icon representing the embedded attachment and doesn't need to be the actual file name.|
 |size|Int32|The size in bytes of the attachment.|
 
-### Relationships
-None
+## Relationships
+None.
 
 
-### JSON representation
+## JSON representation
 
-Here is a JSON representation of the resource
+Here's a JSON representation of the resource
 
 <!-- {
   "blockType": "resource",
+  "baseType": "microsoft.graph.attachment",
+  "keyProperty": "id",
   "optionalProperties": [
 
   ],
-  "@odata.type": "microsoft.graph.fileattachment"
+  "@odata.type": "microsoft.graph.fileAttachment"
 }-->
 
 ```json
 {
-  "contentBytes": "binary",
+  "contentBytes": "string (binary)",
   "contentId": "string",
   "contentLocation": "string",
   "contentType": "string",
@@ -51,7 +72,7 @@ Here is a JSON representation of the resource
   "isInline": true,
   "lastModifiedDateTime": "String (timestamp)",
   "name": "string",
-  "size": 1024
+  "size": "Int32"
 }
 
 ```
@@ -65,3 +86,4 @@ Here is a JSON representation of the resource
   "section": "documentation",
   "tocPath": ""
 }-->
+
