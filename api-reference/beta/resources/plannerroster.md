@@ -37,6 +37,7 @@ Deleting a **plannerRoster** will also delete the plan and all tasks in the plan
 |Property|Type|Description|
 |:---|:---|:---|
 |id|String|Identifier of the **plannerRoster**. Read only. Inherited from [entity](../resources/entity.md)|
+| `assignedSensitivityLabel` | `microsoft.graph.sensitivityLabelAssignment` | The sensitivity label applied to the roster. If mandatory labeling is enabled for the user and no label is specified, the user cannot create the roster. Similarly, if labels are mandatory for the user, the user cannot change the roster's label to null. |
 
 ## Relationships
 |Relationship|Type|Description|
