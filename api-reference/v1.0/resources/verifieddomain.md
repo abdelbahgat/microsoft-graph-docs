@@ -1,19 +1,29 @@
+---
+title: "verifiedDomain resource type"
+description: "Specifies a domain for a tenant. The verifiedDomains property of the organization entity is a collection of verifiedDomain objects."
+ms.localizationpriority: medium
+author: "jumasure"
+ms.prod: "directory-management"
+doc_type: resourcePageType
+---
+
 # verifiedDomain resource type
 
-Specifies a domain for a tenant. The **verifiedDomains** property of the [organization](organization.md) entity is a collection of **VerifiedDomain**.
+Namespace: microsoft.graph
+
+Specifies a domain for a tenant. The **verifiedDomains** property of the [organization](organization.md) entity is a collection of **verifiedDomain** objects.
 
 
-### Properties
-| Property	   | Type	|Description|
-|:---------------|:--------|:----------|
-|capabilities|String|For example, “Email”, “OfficeCommunicationsOnline”.|
-|isDefault|Boolean|                **true** if this is the default domain associated with the tenant; otherwise, **false**.            |
-|isInitial|Boolean|**true** if this is the initial domain associated with the tenant; otherwise, **false**|
-|name|String|The domain name; for example, “contoso.onmicrosoft.com”|
-|type|String|For example, “Managed”.|
+## Properties
+| Property     | Type    | Description                                                                          |
+|:-------------|:--------|:-------------------------------------------------------------------------------------|
+| capabilities | String  | For example, `Email`, `OfficeCommunicationsOnline`.                                  |
+| isDefault    | Boolean | `true` if this is the default domain associated with the tenant; otherwise, `false`. |
+| isInitial    | Boolean | `true` if this is the initial domain associated with the tenant; otherwise, `false`. |
+| name         | String  | The domain name; for example, `contoso.onmicrosoft.com`.                             |
+| type         | String  | For example, `Managed`.                                                              |
 
-
-### JSON representation
+## JSON representation
 
 Here is a JSON representation of the resource
 
@@ -22,16 +32,16 @@ Here is a JSON representation of the resource
   "optionalProperties": [
 
   ],
-  "@odata.type": "microsoft.graph.verifieddomain"
+  "@odata.type": "microsoft.graph.verifiedDomain"
 }-->
 
 ```json
 {
-  "capabilities": "string",
+  "capabilities": "String",
   "isDefault": true,
   "isInitial": true,
-  "name": "string",
-  "type": "string"
+  "name": "String",
+  "type": "String"
 }
 
 ```
@@ -45,3 +55,4 @@ Here is a JSON representation of the resource
   "section": "documentation",
   "tocPath": ""
 }-->
+

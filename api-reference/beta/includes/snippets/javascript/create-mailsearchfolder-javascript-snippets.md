@@ -1,0 +1,25 @@
+---
+description: "Automatically generated file. DO NOT MODIFY"
+---
+
+```javascript
+
+const options = {
+	authProvider,
+};
+
+const client = Client.init(options);
+
+const mailFolder = {
+  '@odata.type': 'microsoft.graph.mailSearchFolder',
+  displayName: 'Weekly digests',
+  includeNestedFolders: true,
+  sourceFolderIds: ['AQMkADYAAAIBDAAAAA=='],
+  filterQuery: 'contains(subject, \'weekly digest\')'
+};
+
+await client.api('/me/mailFolders/AQMkADYAAAIBDAAAAA==/childFolders')
+	.version('beta')
+	.post(mailFolder);
+
+```

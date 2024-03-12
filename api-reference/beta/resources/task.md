@@ -1,93 +1,101 @@
-# task resource type
+---
+title: "task resource type"
+description: "Represents a task, such as a piece of work or personal item, that can be tracked and completed."
+author: "avijityadav"
+ms.localizationpriority: medium
+ms.prod: "outlook"
+doc_type: resourcePageType
+---
 
-The Task resource represents a task in Office 365. A task is contained in a [plan](plan.md) and can be assigned to a [bucket](bucket.md) in a plan. Each task object has a [details](taskdetails.md) object which can contain more information about the task.
+# task resource type (deprecated)
 
-### JSON representation
+Namespace: microsoft.graph
 
-Here is a JSON representation of the resource
+[!INCLUDE [beta-disclaimer](../../includes/beta-disclaimer.md)]
 
+[!INCLUDE [todo-deprecate-basetaskapi](../includes/todo-deprecate-basetaskapi.md)]
+
+Represents a task, such as a piece of work or personal item, that can be tracked and completed. A **task** is always contained in a [base task list](basetasklist.md). 
+
+This resource supports the following:
+* Adding your data as custom properties in [open extensions](/graph/extensibility-overview).
+* Subscribing to [change notifications](/graph/webhooks).
+* Using [delta query](/graph/delta-query-overview) to track incremental additions, deletions and updates.
+
+Inherits from [baseTask](../resources/basetask.md).
+
+## Methods
+|Method|Return type|Description|
+|:---|:---|:---|
+|[List tasks](../api/basetasklist-list-tasks.md)|[task](../resources/task.md) collection|Get a list of the [task](../resources/task.md) objects and their properties.|
+|[Get task](../api/basetask-get.md)|[task](../resources/task.md)|Read the properties and relationships of a [task](../resources/task.md) object.|
+|[Update task](../api/basetask-update.md)|[task](../resources/task.md)|Update the properties of a [task](../resources/task.md) object.|
+|[Delete task](../api/basetask-delete.md)|None|Deletes a [task](../resources/task.md) object.|
+|[move](../api/basetask-move.md)|[baseTask](../resources/basetask.md)|Move the message to a different list.|
+|[List checklistItems](../api/todotask-list-checklistitems.md)|[checklistItem](../resources/checklistitem.md) collection|Get the checklistItem resources from the checklistItems navigation property.|
+|[Create checklistItem](../api/todotask-post-checklistitems.md)|[checklistItem](../resources/checklistitem.md)|Create a new checklistItem object.|
+|[List linkedResources](../api/basetask-list-linkedresources.md)|[linkedResource_v2](../resources/linkedresource_v2.md) collection|Get the linkedResource_v2 resources from the linkedResources navigation property.|
+|[Create linkedResource](../api/basetask-post-linkedresources.md)|[linkedResource_v2](../resources/linkedresource_v2.md)|Create a new linkedResource_v2 object.|
+
+## Properties
+|Property|Type|Description|
+|:---|:---|:---|
+|textbody|[itemBody](../resources/itembody.md)|The task body in text format that typically contains information about the task. Inherited from [baseTask](../resources/basetask.md).|
+|bodyLastModifiedDateTime|DateTimeOffset|The date and time when the task was last modified. By default, it is in UTC. You can provide a custom time zone in the request header. The property value uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2020 would look like this: '2020-01-01T00:00:00Z'. Inherited from [baseTask](../resources/basetask.md).|
+|completedDateTime|DateTimeOffset|The date when the task was finished. Inherited from [baseTask](../resources/basetask.md).|
+|createdDateTime|DateTimeOffset|The date and time when the task was created. By default, it is in UTC. You can provide a custom time zone in the request header. The property value uses ISO 8601 format. For example, midnight UTC on Jan 1, 2020 would look like this: '2020-01-01T00:00:00Z'. Inherited from [baseTask](../resources/basetask.md).|
+|displayName|String|The name of the task. Inherited from [baseTask](../resources/basetask.md).|
+|dueDateTime|[dateTimeTimeZone](../resources/datetimetimezone.md)|The date in the specified time zone that the task is to be finished. Inherited from [baseTask](../resources/basetask.md).|
+|id|String|Unique identifier for the task. By default, this value will not change if a task is moved from one list to another. Inherited from [baseTask](../resources/basetask.md).|
+|importance|importance|The importance of the task. Possible values are: `low`, `normal`, `high`. Inherited from [baseTask](../resources/basetask.md). The possible values are: `low`, `normal`, `high`.|
+|lastModifiedDateTime|DateTimeOffset|The date and time when the task was last modified. By default, it is in UTC. You can provide a custom time zone in the request header. The property value uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2020 would look like this: '2020-01-01T00:00:00Z'. Inherited from [baseTask](../resources/basetask.md).|
+|viewpoint|[taskViewpoint](../resources/taskviewpoint.md)|Properties that are personal to a user such as **reminderDateTime** and **categories**. Inherited from [baseTask](../resources/basetask.md).|
+|recurrence|[patternedRecurrence](../resources/patternedrecurrence.md)|The recurrence pattern for the task. Inherited from [baseTask](../resources/basetask.md).|
+|startDateTime|[dateTimeTimeZone](../resources/datetimetimezone.md)|The date in the specified time zone when the task is to begin. Inherited from [baseTask](../resources/basetask.md).|
+|status|taskStatus_v2|Indicates the state or progress of the task. Possible values are: `notStarted`, `inProgress`, `completed`,`unknownFutureValue`. Inherited from [baseTask](../resources/basetask.md).|
+
+## Relationships
+|Relationship|Type|Description|
+|:---|:---|:---|
+|checklistItems|[checklistItem](../resources/checklistitem.md) collection|A collection of checklistItems linked to a task. Inherited from [baseTask](../resources/basetask.md)|
+|extensions|[extension](../resources/extension.md) collection|The collection of open extensions defined for the task . Inherited from [baseTask](../resources/basetask.md)|
+|linkedResources|[linkedResource_v2](../resources/linkedresource_v2.md) collection|A collection of resources linked to the task. Inherited from [baseTask](../resources/basetask.md)|
+|parentList|[baseTaskList](../resources/basetasklist.md)|The list which contains the task. Inherited from [baseTask](../resources/basetask.md)|
+
+## JSON representation
+The following is a JSON representation of the resource.
 <!-- {
   "blockType": "resource",
-  "optionalProperties": [
-    "assignedToTaskBoardFormat",
-    "bucketTaskBoardFormat",
-    "details",
-    "progressTaskBoardFormat"
-  ],
-  "@odata.type": "microsoft.graph.task"
-}-->
-
-```json
-{
-  "appliedCategories": {"@odata.type": "microsoft.graph.appliedCategoriesCollection"},
-  "assignedBy": "string",
-  "assignedDateTime": "String (timestamp)",
-  "assignedTo": "string",
-  "assigneePriority": "string",
-  "bucketId": "string",
-  "completedDateTime": "String (timestamp)",
-  "conversationThreadId": "string",
-  "createdBy": "string",
-  "createdDateTime": "String (timestamp)",
-  "dueDateTime": "String (timestamp)",
-  "hasDescription": true,
-  "id": "string (identifier)",
-  "orderHint": "string",
-  "percentComplete": 1024,
-  "planId": "string",
-  "previewType": "String",
-  "startDateTime": "String (timestamp)",
-  "title": "string"
+  "keyProperty": "id",
+  "@odata.type": "microsoft.graph.task",
+  "baseType": "microsoft.graph.baseTask",
+  "openType": false
 }
-
+-->
+``` json
+{
+  "@odata.type": "#microsoft.graph.task",
+  "textBody": "String",
+  "createdDateTime": "String (timestamp)",
+  "lastModifiedDateTime": "String (timestamp)",
+  "bodyLastModifiedDateTime": "String (timestamp)",
+  "completedDateTime": "String (timestamp)",
+  "dueDateTime": {
+    "@odata.type": "microsoft.graph.dateTimeTimeZone"
+  },
+  "startDateTime": {
+    "@odata.type": "microsoft.graph.dateTimeTimeZone"
+  },
+  "importance": "String",
+  "recurrence": {
+    "@odata.type": "microsoft.graph.patternedRecurrence"
+  },
+  "displayName": "String",
+  "status": "String",
+  "viewpoint": {
+    "@odata.type": "microsoft.graph.taskViewpoint"
+  },
+  "id": "String (identifier)"
+}
 ```
-### Properties
-| Property	   | Type	|Description|
-|:---------------|:--------|:----------|
-|appliedCategories|[appliedCategoriesCollection](appliedcategoriescollection.md)|The categories to which the task has been applied. See appliedCategoriesCollection for possible values. |
-|assignedBy|String|Read-only. User id by which the task is assigned.|
-|assignedDateTime|DateTimeOffset|Read-only. Date and time at which the task is assigned. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: `'2014-01-01T00:00:00Z'`|
-|assignedTo|String|User id to which the task is assigned. |
-|assigneePriority|String|Used to set the relative priority order of tasks assigned to the user in a list view. Consider three tasks in the priority order of: `'A'`, `'B'`, `'C'`. To move `'B'` to the top, set its `assignneePriority` to smaller than that of `'A'`. The comparison is an ordinal string comparison. |
-|bucketId|String|Bucket id to which the task belongs. The bucket needs to be in the plan that the task is in.|
-|completedDateTime|DateTimeOffset|Read-only. Date and time at which the `'percentComplete'` of the task is set to `'100'`. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: `'2014-01-01T00:00:00Z'`|
-|conversationThreadId|String|Thread id of the conversation on the task. This is the id of the conversation thread object created in the group. |
-|createdBy|String|Read-only. User id by which the task is created. |
-|createdDateTime|DateTimeOffset|Read-only. Date and time at which the task is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: `'2014-01-01T00:00:00Z'`|
-|dueDateTime|DateTimeOffset|Date and time at which the task is due. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: `'2014-01-01T00:00:00Z'`|
-|hasDescription|Boolean|Read-only. Value is `true` if the details object of the task has a non-empty description and `false` otherwise.|
-|id|String|Read-only. Id of the task. It is 28 characters long and case sensitive. [Format validation](tasks_identifiers_disclaimer.md) is done on the service. |
-|orderHint|String|Used to set the relative order of tasks in a list view. Consider three tasks in the order of: `'X'`, `'Y'`, `'Z'`. To move `'Y'` to the top, set its `orderHint` to smaller than that of `'X'`. The comparison is an ordinal string comparison.|
-|percentComplete|Int32|Percentage of task completion. When set to `100`, the task is considered completed. |
-|planId|String|Plan id to which the task belongs. Once set, this cannot be updated. |
-|previewType|String| Read-only. This sets the type of preview that shows up on the task. Possible values are: `automatic`, `noPreview`, `checklist`, `description`, `reference`.|
-|startDateTime|DateTimeOffset|Date and time at which the task starts. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: `'2014-01-01T00:00:00Z'`|
-|title|String|Required. Title of the task. |
 
-### Relationships
-| Relationship | Type	|Description|
-|:---------------|:--------|:----------|
-|assignedToTaskBoardFormat|[taskBoardTaskFormat](taskboardtaskformat.md)| Read-only. Used to render the task correctly in the task board view when grouped by assignedTo. |
-|bucketTaskBoardFormat|[taskBoardTaskFormat](taskboardtaskformat.md)| Read-only. Used to render the task correctly in the task board view when grouped by bucket.|
-|details|[taskDetails](taskdetails.md)| Read-only. Additional details about the task. Contains `description`, `references`, `checklist` etc. |
-|progressTaskBoardFormat|[taskBoardTaskFormat](taskboardtaskformat.md)| Read-only. Used to render the task correctly in the task board view when grouped by progress. |
-
-### Methods
-
-| Method		   | Return Type	|Description|
-|:---------------|:--------|:----------|
-|[Get task](../api/task_get.md) | [task](task.md) |Read properties and relationships of task object.|
-|[Create task](../api/task_post_tasks.md) | [task](task.md) | Create a new task object. |
-|[Update task](../api/task_update.md) | None	|Update task object. |
-|[Delete task](../api/task_delete.md) | None |Delete task object. |
-|[List tasks](../api/task_list.md) | [task](task.md) collection | Get a task object collection. |
-
-<!-- uuid: 8fcb5dbc-d5aa-4681-8e31-b001d5168d79
-2015-10-25 14:57:30 UTC -->
-<!-- {
-  "type": "#page.annotation",
-  "description": "task resource",
-  "keywords": "",
-  "section": "documentation",
-  "tocPath": ""
-}-->

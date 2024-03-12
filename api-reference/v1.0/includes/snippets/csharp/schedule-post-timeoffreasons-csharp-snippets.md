@@ -1,0 +1,18 @@
+---
+description: "Automatically generated file. DO NOT MODIFY"
+---
+
+```csharp
+
+var graphClient = new GraphServiceClient(requestAdapter);
+
+var requestBody = new TimeOffReason
+{
+	DisplayName = "Vacation",
+	IconType = TimeOffReasonIconType.Plane,
+	IsActive = true,
+};
+var result = await graphClient.Teams["{team-id}"].Schedule.TimeOffReasons.PostAsync(requestBody);
+
+
+```

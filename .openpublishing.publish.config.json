@@ -1,0 +1,79 @@
+{
+  "docsets_to_publish": [
+    {
+      "docset_name": "microsoft-graph-docs",
+      "build_source_folder": "concepts",
+      "build_output_subfolder": "microsoft-graph-docs",
+      "locale": "en-us",
+      "open_to_public_contributors": true,
+      "type_mapping": {
+        "Conceptual": "Content",
+        "ManagedReference": "Content",
+        "RestApi": "Content",
+        "ZonePivotGroups": "Toc"
+      },
+      "build_entry_point": "docs",
+      "template_folder": "_themes"
+    },
+    {
+      "docset_name": "microsoft-graph-ref",
+      "build_source_folder": "api-reference",
+      "build_output_subfolder": "microsoft-graph-ref",
+      "locale": "en-us",
+      "moniker_ranges": [
+        "graph-rest-beta",
+        ">= graph-rest-1.0"
+      ],
+      "open_to_public_contributors": true,
+      "type_mapping": {
+        "Conceptual": "Content",
+        "ManagedReference": "Content",
+        "RestApi": "Content"
+      },
+      "build_entry_point": "docs",
+      "template_folder": "_themes"
+    }
+  ],
+  "notification_subscribers": [],
+  "sync_notification_subscribers": [],
+  "branches_to_filter": [],
+  "git_repository_branch_open_to_public_contributors": "main",
+  "skip_source_output_uploading": false,
+  "need_preview_pull_request": true,
+  "contribution_branch_mappings": {},
+  "dependent_repositories": [
+    {
+      "path_to_root": "_themes",
+      "url": "https://github.com/Microsoft/templates.docs.msft",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure_docs",
+      "url": "https://github.com/MicrosoftDocs/azure-docs/",
+      "branch": "main",
+      "branch_mapping": {}
+    }
+  ],
+  "branch_target_mapping": {},
+  "need_generate_pdf_url_template": false,
+  "targets": {},
+  "type_mapping": {
+    "Conceptual": "Content",
+    "ManagedReference": "Content",
+    "RestApi": "Content",
+    "Tutorial": "Content"
+  },
+  "redirection_files": [
+    "redirects/.openpublishing.redirection.0820.json",
+    "redirects/.openpublishing.redirection.0920.json",
+    "redirects/.openpublishing.redirection.1120.json",
+    "redirects/.openpublishing.redirection.0721.json",
+    "redirects/.openpublishing.redirection.0121.json",
+    "redirects/.openpublishing.redirection.0921.json",
+    "redirects/.openpublishing.redirection.1121.json",
+    "redirects/.openpublishing.redirection.1221.json",
+    "redirects/.openpublishing.redirection.0522.json",
+    "redirects/.openpublishing.redirection.changedapi.json"
+  ]
+}
