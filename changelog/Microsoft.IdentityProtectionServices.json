@@ -923,7 +923,137 @@
 			"CreatedDateTime": "2023-04-20T00:00:00.5059025Z",
 			"WorkloadArea": "Identity and access",
 			"SubArea": "Identity and sign-in"
-		  }
+		  },
+		{
+			"ChangeList": [
+			  {
+				"Id": "fc386d51-1569-4f0c-81a8-ee5611a6f69e",
+				"ApiChange": "Enumeration",
+				"ChangedApiName": "conditionalAccessWhatIfReasons",
+				"ChangeType": "Addition",
+				"Description": "Added the **conditionalAccessWhatIfReasons** enumeration type.",
+				"Target": "conditionalAccessWhatIfReasons"
+			  },
+			  {
+				"Id": "fc386d51-1569-4f0c-81a8-ee5611a6f69e",
+				"ApiChange": "Enumeration",
+				"ChangedApiName": "userAction",
+				"ChangeType": "Addition",
+				"Description": "Added the **userAction** enumeration type.",
+				"Target": "userAction"
+			  },
+			  {
+				"Id": "fc386d51-1569-4f0c-81a8-ee5611a6f69e",
+				"ApiChange": "Resource",
+				"ChangedApiName": "authenticationFlow",
+				"ChangeType": "Addition",
+				"Description": "Added the [authenticationFlow](https://learn.microsoft.com/en-us/graph/api/resources/authenticationFlow?view=graph-rest-beta) resource.",
+				"Target": "authenticationFlow"
+			  },
+			  {
+				"Id": "fc386d51-1569-4f0c-81a8-ee5611a6f69e",
+				"ApiChange": "Resource",
+				"ChangedApiName": "conditionalAccessContext",
+				"ChangeType": "Addition",
+				"Description": "Added the [conditionalAccessContext](https://learn.microsoft.com/en-us/graph/api/resources/conditionalAccessContext?view=graph-rest-beta) resource.",
+				"Target": "conditionalAccessContext"
+			  },
+			  {
+				"Id": "fc386d51-1569-4f0c-81a8-ee5611a6f69e",
+				"ApiChange": "Resource",
+				"ChangedApiName": "conditionalAccessWhatIfConditions",
+				"ChangeType": "Addition",
+				"Description": "Added the [conditionalAccessWhatIfConditions](https://learn.microsoft.com/en-us/graph/api/resources/conditionalAccessWhatIfConditions?view=graph-rest-beta) resource.",
+				"Target": "conditionalAccessWhatIfConditions"
+			  },
+			  {
+				"Id": "fc386d51-1569-4f0c-81a8-ee5611a6f69e",
+				"ApiChange": "Resource",
+				"ChangedApiName": "conditionalAccessWhatIfSubject",
+				"ChangeType": "Addition",
+				"Description": "Added the [conditionalAccessWhatIfSubject](https://learn.microsoft.com/en-us/graph/api/resources/conditionalAccessWhatIfSubject?view=graph-rest-beta) resource.",
+				"Target": "conditionalAccessWhatIfSubject"
+			  },
+			  {
+				"Id": "fc386d51-1569-4f0c-81a8-ee5611a6f69e",
+				"ApiChange": "Resource",
+				"ChangedApiName": "deviceInfo",
+				"ChangeType": "Addition",
+				"Description": "Added the [deviceInfo](https://learn.microsoft.com/en-us/graph/api/resources/deviceInfo?view=graph-rest-beta) resource.",
+				"Target": "deviceInfo"
+			  },
+			  {
+				"Id": "fc386d51-1569-4f0c-81a8-ee5611a6f69e",
+				"ApiChange": "Resource",
+				"ChangedApiName": "servicePrincipalSubject",
+				"ChangeType": "Addition",
+				"Description": "Added the [servicePrincipalSubject](https://learn.microsoft.com/en-us/graph/api/resources/servicePrincipalSubject?view=graph-rest-beta) resource.",
+				"Target": "servicePrincipalSubject"
+			  },
+			  {
+				"Id": "fc386d51-1569-4f0c-81a8-ee5611a6f69e",
+				"ApiChange": "Resource",
+				"ChangedApiName": "userSubject",
+				"ChangeType": "Addition",
+				"Description": "Added the [userSubject](https://learn.microsoft.com/en-us/graph/api/resources/userSubject?view=graph-rest-beta) resource.",
+				"Target": "userSubject"
+			  },
+			  {
+				"Id": "fc386d51-1569-4f0c-81a8-ee5611a6f69e",
+				"ApiChange": "Property",
+				"ChangedApiName": "externalTenantId",
+				"ChangeType": "Addition",
+				"Description": "Added the **externalTenantId** property to the [userSubject](https://learn.microsoft.com/en-us/graph/api/resources/userSubject?view=graph-rest-beta) resource.",
+				"Target": "userSubject"
+			  },
+			  {
+				"Id": "fc386d51-1569-4f0c-81a8-ee5611a6f69e",
+				"ApiChange": "Resource",
+				"ChangedApiName": "whatIfApplicationContext",
+				"ChangeType": "Addition",
+				"Description": "Added the [whatIfApplicationContext](https://learn.microsoft.com/en-us/graph/api/resources/whatIfApplicationContext?view=graph-rest-beta) resource.",
+				"Target": "whatIfApplicationContext"
+			  },
+			  {
+				"Id": "fc386d51-1569-4f0c-81a8-ee5611a6f69e",
+				"ApiChange": "Resource",
+				"ChangedApiName": "whatIfAuthenticationContext",
+				"ChangeType": "Addition",
+				"Description": "Added the [whatIfAuthenticationContext](https://learn.microsoft.com/en-us/graph/api/resources/whatIfAuthenticationContext?view=graph-rest-beta) resource.",
+				"Target": "whatIfAuthenticationContext"
+			  },
+			  {
+				"Id": "fc386d51-1569-4f0c-81a8-ee5611a6f69e",
+				"ApiChange": "Resource",
+				"ChangedApiName": "whatIfUserActionContext",
+				"ChangeType": "Addition",
+				"Description": "Added the [whatIfUserActionContext](https://learn.microsoft.com/en-us/graph/api/resources/whatIfUserActionContext?view=graph-rest-beta) resource.",
+				"Target": "whatIfUserActionContext"
+			  },
+			  {
+				"Id": "fc386d51-1569-4f0c-81a8-ee5611a6f69e",
+				"ApiChange": "Resource",
+				"ChangedApiName": "conditionalAccessWhatIfPolicy",
+				"ChangeType": "Addition",
+				"Description": "Added the [conditionalAccessWhatIfPolicy](https://learn.microsoft.com/en-us/graph/api/resources/conditionalAccessWhatIfPolicy?view=graph-rest-beta) resource.",
+				"Target": "conditionalAccessWhatIfPolicy"
+			  },
+			  {
+				"Id": "fc386d51-1569-4f0c-81a8-ee5611a6f69e",
+				"ApiChange": "Method",
+				"ChangedApiName": "evaluate",
+				"ChangeType": "Addition",
+				"Description": "Added the [evaluate](https://learn.microsoft.com/en-us/graph/api/?view=graph-rest-beta) method to the [evaluate](https://learn.microsoft.com/en-us/graph/api/resources/evaluate?view=graph-rest-beta) resource.",
+				"Target": "evaluate"
+			  }
+			],
+			"Id": "fc386d51-1569-4f0c-81a8-ee5611a6f69e",
+			"Cloud": "Prod",
+			"Version": "beta",
+			"CreatedDateTime": "2024-03-11T16:40:43.232127Z",
+			"WorkloadArea": "Identity and access",
+			"SubArea": "Identity and sign-in"
+		  }  
 	  
 	]
 }
